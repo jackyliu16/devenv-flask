@@ -1,6 +1,10 @@
 {
   description = "Description for the project";
 
+  nixConfig.extra-experimental-features = "nix-command flakes";
+  nixConfig.extra-substituters = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/ https://devenv.cachix.org";
+  nixConfig.trusted-substituters = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/ https://devenv.cachix.org";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv";
