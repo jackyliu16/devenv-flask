@@ -1,6 +1,7 @@
 ###################
 # Nix Instruction #
 ###################
+.PHONY: install-nix uninstall-nix monitor
 
 SHELL := /bin/bash
 
@@ -48,10 +49,10 @@ env:
 	
 # (untest) Run background services like mysql
 bg:
-	ifeq ($(IN_NIX_SHELL),nix-shell)
-		@devenv up
-	else
-		@echo "you should run make env first to make you inside the nix shell environment
+	ifeq ($(IN_NIX_SHELL),nix-shell) \
+		@devenv up\
+	else\
+		@echo "you should run make env first to make you inside the nix shell environment\
 	endif
 	
 # rebuild all environment
