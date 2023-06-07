@@ -33,6 +33,8 @@ uninstall-nix:
 	# ref:
 	# https://nixos.org/download.html#nix-install-linux
 	# https://github.com/NixOS/nix/pull/8334
+monitor:
+	 inotifywait --event=create --event=modify --event=moved_to --exclude='/(dev|nix|proc|run|sys|tmp|var)/.*' --monitor --no-dereference --quiet --recursive /
 
 #######################
 # general instruction #
