@@ -34,7 +34,9 @@
           # https://devenv.sh/reference/options/
           packages = [
             config.packages.default
-          ];
+          ] ++ (with pkgs; [
+            stdenv.cc.cc.lib
+          ]);
 
           pre-commit = {
             hooks = {
