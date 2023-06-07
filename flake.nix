@@ -67,8 +67,13 @@
             hello
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
           '';
-        };
 
+          processes = {
+            app.exec = ''
+              flask --app ./app.py run --debug
+            '';
+          };
+        };
       };
       flake = {
         # The usual flake attributes can be defined here, including system-
