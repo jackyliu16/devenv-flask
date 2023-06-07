@@ -28,7 +28,21 @@
           name = "my-project";
 
           # https://devenv.sh/reference/options/
-          packages = [ config.packages.default ];
+          packages = [
+            config.packages.default
+          ];
+
+          pre-commit = {
+            hooks = {
+              # Automatic Formatter when commit
+              markdownlint.enable = true; # markdown
+              nixpkgs-fmt.enable = true; # nix
+              black.enable = true; # python
+            };
+            settings = {
+              markdownlint.config = pkgs.lib.importJSON ./.markdownlint.json;
+            };
+          };
 
           enterShell = ''
             hello
