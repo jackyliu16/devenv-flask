@@ -49,7 +49,6 @@
             poetry = {
               enable = true;
               install.enable = true; # enable poetry install during devenv initialisation
-              # install.arguments = [ "--extras all" ];
               activate.enable = true; # activate the poetry virtual environment automatically.
               #install.quiet = true;
             };
