@@ -8,7 +8,7 @@ SHELL := /bin/bash
 install-nix:
 	if ! command -v nix >/dev/null 2>&1; then \
 		echo "Installing Nix...";\
-		sh <(curl -L https://nixos.org/nix/install) --no-daemon;\
+		curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install;\
 	else \
 		echo "You have already installed Nix.";\
 	fi
@@ -16,6 +16,7 @@ install-nix:
 	# ref:
 	# https://nixos.org/download.html
 	# https://www.reddit.com/r/NixOS/comments/wyw7pa/multi_user_vs_single_user_installation/
+	# sh <(curl -L https://nixos.org/nix/install) --no-daemon;\
 
 # Uninstall Single-User Nix 
 uninstall-nix:
@@ -24,12 +25,13 @@ uninstall-nix:
 	@sleep 1 && echo "will removing nix single user installing in 3 seconds... <using Ctrl + C to stop it>";
 	@sleep 1 && echo "will removing nix single user installing in 2 seconds... <using Ctrl + C to stop it>";
 	@sleep 1 && echo "will removing nix single user installing in 1 seconds... <using Ctrl + C to stop it>";
-	@for dir in /nix ~/.nix-defexpr ~/.nix-profile ~/.nix-channels; do \
-		if [ -d "$$dir" ]; then \
-			echo "removing $$dir..."; \
-			sudo rm -rf "$$dir"; \
-		fi; \
-	done
+	/nix/nix-installer uninstall
+	# @for dir in /nix ~/.nix-defexpr ~/.nix-profile ~/.nix-channels; do \
+	# 	if [ -d "$$dir" ]; then \
+	# 		echo "removing $$dir..."; \
+	#  		sudo rm -rf "$$dir"; \
+	# 	fi; \
+	# done
 	# ref:
 	# https://nixos.org/download.html#nix-install-linux
 	# https://github.com/NixOS/nix/pull/8334
