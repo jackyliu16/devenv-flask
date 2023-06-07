@@ -49,7 +49,7 @@ env:
 	
 # (untest) Run background services like mysql
 bg:
-	ifeq ($(IN_NIX_SHELL),nix-shell) \
+	ifeq ($(IN_NIX_SHELL),impure) \
 		devenv up\
 	else\
 		echo "you should run make env first to make you inside the nix shell environment\
