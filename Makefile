@@ -13,7 +13,6 @@ install-nix:
 	else \
 		echo "You have already installed Nix.";\
 	fi
-	
 	# ref:
 	# https://nixos.org/download.html
 	# https://www.reddit.com/r/NixOS/comments/wyw7pa/multi_user_vs_single_user_installation/
@@ -27,17 +26,14 @@ uninstall-nix:
 	@sleep 1 && echo "will removing nix single user installing in 2 seconds... <using Ctrl + C to stop it>";
 	@sleep 1 && echo "will removing nix single user installing in 1 seconds... <using Ctrl + C to stop it>";
 	/nix/nix-installer uninstall
-	# @for dir in /nix ~/.nix-defexpr ~/.nix-profile ~/.nix-channels; do \
-	# 	if [ -d "$$dir" ]; then \
-	# 		echo "removing $$dir..."; \
-	#  		sudo rm -rf "$$dir"; \
-	# 	fi; \
-	# done
 	# ref:
 	# https://nixos.org/download.html#nix-install-linux
 	# https://github.com/NixOS/nix/pull/8334
+
 monitor:
 	 inotifywait --event=create --event=modify --event=moved_to --exclude='/(dev|nix|proc|run|sys|tmp|var)/.*' --monitor --no-dereference --quiet --recursive /
+	# ref:
+	# https://github.com/NixOS/nix/pull/8334
 
 #######################
 # general instruction #
@@ -47,7 +43,7 @@ monitor:
 env:
 	nix develop --impure --extra-experimental-features nix-command --extra-experimental-features flakes
 	
-# (untest) Run background services like mysql
+# Run background services like mysql
 bg:
 ifeq ($(IN_NIX_SHELL),impure)
 	devenv up;
