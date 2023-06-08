@@ -36,6 +36,9 @@
             config.packages.default
           ] ++ (with pkgs; [
             stdenv.cc.cc.lib
+            bat
+            fzf
+            ripgrep
           ]);
 
           pre-commit = {
