@@ -39,6 +39,7 @@
             bat
             fzf
             ripgrep
+            zola # for create static website
           ]);
 
           pre-commit = {
