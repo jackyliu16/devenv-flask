@@ -55,4 +55,8 @@ endif
 clean-env:
 	rm -rf .venv .devenv
 
-.PHONY: clean-env env
+# open zola server
+docs:
+	cd docs && zola serve
+
+.PHONY: clean-env env docs
