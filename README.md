@@ -1,4 +1,5 @@
 ## Recommended git commit message specifications
+[git commit 规范](https://zhuanlan.zhihu.com/p/182553920)
 [ref this repo commit](https://github.com/phodal/growth)
 I wanted to find a commit message specification marked with a sign on the school forum, but I couldn't find it
 
