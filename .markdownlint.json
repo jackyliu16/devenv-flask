@@ -1,5 +1,14 @@
 {
+  "MD001": true,
+  "MD002": false,
+  "MD005": true,
+  "MD009": true,
   "MD013": false,
   "MD022": false,
-  "MD023": false
+  "MD023": false,
+  "MD025": false,
+  "MD033": {
+    "allowed_elements": [ "div" ]
+  },
+  "MD034": true
 }
