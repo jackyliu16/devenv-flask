@@ -22,6 +22,7 @@ This is the Software requirements specification of Safari Website.
         Our project focuses on the collection problem that when user making travel plan. Nowadays, when user using application for traveling, they have to use a large number of different apps to complete the different step of tourism, We are trying to development a website to contains all of this kind information into one website, and this website could be using in computer and mobile phone.
     2. #### Document Conventions
     3. #### Intended Audience
+        The software we provide is aimed at users who want to be as simple as possible, do not need to learn too many different applications, directly use a website, achieve travel planning and facilitate the use of taxis during the trip. people with functions such as hotel reservation.
     4. #### Additional Information
     5. #### Contact Information / SRS team members
         - 20200740014: 马越
