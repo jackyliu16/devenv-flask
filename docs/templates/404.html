@@ -1,16 +1,24 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
-{% block title %}
-404
-{% endblock title %}
+{%- block seo %}
+  {{ super() }}
+  {%- set title = "404 Page not found" %}
 
-{% block header_menu %}
-{{ menu_macros::menu_for(config=config, current_item="") }}
-{% endblock header_menu %}
+  {%- if config.title %}
+    {%- set title_addition = title_separator ~ config.title %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
 
-{% block content %}
-<div class="post">
-  <h1 class="post-title">{% block heading %}Lost?{% endblock heading %}</h1>
-  <p>{% block message %}This page does not exist.{% endblock message %}</p>
-</div>
-{% endblock content %}
+  {%- set description = config.description %}
+
+  {{- macros_head::seo(config=config, title=title, title_addition=title_addition, description=description, is_404=true) }}
+{%- endblock seo %}
+
+{%- block content %}
+    <div>
+      <h1>Page not found :(</h1>
+      <p>The page you are looking for doesn't exist or has been moved.</p>
+      <p>Try using the search, or <a href="{{ config.base_url | safe }}{%- if config.extra.uglyurls %}index.html{%- endif %}">go home</a>.</p>
+    </div>
+{%- endblock content %}

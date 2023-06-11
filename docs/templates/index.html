@@ -1,124 +1,68 @@
-{% import "macros/date.html" as date_macros -%}
-{% import "macros/head.html" as head_macros -%}
-{% import "macros/menu.html" as menu_macros -%}
-{% import "macros/post.html" as post_macros -%}
-{% import "macros/title.html" as title_macros -%}
+{%- extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="{%- if config.default_language -%}{{ config.default_language }}{%- else -%}en{%- endif -%}">
+{%- block seo %}
+  {{- super() }}
 
-<head>
-    <title>{%- block title %}{{ config.title }}{% endblock title -%}</title>
-    {{ head_macros::head(config=config) }}
+  {%- if config.title %}
+    {%- set title = config.title %}
+  {%- else %}
+    {%- set title = "" %}
+  {%- endif %}
 
-    {%- if config.generate_feed %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") | safe }}">
-    {% endif -%}
+  {%- if config.extra.title_addition and title %}
+    {%- set title_addition = title_separator ~ config.extra.title_addition %}
+  {%- elif config.extra.title_addition %}
+    {%- set title_addition = config.extra.title_addition %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
 
-    {%- if config.extra.favicon %}
-        <link rel="shortcut icon" type="{{ config.extra.favicon_mimetype | default(value="image/x-icon") | safe }}" href="{{ config.extra.favicon | safe }}">
-    {% endif -%}
+  {%- set description = config.description %}
 
-    {%- block extra_head %}
-    {% endblock extra_head -%}
-</head>
+  {{- macros_head::seo(config=config, title=title, title_addition=title_addition, description=description, is_home=true) }}
+{%- endblock seo %}
 
-<body class="">
-<div class="container">
-    {% block header %}
-    <header class="header">
-        <div class="header__inner">
-            <div class="header__logo">
-                {%- if config.extra.logo_home_link %}
-                    {% set logo_link = config.extra.logo_home_link %}
-                {% else %}
-                    {% set logo_link = config.base_url %}
-                {% endif -%}
-                <a href="{{ logo_link | safe }}" style="text-decoration: none;">
-                    <div class="logo">
-                      {% block logo_content %}
-                        {%- if config.extra.logo_text %}
-                            {{ config.extra.logo_text }}
-                        {% else %}
-                            Terminimal theme
-                        {% endif -%}
-                        {% endblock logo_content %}
-                    </div>
-                </a>
-            </div>
+
+
+{%- block content %}
+    <div>
+    {%- for page in paginator.pages %}
+      <article>
+        {{- macros::title_index(page=page, config=config) }}
+        {%- if config.extra.meta_index.position %}
+        {%- if config.extra.meta_index.position == "top" or config.extra.meta_index.position == "both" %}
+        {{- macros::meta_index(page=page, config=config) }}
+        {%- endif %}{%- endif %}
+        <div class="sum">
+        <p>
+        {%- if page.summary %}
+          {{ page.summary | markdown(inline=true) | safe }}
+        {%- elif page.description %}
+          {{ page.description | safe }}
+        {%- elif page.content %}
+          {{ page.content | striptags | truncate(length=150) | safe }}
+        {%- elif page.extra.static_thumbnail %}
+        {%- endif %}
+          <a href="{{ page.permalink | safe }}{%- if config.extra.uglyurls %}index.html{%- endif %}">...more</a>
         </div>
-
-        {% block header_menu %}
-        {{ menu_macros::menu(config=config, current_path=current_path) }}
-        {% endblock header_menu %}
-    </header>
-    {% endblock header %}
-
-    <div class="content">
-        {% block content %}
-        <div class="posts">
-            {%- if paginator %}
-                {%- set show_pages = paginator.pages -%}
-            {% else %}
-                {%- set show_pages = section.pages -%}
-            {% endif -%}
-
-            {%- for page in show_pages %}
-                <div class="post on-list">
-                    {{ post_macros::header(page=page) }}
-                    {{ post_macros::content(page=page, summary=true) }}
-                </div>
-            {% endfor -%}
-            <div class="pagination">
-                <div class="pagination__buttons">
-                {%- if paginator.previous %}
-                    <span class="button previous">
-                        <a href="{{ paginator.previous | safe }}">
-                            <span class="button__icon">←</span>&nbsp;
-                            <span class="button__text">Newer posts</span>
-                        </a>
-                    </span>
-                {% endif -%}
-                {%- if paginator.next %}
-                    <span class="button next">
-                        <a href="{{ paginator.next | safe }}">
-                            <span class="button__text">Older posts</span>&nbsp;
-                            <span class="button__icon">→</span>
-                        </a>
-                    </span>
-                {% endif -%}
-                </div>
-            </div>
-        </div>
-        {% endblock content %}
+        {%- if config.extra.meta_index.position %}
+        {%- if config.extra.meta_index.position == "bottom" or config.extra.meta_index.position == "both" %}
+        {{- macros::meta_index(page=page, config=config) }}
+        {%- endif %}
+        {%- endif %}
+      </article>
+    {%- endfor %}
+    {{- macros::pagination(paginator=paginator, config=config) }}
     </div>
-
-    {% block footer %}
-    <footer class="footer">
-        <div class="footer__inner">
-            {%- if config.extra.copyright_html %}
-                <div class="copyright copyright--user">{{ config.extra.copyright_html | safe }}</div>
-            {% else %}
-                <div class="copyright">
-                    {%- if config.extra.author %}
-                        <span>© {{ date_macros::now_year() }} {{ config.extra.author }}</span>
-                    {% else %}
-                        <span>© {{ date_macros::now_year() }} Powered by <a href="https://www.getzola.org/">Zola</a></span>
-                    {% endif -%}
-
-                    <span class="copyright-theme">
-                        <span class="copyright-theme-sep">:: </span>
-                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
-                    </span>
-                </div>
-            {% endif -%}
-        </div>
-    </footer>
-    {% endblock footer %}
-
-</div>
-{%- block extra_body %}
-{% endblock extra_body -%}
-</body>
-
-</html>
+  {%- set section_item = get_section(path="_index.md") %}
+  {%- if config.extra.recent | default(value=true) %}
+    <div class="toc">
+      <div class="toc-sticky">
+        <h1><span class="s75">Recent Posts</span></h1>
+        {%- for page in section_item.pages | slice(end=config.extra.recent_items) %}
+          {{- page_macros::page_listing(page=page, config=config) }}
+        {%- endfor %}
+      </div>
+    </div>
+  {%- endif %}
+{%- endblock content %}

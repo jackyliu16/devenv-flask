@@ -1,21 +1,28 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
-{%- block title -%}
-{% set title = "Tag: " ~ term.name %}
-{{ title_macros::title(page_title=title, main_title=config.title) }}
-{%- endblock -%}
+{%- block seo %}
+  {{- super() }}
+  {%- set title = term.name ~ " tag" %}
 
-{% block content %}
-    <div class="post">
-        <h1 class="post-title">
-            tag: #{{ term.name }}
-            ({{ term.pages | length }} post{{ term.pages | length | pluralize }})
-        </h1>
+  {%- if config.title %}
+    {%- set title_addition = title_separator ~ config.title %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
 
-        <a href="{{ config.base_url | safe }}/tags">
-            Show all tags
-        </a>
+  {%- set description = config.description %}
 
-        {{ post_macros::list_posts(pages=term.pages) }}
+  {{- macros_head::seo(config=config, title=title, title_addition=title_addition, description=description, is_home=true) }}
+{%- endblock seo %}
+
+{%- block content %}
+    <div>
+      <h2>{{ term.name }}</h2>
+      {%- for year, posts in term.pages | group_by(attribute="year") %}
+      <h3>{{ year }}</h3>
+      {%- for page in posts %}
+      <p><a href="{{ page.permalink | safe }}">{{ page.title }}</a> - <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></p>
+      {%- endfor %}
+      {%- endfor %}
     </div>
-{% endblock content %}
+{%- endblock content %}
