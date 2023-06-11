@@ -1,7 +1,8 @@
 # do NOT include a trailing slash on the base URL for web urls
-base_url = "https://abridge.netlify.app"
+# base_url = "https://abridge.netlify.app"
+base_url = "./"
 #base_url = "/home/jieiku/.dev/abridge/public/" # for locally usable build directly from disk, also set in [extra] section uglyurls = true
-title = "Abridge"
+title = "Safire"
 description = "Abridge is a fast and lightweight Zola theme using semantic html, abridge.css class-light CSS, and No Mandatory JS."
 default_language = "en"
 output_dir = "public"
