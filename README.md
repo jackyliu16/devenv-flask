@@ -1,3 +1,7 @@
+## Recommended git commit message specifications
+[ref this repo commit](https://github.com/phodal/growth)
+I wanted to find a commit message specification marked with a sign on the school forum, but I couldn't find it
+
 ## A simple guildline list of using git for version control in teamwork
 
 [猴子都能学懂的Git入门 - 合并冲突](https://backlog.com/git-tutorial/cn/intro/intro5_2.html)
