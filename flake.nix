@@ -7,7 +7,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    devenv.url = "github:cachix/devenv";
+    devenv.url = "github:jackyliu16/devenv/stupid";
     nix2container.url = "github:nlewo/nix2container";
     nix2container.inputs.nixpkgs.follows = "nixpkgs";
     mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
@@ -66,10 +66,13 @@
           services.mysql = {
             enable = true;
             package = pkgs.mysql80;
+            initialDatabases = [
+              { name = "travel"; schema = ./SQL/travel.sql; }
+            ];
           };
 
           enterShell = ''
-            hello
+            LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
           '';
         };
