@@ -44,6 +44,9 @@ This is the Software requirements specification of Safari Website.
     7. #### Reference
         - [Software Requirements Specification document with example](https://krazytech.com/projects/sample-software-requirements-specificationsrs-report-airline-database)
         - [How To Add Authentication to Your App with Flask-Login](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
+        - develop environment
+            - [devenv](https://devenv.sh/)
+            - [NixOS](https://nixos.org/)
 2. ### Overall Description
     1. #### Product Perspective
         This product a Travel Planning and Execution Website, which provide a main function to helping customers to finish there travel plans.
@@ -87,7 +90,7 @@ This is the Software requirements specification of Safari Website.
     1. #### Performance Requirements
     2. #### Safety Requirements
     3. #### Security Requirements
-        1. BC our application will be using in the Online Payment, thus have external security need. 
+        1. BC our application will be using in the Online Payment, thus have external security need.
     4. #### Software Quality Attributes
     5. #### Project Documentation
     6. #### User Documentation
