@@ -69,6 +69,11 @@
             initialDatabases = [
               { name = "travel"; schema = ./SQL/travel.sql; }
             ];
+            settings = {
+              mysqld = {
+                port = "5001";
+              };
+            };
           };
 
           enterShell = ''
