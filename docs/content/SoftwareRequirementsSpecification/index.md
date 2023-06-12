@@ -43,6 +43,7 @@ This is the Software requirements specification of Safari Website.
         - 202020: 刘峻琪
     7. #### Reference
         - [Software Requirements Specification document with example](https://krazytech.com/projects/sample-software-requirements-specificationsrs-report-airline-database)
+        - [How To Add Authentication to Your App with Flask-Login](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
 2. ### Overall Description
     1. #### Product Perspective
         This product a Travel Planning and Execution Website, which provide a main function to helping customers to finish there travel plans.
