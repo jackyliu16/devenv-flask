@@ -74,6 +74,8 @@
           enterShell = ''
             LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
+            FLASK_APP=project
+            FLASK_DEBUG=1
           '';
         };
 
