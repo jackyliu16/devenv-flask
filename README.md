@@ -1,8 +1,21 @@
+## Recommended git commit message specifications
+
+It has not been decided which specification to use
+
+[git commit 瑙勮寖](https://zhuanlan.zhihu.com/p/182553920)
+
+[ref this repo commit](https://github.com/phodal/growth)
+
+*I trying to find a commit message specification marked with a sign on the school forum, but I couldn't find it.*
+
 ## A simple guildline list of using git for version control in teamwork
 
-[猴子都能学懂的Git入门 - 合并冲突](https://backlog.com/git-tutorial/cn/intro/intro5_2.html)
-[廖雪峰的官方网站 - Git](https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496)
-[git 官方网站](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)
-[learn git branching](https://learngitbranching.js.org/)
-[一个我写的有关于git的简单指引](https://hackmd.io/@onedragon/H1kChpwS2)
+[鐚村瓙閮借兘瀛︽噦鐨凣it鍏ラ棬 - 鍚堝苟鍐茬獊](https://backlog.com/git-tutorial/cn/intro/intro5_2.html)
 
+[寤栭洩宄扮殑瀹樻柟缃戠珯 - Git](https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496)
+
+[git 瀹樻柟缃戠珯](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)
+
+[learn git branching](https://learngitbranching.js.org/)
+
+[涓�涓垜鍐欑殑鏈夊叧浜巊it鐨勭畝鍗曟寚寮昡(https://hackmd.io/@onedragon/H1kChpwS2)
