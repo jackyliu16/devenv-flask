@@ -59,7 +59,6 @@
               enable = true;
               install.enable = true; # enable poetry install during devenv initialisation
               activate.enable = true; # activate the poetry virtual environment automatically.
-              #install.quiet = true;
             };
           };
 
@@ -71,9 +70,17 @@
             ];
           };
 
+          processes = {
+            app.exec = ''
+              flask --app ./app.py run --debug --port 5001
+            '';
+          };
+
           enterShell = ''
             LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
+            FLASK_APP=$(pwd)/app/
+            FLASK_DEBUG=1
           '';
         };
 
