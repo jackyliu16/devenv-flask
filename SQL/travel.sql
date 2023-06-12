@@ -9,7 +9,7 @@ CREATE TABLE user_data (
     gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
 );
 
-source ./SQL/user.sql;
+source ./SQL/data/user.sql;
 
 CREATE TABLE admin (
     id      INT             PRIMARY KEY AUTO_INCREMENT,
