@@ -90,6 +90,14 @@
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
             FLASK_APP=$(pwd)/__init__.py
             FLASK_DEBUG=1
+            # alias helpper
+            alias  gc='git commit --verbose'
+            alias 'gc!'='git commit --verbose --amend'
+            alias  ga='git add'
+            alias  gst="git status"
+            alias  gaa='git add --all'
+            alias  grh='git reset'
+            alias  grhh='git reset --hard'
           '';
         };
 
