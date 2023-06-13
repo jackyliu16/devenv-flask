@@ -6,7 +6,8 @@ CREATE TABLE user (
 
     age         INT,
     email       VARCHAR(36),
-    gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+    -- gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+    gender INT  DEFAULT 2
 );
 
 source ./SQL/data/user.sql;
