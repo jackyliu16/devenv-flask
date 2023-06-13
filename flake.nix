@@ -47,6 +47,9 @@
               markdownlint.enable = true; # markdown
               nixpkgs-fmt.enable = true; # nix
               black.enable = true; # python
+              commitizen.enable = true;
+              html-tidy.enable = true;
+              hlint.enable = true;
             };
             settings = {
               markdownlint.config = pkgs.lib.importJSON ./.markdownlint.json;
