@@ -189,6 +189,21 @@ Flask = ">=1.0.4"
 Werkzeug = ">=1.0.1"
 
 [[package]]
+name = "flask-mysqldb"
+version = "1.0.1"
+description = "MySQLdb extension for Flask"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Flask-MySQLdb-1.0.1.tar.gz", hash = "sha256:1c76e9dcc2c2f1f48981e3157c9423358f68a2cdf901a3baf5531c32b13c5826"},
+]
+
+[package.dependencies]
+Flask = ">=0.12.4"
+mysqlclient = ">=1.3.7"
+
+[[package]]
 name = "flask-sqlalchemy"
 version = "3.0.3"
 description = "Add SQLAlchemy support to your Flask application."
@@ -535,6 +550,23 @@ pyparsing = ">=2.3.1"
 python-dateutil = ">=2.7"
 
 [[package]]
+name = "mysqlclient"
+version = "2.1.1"
+description = "Python interface to MySQL"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "mysqlclient-2.1.1-cp310-cp310-win_amd64.whl", hash = "sha256:c1ed71bd6244993b526113cca3df66428609f90e4652f37eb51c33496d478b37"},
+    {file = "mysqlclient-2.1.1-cp311-cp311-win_amd64.whl", hash = "sha256:c812b67e90082a840efb82a8978369e6e69fc62ce1bda4ca8f3084a9d862308b"},
+    {file = "mysqlclient-2.1.1-cp38-cp38-win_amd64.whl", hash = "sha256:0d1cd3a5a4d28c222fa199002810e8146cffd821410b67851af4cc80aeccd97c"},
+    {file = "mysqlclient-2.1.1-cp39-cp39-win_amd64.whl", hash = "sha256:b355c8b5a7d58f2e909acdbb050858390ee1b0e13672ae759e5e784110022994"},
+    {file = "mysqlclient-2.1.1-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:996924f3483fd36a34a5812210c69e71dea5a3d5978d01199b78b7f6d485c855"},
+    {file = "mysqlclient-2.1.1-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:dea88c8d3f5a5d9293dfe7f087c16dd350ceb175f2f6631c9cf4caf3e19b7a96"},
+    {file = "mysqlclient-2.1.1.tar.gz", hash = "sha256:828757e419fb11dd6c5ed2576ec92c3efaa93a0f7c39e263586d1ee779c3d782"},
+]
+
+[[package]]
 name = "numpy"
 version = "1.24.3"
 description = "Fundamental package for array computing in Python"
@@ -730,6 +762,22 @@ files = [
 [package.extras]
 docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-inline-tabs", "sphinx-removed-in", "sphinxext-opengraph"]
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
+name = "pymysql"
+version = "1.0.3"
+description = "Pure Python MySQL Driver"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "PyMySQL-1.0.3-py3-none-any.whl", hash = "sha256:89fc6ae41c0aeb6e1f7710cdd623702ea2c54d040565767a78b00a5ebb12f4e5"},
+    {file = "PyMySQL-1.0.3.tar.gz", hash = "sha256:3dda943ef3694068a75d69d071755dbecacee1adf9a1fc5b206830d2b67d25e8"},
+]
+
+[package.extras]
+ed25519 = ["PyNaCl (>=1.4.0)"]
+rsa = ["cryptography"]
 
 [[package]]
 name = "pyparsing"
@@ -992,4 +1040,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "9abc8690b40d28eec4c12aaf0c2680fb037b4d69c4f6ece4f3328ce5ab7db9e8"
+content-hash = "e56765351ccbad19b76c614dc799e60771ec5d5f69a1b6c7d7ab26a114542b5b"
