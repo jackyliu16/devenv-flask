@@ -38,6 +38,7 @@
             stdenv.cc.cc.lib
             bat
             fzf
+            sqlite
             ripgrep
           ]);
 
