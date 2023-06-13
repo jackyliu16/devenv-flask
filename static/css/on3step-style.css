@@ -98,7 +98,7 @@ h4              { font-size: 20px; }
 h5              { font-size: 18px; }
 h6              { font-size: 16px; }
 p               { font-size: 13px; }
-p.intro         { 
+p.static/intro         { 
     font-size: 15px; 
     color: #8c8c8c;
 }

@@ -2176,7 +2176,7 @@
   content: "\f2b3";
 }
 .fa-fa:before,
-.fa-font-awesome:before {
+.fa-static/font-awesome:before {
   content: "\f2b4";
 }
 .fa-handshake-o:before {

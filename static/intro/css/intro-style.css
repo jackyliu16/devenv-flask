@@ -3,22 +3,22 @@
 /* 
 *
 *
-[Table of intro]
+[Table of static/intro]
 *
 *
 *
 
-    font-intro / @import url
+    font-static/intro / @import url
 	preloader  / .preloader
 	overlay  / .overlay-main
 	background img / .mainbg
-	button intro / #buttons-intro
+	button static/intro / #buttons-static/intro
 	
 *
 *
 */
 
-/* font-intro */
+/* font-static/intro */
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,500,600,700');
 
 /* general */
@@ -121,8 +121,8 @@ z-index:99999;
   background-size: cover;
 }
 
-/* button intro */
-#buttons-intro {
+/* button static/intro */
+#buttons-static/intro {
   position: fixed;
   top: 0px;
   right: 6px;
@@ -132,13 +132,13 @@ z-index:99999;
   opacity:0.8;
   z-index:99999;
 }
-#buttons-intro:hover { opacity:1; 
+#buttons-static/intro:hover { opacity:1; 
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.btn-intro{
+.btn-static/intro{
   width: 45px;
   height: 38px;
   text-align: center;
@@ -155,15 +155,15 @@ z-index:99999;
   transition: all 0.3s ease;
 }
   
-.left-intro {
+.left-static/intro {
   border-radius: 0 0 0 0;
 }
 
-.right-intro {
+.right-static/intro {
   border-radius: 0 0 0 0;
 }
 
-.btn-intro:hover {
+.btn-static/intro:hover {
   background:#fc9f1c;
   color: #fff;
   -moz-transition: all 0.3s ease;
@@ -171,15 +171,15 @@ z-index:99999;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;}
 
-.btn-intro i {
+.btn-static/intro i {
   display:inherit;
   padding-top: 0px;
   font-size: 18px;
   color:#fff;
 }
 
-.skippintro{  position:relative;}  
-.skippintro:before {
+.skippstatic/intro{  position:relative;}  
+.skippstatic/intro:before {
     content: "\f051";  
     font-family: FontAwesome;
 	font-style:normal;
@@ -188,8 +188,8 @@ z-index:99999;
 	top:-10px;
  }  
  
-.soundOffintro, .soundOnintro{  position:relative;}  
-.soundOnintro:before {
+.soundOffstatic/intro, .soundOnstatic/intro{  position:relative;}  
+.soundOnstatic/intro:before {
     content: "\f028";  
     font-family: FontAwesome;
     font-style:normal;
@@ -197,7 +197,7 @@ z-index:99999;
 	left:-8px;
 	top:-10px;
  }  
-.soundOffintro:before {
+.soundOffstatic/intro:before {
     content: "\f026";  
     font-family: FontAwesome;
     font-style:normal;

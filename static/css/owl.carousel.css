@@ -130,7 +130,7 @@
  */
 .owl-carousel .owl-item {
   /**
-      This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+      This is static/introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
       calculation of the height of the owl-item that breaks page layouts
      */ }
   .owl-carousel .owl-item .owl-lazy {

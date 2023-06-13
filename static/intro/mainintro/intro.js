@@ -6,8 +6,8 @@ jQuery(window).on("load", function(){
   var loader = jQuery('.preloader');
   var bgpreloader = jQuery('.bg-preloader');
   
-  // var intro
-  var revIntro = jQuery('#revolution-intro'); // id name your slider
+  // var static/intro
+  var revstatic/intro = jQuery('#revolution-static/intro'); // id name your slider
   var urls  = ['../index.html']; // change with your url  
   var totalslide  = 6; // change total slide here
   
@@ -16,18 +16,18 @@ loader.fadeOut('slow', function() {
  "use strict";
  
  // variable sound
- var idSound = jQuery('#playerintro');
+ var idSound = jQuery('#playerstatic/intro');
  var playing = true;
- var n = document.getElementById('playerintro');
+ var n = document.getElementById('playerstatic/intro');
 
  // preloader fade
  bgpreloader.fadeOut(0);
  
      //revolution slider start
-     showintro();
-     function showintro() {
+     showstatic/intro();
+     function showstatic/intro() {
         var revapi;
-        revapi = revIntro
+        revapi = revstatic/intro
             .revolution( {
 				delay: 9000,
                 startwidth: 1170,
@@ -57,11 +57,11 @@ loader.fadeOut('slow', function() {
    n.play();
    n.muted = false;
    
-//main intro
+//main static/intro
 $(function() {
    var totdel = 0;
    var totspeed = 0;
-   jQuery("#revolution-intro li").each(function() {
+   jQuery("#revolution-static/intro li").each(function() {
      var $this = $(this);
 	 var timeframe = parseInt($(this).attr("data-endframe"));
 	 var hox = timeframe + 0 ;
@@ -77,7 +77,7 @@ $(function() {
    
    //sound end frame
    function soundoff() {
-	   revIntro.revpause();
+	   revstatic/intro.revpause();
 	   playing = false;
        idSound[0].volume = 1;
        idSound.animate({
@@ -87,7 +87,7 @@ $(function() {
     }
 	
 	jQuery(window).on("blur", function(e){
-	 revIntro.revpause();
+	 revstatic/intro.revpause();
 	   playing = false;
        idSound[0].volume = 1;
        idSound.animate({
@@ -98,7 +98,7 @@ $(function() {
 	
    //skipp function
    function skipp() {
-	   revIntro.revpause();
+	   revstatic/intro.revpause();
 	   if (playing === false) {
        n.play();
        playing = true;
@@ -117,8 +117,8 @@ $(function() {
     }
 
    //sound button
-   var isound = jQuery('.soundOnintro');
-   var ioffsound = jQuery('.soundOffintro');
+   var isound = jQuery('.soundOnstatic/intro');
+   var ioffsound = jQuery('.soundOffstatic/intro');
    jQuery('#play-sound').on("click", function(e) {
     isound.toggleClass('hide');
 	ioffsound.toggleClass('hide');
@@ -139,7 +139,7 @@ $(function() {
     });
    
   // skipp button
-  jQuery('#skipintro').on("click", function(e) {
+  jQuery('#skipstatic/intro').on("click", function(e) {
     setTimeout(skipp, 10);
   }); 
   
@@ -149,7 +149,7 @@ $(function() {
   }
 
 });
-//main intro end
+//main static/intro end
 });
 // end function
 });
