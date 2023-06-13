@@ -78,7 +78,7 @@
 
           processes = {
             app.exec = ''
-              flask --app ./app.py run --debug --port 5001
+              flask --app ./__init__.py run --debug --port 5001
             '';
           };
 
