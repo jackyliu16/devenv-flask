@@ -52,7 +52,12 @@ else
 endif
 	
 # rebuild all environment
-clean-env:
+clean: 
 	rm -rf .venv .devenv
+clean-py:
+	rm -rf .venv
+clean-dev:
+	rm -rf .devenv
+
 
 .PHONY: clean-env env
