@@ -1,0 +1,2 @@
+INSERT INTO admin VALUES (1, "jacky", "123456", "18922251299@163.com");
+

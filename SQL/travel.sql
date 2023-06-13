@@ -1,4 +1,4 @@
-CREATE TABLE user_data (
+CREATE TABLE user (
     id  INT                 PRIMARY KEY AUTO_INCREMENT,
 
     name    VARCHAR(36)     NOT NULL,
@@ -18,4 +18,4 @@ CREATE TABLE admin (
     email   VARCHAR(36)
 );
 
-INSERT INTO admin VALUES (1000, "jacky", "123456", NULL);
+source ./SQL/data/admin.sql;

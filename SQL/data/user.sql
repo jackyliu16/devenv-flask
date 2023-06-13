@@ -8,8 +8,8 @@
 --     email       VARCHAR(36),
 --     gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
 -- );
-INSERT INTO user_data VALUES (2, "jacky1", "123456", 20, NULL, "unknown");
-INSERT INTO user_data VALUES (3, "jacky2", "123456", 20, NULL, "unknown");
-INSERT INTO user_data VALUES (4, "jacky3", "123456", 20, NULL, "unknown");
-INSERT INTO user_data VALUES (5, "jacky4", "123456", 20, NULL, "unknown");
-INSERT INTO user_data VALUES (6, "jacky5", "123456", 20, NULL, "unknown");
+INSERT INTO user VALUES (2, "jacky1", "123456", 20, NULL, "unknown");
+INSERT INTO user VALUES (3, "jacky2", "123456", 20, NULL, "unknown");
+INSERT INTO user VALUES (4, "jacky3", "123456", 20, NULL, "unknown");
+INSERT INTO user VALUES (5, "jacky4", "123456", 20, NULL, "unknown");
+INSERT INTO user VALUES (6, "jacky5", "123456", 20, NULL, "unknown");
