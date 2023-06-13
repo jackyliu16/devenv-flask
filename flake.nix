@@ -72,14 +72,14 @@
 
           processes = {
             app.exec = ''
-              flask --app ./app.py run --debug --port 5001
+              flask --app ./__init__.py run --debug --port 5001
             '';
           };
 
           enterShell = ''
             LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
-            FLASK_APP=$(pwd)/app/
+            FLASK_APP=$(pwd)
             FLASK_DEBUG=1
           '';
         };
