@@ -39,8 +39,8 @@ This is the Software requirements specification of Safari Website.
     6. #### Contact Information / SRS team members
         - 20200740014: 马越
         - 20200740029: 刘逸珑
-        - 202020: 朱道鑫
-        - 202020: 刘峻琪
+        - 20202033010: 刘峻琪
+        - 20202033015: 朱道鑫
     7. #### Reference
         - [Software Requirements Specification document with example](https://krazytech.com/projects/sample-software-requirements-specificationsrs-report-airline-database)
         - [How To Add Authentication to Your App with Flask-Login](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
