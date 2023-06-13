@@ -84,7 +84,7 @@
           enterShell = ''
             LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
-            FLASK_APP=$(pwd)/app/
+            FLASK_APP=$(pwd)/__init__.py
             FLASK_DEBUG=1
           '';
         };
