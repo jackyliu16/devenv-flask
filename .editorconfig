@@ -1,3 +1,0 @@
-[*.py]
-# 禁止 Black 自动更改字符串引号
-skip-string-normalization = true
