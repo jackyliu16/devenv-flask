@@ -14,6 +14,21 @@
             "text": "FIXME",
             "color": "#ff0000", // 红色
             "backgroundColor": "inherit"
+        },
+        {
+            "text": "OPTIMIZE",
+            "color": "#FFA500",
+            "backgroundColor": "inherit"
+        },
+        {
+            "text": "HACK",
+            "color": "#008000",
+            "backgroundColor": "inherit"
+        },
+        {
+            "text": "REVIEW",
+            "color": "#800080",
+            "backgroundColor": "inherit"
         }
     ],
 }
