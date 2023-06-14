@@ -51,7 +51,6 @@ def form_selection():
         
         user =  User.query.filter_by(email=email).first()
         
-        app.logger.debug(f"{user.name}")
         if user:
             # TODO if user have been register
             app.logger.debug("register failure")
