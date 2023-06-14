@@ -23,7 +23,6 @@ def form_selection():
         uname = request.form.get("username")
         upwd = request.form.get("password")
         
-        session = Session(db.engine)
         # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
         user =  User.query.filter_by(name=uname).first()
         admin =  Admin.query.filter_by(name=uname).first()
