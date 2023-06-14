@@ -1,0 +1,5 @@
+230614
+这是一个尝试git add
+git command 和git push的文档。
+
+version 1.0
