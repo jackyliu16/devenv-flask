@@ -94,6 +94,8 @@
             alias  gc='git commit --verbose'
             alias 'gc!'='git commit --verbose --amend'
             alias  ga='git add'
+            alias  gp='git push'
+            alias  gpf='git push --force'
             alias  gst="git status"
             alias  gaa='git add --all'
             alias  grh='git reset'
