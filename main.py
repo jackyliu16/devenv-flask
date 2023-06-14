@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-from flask import render_template, request
+from flask import render_template, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 # from .models import TUser
 from sqlalchemy.orm import Session
@@ -36,6 +36,7 @@ def form_selection():
             app.logger.debug("login successed")
             # TODO
         else:
+            flash('Please check your login details and try again.')
             app.logger.debug("login failure")
             app.logger.debug(f"{user}:{upwd} is {check_password_hash(user.pwd, upwd) if user else None}, {check_password_hash(admin.pwd, upwd) if admin else None} ")
             # TODO
@@ -53,6 +54,7 @@ def form_selection():
         if user:
             # TODO if user have been register
             app.logger.debug("register failure")
+            flash("hello, world")
             pass
             
         # FIXME should using primary key to insert

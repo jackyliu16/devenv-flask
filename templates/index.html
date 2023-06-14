@@ -27,6 +27,15 @@
     <link href="static/css/owl.theme.css" rel="stylesheet">
     <link href="static/css/on3step-style.css" rel="stylesheet">
     <link href="static/css/queries-on3step.css" media="all" rel="stylesheet">
+    <link href="static/css/popup-container.css" rel="stylesheet">
+    <!-- NOTE: flash implementation method 1 (using flash)-->
+    {% with messages = get_flashed_messages() %}
+    <script>
+      {% if messages %}
+        alert('{{ messages[0] }}')
+      {% endif %}
+    </script>
+    {% endwith %} 
   </head>
   
   <body>
@@ -158,9 +167,28 @@
       </div>
       <!-- nav end -->
       </header>
+
+      <!-- NOTE: flash implementation method 2,3 (using div but hidden) -->
+      <!-- FIXME: the position is incorrect -->
+      <!-- 
+      <div class="popup-container" id="popup-container" style="display:none;">
+        <h1>Centered Floating Popup</h1>
+        <p>This is an example of a centered floating popup using absolute positioning.</p>
+        <button onclick="hidePopupx`1()">Close Popup</button>
+      </div>
+      <div id="home">
+        <div id="popup-container">
+          <div id="popup">
+            <h2>欢迎来到我的网站！</h2>
+            {% for message in get_flashed_messages() %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            <button onclick="closePopup()">关闭</button>
+          </div>
+        </div>
+      -->
       
       <!-- home -->
-      <div id="home">
       <!-- revolution slider -->
       <section class="no-top no-bottom" aria-label="section-slider">
       <div class="fullwidthbanner-container">
@@ -866,5 +894,23 @@
     <!-- on3step JS -->
     <script src="static/js/on3step.js"></script>
     <script src="static/js/plugin-set.js"></script>
+    {% with messages = get_flashed_messages() %}
+    <!-- NOTE: using by flash method 2 -->
+    <!--
+    <script>
+      function openPopup() {
+        document.getElementById("popup-container").style.display = "block";
+      }
+    
+      function closePopup() {
+        document.getElementById("popup-container").style.display = "none";
+      }
+    
+      {% if messages %}
+        openPopup();
+      {% endif %}
+    </script>
+    {% endwith %} 
+    -->
   </body>
 </html>
