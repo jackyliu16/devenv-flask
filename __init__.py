@@ -13,6 +13,8 @@ def create_app():
 
     db.init_app(app)
 
+    # TODO trying to using flask-login for login managerment
+     
     # blueprint for auth routes in our app
     # from .auth import auth as auth_blueprint
 
