@@ -13,7 +13,9 @@ def create_app():
 
     db.init_app(app)
 
-    # TODO trying to using flask-login for login managerment
+    # TODO trying to facilitate the management of user behavior through flask-login
+    # code: https://github.com/do-community/flask_auth_scotch/blob/2e4094565d0f841ea6e53f51405a9ed8663ab5e7/project/__init__.py#L18
+    # ref: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login#step-9-adding-the-login-method
      
     # blueprint for auth routes in our app
     # from .auth import auth as auth_blueprint

@@ -24,6 +24,7 @@ def form_selection():
         upwd = request.form.get("password")
         
         session = Session(db.engine)
+        # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
         user =  User.query.filter_by(name=uname).first()
         admin =  Admin.query.filter_by(name=uname).first()
         
@@ -42,6 +43,7 @@ def form_selection():
             # TODO
         
     elif request.form["form_type"] == "register":
+        # FIXME current content haven't full implement the function, which have't send first and last name
         firstname = request.form.get("firstname")
         lastname  = request.form.get("lastname")
         email = request.form.get("email")
@@ -57,7 +59,7 @@ def form_selection():
             flash("hello, world")
             pass
             
-        # FIXME should using primary key to insert
+        # FIXME should using primary key to insert, otherwise, there will be a conflict
         new_user = User(email=email, name=uname, pwd=generate_password_hash(upwd, method='sha256'))
         db.session.add(new_user)
         db.session.commit()
