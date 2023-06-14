@@ -59,5 +59,8 @@ clean-py:
 clean-dev:
 	rm -rf .devenv
 
+# Generate Models
+generate:
+	flask-sqlacodegen "mysql+mysqlconnector://root@localhost:5001/travel" --outfile "models.py"
 
 .PHONY: clean-env env
