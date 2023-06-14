@@ -38,11 +38,6 @@
             bat
             fzf
             ripgrep
-            # GCC
-            pkgconfig
-            gcc
-            openssl
-            glibc
           ]);
 
           pre-commit = {
