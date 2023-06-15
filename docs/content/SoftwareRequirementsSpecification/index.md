@@ -34,10 +34,13 @@ This is the Software requirements specification of Safari Website.
         The purpose of the online safari Website is to ease travel management and to create a convenient and easy-to-use application for traveler. The system is based on a relational database with user login operation, and making there travel plans. We will have a list of APIs calling for the services from other commercial software. Above all, we hope to provide a comfortable user experience along when they are planing for traveling and travel.
     5. #### Additional Information
     6. #### Contact Information / SRS team members
-        - 20200740014: 马越
-        - 20200740029: 刘逸珑
-        - 20202033010: 刘峻琪
-        - 20202033015: 朱道鑫
+        Student Name | Student ID
+        ------------ | ---------
+        马越         | 20200740014
+        刘逸珑       | 20200740029
+        刘峻琪       | 20202033010
+        朱道鑫       | 20202033015
+
     7. #### Reference
         - [Software Requirements Specification document with example](https://krazytech.com/projects/sample-software-requirements-specificationsrs-report-airline-database)
         - [How To Add Authentication to Your App with Flask-Login](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login)
