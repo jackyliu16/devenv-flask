@@ -80,7 +80,20 @@
         # The usual flake attributes can be defined here, including system-
         # agnostic ones like nixosModule and system-enumerating ones, although
         # those are more easily expressed in perSystem.
-
+        overlays = {
+          additions = final: _prev: import ../pkgs { pkgs = final; };
+            # This one contains whatever you want to overlay
+            # You can change versions, add patches, set compilation flags, anything really.
+            # https://nixos.wiki/wiki/Overlays
+            modifications = final: prev: {
+              # example = prev.example.overrideAttrs (oldAttrs: rec {
+              # ...
+              # });
+              zoal = prev.zoal.overrideAttrs (oldAttrs: {
+                cargoBuildFlags = [ "indexing-zh" ];
+              });
+            };
+        };
       };
     };
 }
