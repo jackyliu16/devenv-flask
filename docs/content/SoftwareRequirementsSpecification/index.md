@@ -23,13 +23,10 @@ This is the Software requirements specification of Safari Website.
     2. #### Document Conventions
         In these documents we distribute bold world as the key for the statement, italic as relatively unimportant supplement.
 
-        ```markdown
-        The following is a description of the abbreviations used in this article. 
-        | abbreviations | description |
-        | ------------- | ----------- |
-        | DB            | databases   |
-        | BC            | because     |
-        ```
+        Abbreviations | Description
+        ------------- | -----------
+        DB            | databases
+        BC            | because
 
     3. #### Intended Audience
         The software we provide is aimed at users who want to be as simple as possible, do not need to learn too many applications, directly use a website, achieve travel planning and facilitate the use of taxis during the trip. People with functions such as hotel reservation.
