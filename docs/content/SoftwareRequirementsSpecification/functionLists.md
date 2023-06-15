@@ -9,7 +9,7 @@ categories = ["Safari"]
 tags = ["SRS"]
 [extra]
 toc = true
-keywords = "functions","lists","description"
+keywords = "functions, lists, description"
 # thumbnail = "ferris-gesture.png"
 +++
 
