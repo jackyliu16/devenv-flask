@@ -2,18 +2,16 @@
 title = "Function list of travel Website"
 description = "The function lists of Safari Website"
 date = 2023-06-15
-draft = true
+draft = false
 
 [taxonomies]
 categories = ["Safari"]
 tags = ["SRS"]
 [extra]
-toc = true
 keywords = "functions, lists, description"
-# thumbnail = "ferris-gesture.png"
 +++
 
-This is the function lists of travel website desgin.
+This is the function lists of travel website design.
 
 <!-- more -->
 
