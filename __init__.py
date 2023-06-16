@@ -1,4 +1,7 @@
 from flask import Flask
+from flask import session
+from time import timedelta
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 # init SQLAlchemy so we can use it later in our models
@@ -8,15 +11,32 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
 
-    app.config["SECRET_KEY"] = "secret-key-goes-here"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root@localhost:5001/travel"
+    app.config[
+        "SECRET_KEY"
+    ] = "83692b4e7efdfbcf5df8d61ec65e65f21ceb72c373b76d5c2e0f0410a5f1fc59"
+    app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ] = "mysql+mysqlconnector://root@localhost:5001/travel"
+    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5)  # cookies timeout
 
     db.init_app(app)
 
-    # TODO trying to facilitate the management of user behavior through flask-login
-    # code: https://github.com/do-community/flask_auth_scotch/blob/2e4094565d0f841ea6e53f51405a9ed8663ab5e7/project/__init__.py#L18
-    # ref: https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login#step-9-adding-the-login-method
-     
+    # FIXME: user maybe will not leave the website before logout
+    login_manager = LoginManager()
+    login_manager.login_view = "main.index"
+    login_manager.login_message = (
+        "You have to login then you will be able to using this function."
+    )
+    login_manager.init_app(app)
+
+    from .models import User, Admin
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+        # OPTIMIZE: https://flask-login.readthedocs.io/en/latest/#alternative-tokens
+        # FIXME： maybe need to change the databases, or change here for admin.
+
     # blueprint for auth routes in our app
     # from .auth import auth as auth_blueprint
 
