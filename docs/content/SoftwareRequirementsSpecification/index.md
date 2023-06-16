@@ -20,7 +20,6 @@ This is the Software requirements specification of Safari Website.
 1. ### Introduction
     1. #### Purpose
         Our project focuses on the collection problem that when user making travel plan. Nowadays, when user using application for traveling, they have to use many apps to complete the different step of tourism, We are trying to develop a website to contains all of this kind information into one website, and this website could be using in computer and mobile phone.
-        - test 230616 20:44
     2. #### Document Conventions
         In these documents we distribute bold world as the key for the statement, italic as relatively unimportant supplement.
 
