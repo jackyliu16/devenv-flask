@@ -5,11 +5,11 @@
             "color": "#3498db", // 蓝色
             "backgroundColor": "inherit"
         },
-        {
-            "text": "TODO",
-            "color": "#ffff00",  // 黄色
-            "backgroundColor": "inherit"
-        },
+        // {
+        //     "text": "TODO",
+        //     "color": "#ffff00",  // 黄色
+        //     "backgroundColor": "inherit"
+        // },
         {
             "text": "FIXME",
             "color": "#ff0000", // 红色
@@ -29,6 +29,11 @@
             "text": "REVIEW",
             "color": "#800080",
             "backgroundColor": "inherit"
+        },
+        {
+            "text": "CHECK",
+            "color": "#FFD700",
+            "backgroundColor": "#808080"
         }
     ],
 }
