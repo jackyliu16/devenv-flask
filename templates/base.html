@@ -55,40 +55,8 @@
    <header class="init">
     
     <!-- subnav -->
-    <div class="container-fluid m-5-hor">
-    <div class="row">
-        <div class="subnav">
-
-         <div class="col-md-6">
-          <div class="left">
-            <div class="social-icons-subnav hidden-sm hidden-xs">
-                <div>Call Us : +02151 7778 009</div>
-            </div>
-          </div>
-         </div>
-         
-         <div class="col-md-6">
-          <div class="right">
-            <div id="sub-icon" class="social-icons-subnav">
-                <a href="#"><span class="ti-facebook"></span></a>
-                <a href="#"><span class="ti-dribbble"></span></a>
-                <a href="#"><span class="ti-twitter"></span></a>
-                <a href="#"><span class="ti-instagram"></span></a>
-                <a href="#"><span class="ti-linkedin"></span></a>
-            </div>
-            <div class="social-icons-subnav">
-              <a data-toggle="modal" data-target="#fLogin"><span class="ti-lock"></span> Login</a>
-            </div>    
-            <div class="social-icons-subnav hidden-sm hidden-xs">
-              <a data-toggle="modal" data-target="#fsignUp"><span class="ti-user"></span> Sign up</a>
-            </div>
-          </div>
-         </div>
-        
-        </div>
-    </div>
-    </div>
-    <!-- subnav end -->
+    {% include 'Component/subnav.html' %}
+    <!-- subnav -->
     
     <!-- nav -->
     <div class="navbar-default-white navbar-fixed-top">
