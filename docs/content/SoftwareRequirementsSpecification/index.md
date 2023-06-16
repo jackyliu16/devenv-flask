@@ -47,7 +47,14 @@ This is the Software requirements specification of Safari Website.
         - develop environment
             - [devenv](https://devenv.sh/)
             - [NixOS](https://nixos.org/)
-
+        - Git Submission Specification
+            - [约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
+            - [Angular 提交信息规范](https://zj-git-guide.readthedocs.io/zh_CN/latest/message/Angular%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E8%A7%84%E8%8C%83/)
+            - [Understanding Semantic Commit Messages Using Git and Angular](https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/)
+            - [Git 约定式提交规范实践](https://www.barretlee.com/blog/2019/10/28/commit-convention/)
+        - Flask Study
+            - [explore flask Zh translation](https://spacewander.github.io/explore-flask-zh/)
+            - [Some keywords in Flask Template](https://blog.51cto.com/u_15127695/3316798)
 2. ### Overall Description
     1. #### Product Perspective
         This product a Travel Planning and Execution Website, which provide a main function to helping customers to finish there travel plans.
