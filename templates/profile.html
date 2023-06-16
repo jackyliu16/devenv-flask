@@ -1,5 +1,5 @@
-{% extends 'empty.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello, {{ current_user }}</h1>
+<h1>Hello, {{ current_user.name }}</h1>
 {% endblock %}
