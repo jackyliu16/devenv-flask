@@ -88,6 +88,7 @@ This is the Software requirements specification of Safari Website.
     2. #### System Feature B
 5. ### Other Nonfunctional Requirements
     1. #### Performance Requirements
+        1. Because the need of distributed development, the development environment need to be Reproducible.
     2. #### Safety Requirements
     3. #### Security Requirements
         1. BC our application will be using in the Online Payment, thus have external security need.
