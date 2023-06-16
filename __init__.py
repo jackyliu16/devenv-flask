@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import session
-from time import timedelta
+from datetime import timedelta
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 

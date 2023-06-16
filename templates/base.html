@@ -206,9 +206,10 @@
     <!-- on3step JS -->
     <script src="static/js/on3step.js"></script>
     <script src="static/js/plugin-set.js"></script>
-    {% with messages = get_flashed_messages() %}
+    <script src="static/js/detect-windows-close.js"></script>
     <!-- NOTE: using by flash method 2 -->
     <!--
+    {% with messages = get_flashed_messages() %}
     <script>
       function openPopup() {
         document.getElementById("popup-container").style.display = "block";

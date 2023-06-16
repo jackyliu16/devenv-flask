@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-from flask import render_template, request, flash, url_for, redirect
+from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -88,5 +88,8 @@ def profile():
 @main.route("/logout")
 @login_required
 def logout():
+    make_response(redirect(url_for("main.index"))).delete_cookie(
+        "session"
+    )  # CHECK if it's necessary?
     logout_user()
     return redirect(url_for("main.index"))
