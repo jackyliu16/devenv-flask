@@ -19,6 +19,9 @@ def create_app():
     ] = "mysql+mysqlconnector://root@localhost:5001/travel"
     app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5)  # cookies timeout
 
+    with open("YOUR_BING_MAPS_API_KEY", "r") as f:
+        app.config["BING_MAPS_API_KEY"] = f.read().strip()
+
     db.init_app(app)
 
     # FIXME: user maybe will not leave the website before logout
@@ -38,9 +41,9 @@ def create_app():
         # FIXME： maybe need to change the databases, or change here for admin.
 
     # blueprint for auth routes in our app
-    # from .auth import auth as auth_blueprint
+    from .plan import plan as plan_blueprint
 
-    # app.register_blueprint(auth_blueprint)
+    app.register_blueprint(plan_blueprint)
 
     # blueprint for non-auth parts of app
     from .main import main as main_blueprint

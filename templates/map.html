@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% endblock %}
+
+
+{% block content %}
+    <div style="height: 125 px; width=100%"></div>
+    <div id="myMap"></div>
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?key={{ config["BING_MAPS_API_KEY"] }}'></script>
+<script type='text/javascript'>
+    var map = new Microsoft.Maps.Map('#mapCanvas', {
+        credentials: '{{ config["BING_MAPS_API_KEY"] }}'
+    });
+</script>
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario' async defer></script>
+    <script type='text/javascript'>
+        function loadMapScenario() {
+            var map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'AsZO8RVg4Qh_AtQ3HYFCp4vQkLJZ7en0pFD3pq48MEIvMhCmsw1PmDh64SsXJxpy'
+            });
+
+            // 添加一个标记
+            var center = map.getCenter();
+            var pin = new Microsoft.Maps.Pushpin(center, {
+                title: 'Hello World!'
+            });
+            map.entities.push(pin);
+        }
+    </script>
+    <style type="text/css">
+        #myMap { width: 800px; height: 600px; }
+    </style>
+{% endblock %}
+
+<!--TODO
+1. 消除边框
+2. 在原先基础上删除+/-
+3. 加入点击记录
+4. 拖拽
+5. 路径
+-->

@@ -36,6 +36,8 @@
       {% endif %}
     </script>
     {% endwith %} 
+    {% block header %}
+    {% endblock %}
   </head>
   
   <body>
@@ -225,5 +227,7 @@
     </script>
     {% endwith %} 
     -->
+    {% block script %}
+    {% endblock %}
   </body>
 </html>
