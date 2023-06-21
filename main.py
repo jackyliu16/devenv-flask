@@ -33,6 +33,7 @@ def form_selection():
     if request.form["form_type"] == "login":
         uname = request.form.get("username")
         upwd = request.form.get("password")
+        app.logger.debug(f"{uname}:{upwd}")
 
         # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
         user = Customer.query.filter_by(name=uname).first()
@@ -47,7 +48,6 @@ def form_selection():
             login_user(
                 user, remember=False
             )  # TODO could trying to add remember checkbox into login
-            pass
         elif admin and check_password_hash(admin.pwd, upwd):
             app.logger.debug("login successed")
             login_user(
@@ -59,7 +59,6 @@ def form_selection():
             app.logger.debug(
                 f"{user}:{upwd} is {check_password_hash(user.pwd, upwd) if user else None}, {check_password_hash(admin.pwd, upwd) if admin else None} "
             )
-            # TODO
 
     elif request.form["form_type"] == "register":
         # FIXME current content haven't full implement the function, which have't send first and last name

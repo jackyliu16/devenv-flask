@@ -20,18 +20,18 @@ class Admin(User, UserMixin, db.Model):
     user_type = UserType.ADMIN
 
     id = db.Column(db.Integer, primary_key=True)
-    firstname = db.Column(db.String(36), nullable=False)
-    lastname = db.Column(db.String(36), nullable=True)
     name = db.Column(db.String(36), nullable=False)
     pwd = db.Column(db.String(88), nullable=False)
-    email = db.Column(db.String(36))
+    email = db.Column(db.String(36), nullable=False, unique=True)
 
 
 class Customer(User, UserMixin, db.Model):
-    __tablename__ = "user"
+    __tablename__ = "customer"
     user_type = UserType.CUSTOM
 
     id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(36), nullable=False)
+    lastname = db.Column(db.String(36), nullable=True)
     name = db.Column(db.String(36), nullable=False)
     pwd = db.Column(db.String(88), nullable=False)
     age = db.Column(db.Integer)
