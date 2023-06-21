@@ -41,7 +41,7 @@ monitor:
 
 # Running development environment
 env:
-	nix develop --impure --extra-experimental-features nix-command --extra-experimental-features flakes
+	nix develop --impure --extra-experimental-features nix-command --extra-experimental-features flakes --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
 	
 # Run background services like mysql
 bg:
