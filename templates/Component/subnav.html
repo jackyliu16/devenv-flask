@@ -29,8 +29,7 @@
                 <a data-toggle="modal" data-target="#fsignUp"><span class="ti-user"></span> Sign up</a>
             </div>
         {% elif current_user %}
-            <!-- FIXME: Format incorrect, but functional normal -->
-            <div>
+            <div class="social-icons-subnav">
                 <a href="#"><span class="ti-user"></span> {{ current_user.name }} </a>
                 <a href="{{ url_for('main.logout') }}"><span class="ti-lock"></span> Logout</a>
                 <!-- HACK: using Hyperlink maybe Pre-generated or modified by an attacker, maybe change to form -->
