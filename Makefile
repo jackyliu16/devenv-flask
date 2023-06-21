@@ -52,7 +52,17 @@ else
 endif
 	
 # rebuild all environment
-clean-env:
+clean: 
 	rm -rf .venv .devenv
+clean-py:
+	rm -rf .venv
+clean-dev:
+	rm -rf .devenv
+
+# Generate Models
+# 	automates the process of mapping Python classes to database tables and making queries against those tables.
+# 	NOTE: Each update to the database structure must be run and then a simple fix done manually
+generate:
+	flask-sqlacodegen "mysql+mysqlconnector://root@localhost:5001/travel" --outfile "models.py"
 
 .PHONY: clean-env env

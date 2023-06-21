@@ -1,6 +1,8 @@
 ._*
 .pre-commit-config.yaml 
 .devenv
+test.py
+db.sqlite
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

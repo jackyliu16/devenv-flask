@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8">
+    <title>Plesire | Interactive Travel Template</title>
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <!-- favicon -->
+    <link href="static/img/favicon.gif" rel="icon" sizes="32x32" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font themify CSS -->
+    <link rel="stylesheet" href="static/css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link href="static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- date picker CSS -->
+    <link href="static/css/datepicker.min.css" rel="stylesheet">
+    <!-- revolution slider css -->
+    <link rel="stylesheet" type="text/css" href="static/css/fullwidth.css" media="screen" />
+	  <link rel="stylesheet" type="text/css" href="static/rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" href="static/css/rev-settings.css" type="text/css">
+    <!-- on3step CSS -->
+    <link href="static/css/animated-on3step.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.css" rel="stylesheet">
+    <link href="static/css/owl.theme.css" rel="stylesheet">
+    <link href="static/css/on3step-style.css" rel="stylesheet">
+    <link href="static/css/queries-on3step.css" media="all" rel="stylesheet">
+    <link href="static/css/popup-container.css" rel="stylesheet">
+    <!-- NOTE: flash implementation method 1 (using flash)-->
+    {% with messages = get_flashed_messages() %}
+    <script>
+      {% if messages %}
+        alert('{{ messages[0] }}')
+      {% endif %}
+    </script>
+    {% endwith %} 
+  </head>
+  
+  <body>
+  
+    <!-- preloader -->
+    <div class="bg-preloader-white"></div>
+    <div class="preloader-white">
+      <div class="mainpreloader">
+        <span></span>
+      </div>
+    </div>
+    <!-- preloader end -->
+    
+   <!-- content wraper -->
+   <div class="content-wrapper">
+    
+   <header class="init">
+    
+    <!-- subnav -->
+    {% include 'Component/subnav.html' %}
+    <!-- subnav -->
+    
+    <!-- nav -->
+    <div class="navbar-default-white navbar-fixed-top">
+      <div class="container-fluid m-5-hor">
+      <div class="row">
+      
+          <!-- menu mobile display -->
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+          <span class="icon icon-bar"></span> 
+          <span class="icon icon-bar"></span> 
+          <span class="icon icon-bar"></span></button> 
+        
+        <!-- logo --> 
+        <a class="navbar-brand white" href="index.html">
+        <img class="white" alt="logo" src="static/img/logo.png">
+        <img class="black" alt="logo" src="static/img/logo-white.png">
+        </a> 
+        <!-- logo end -->
+        
+        <!-- mainmenu start -->
+        <div class="white menu-init" id="main-menu">
+          <nav id="menu-center">
+            <ul>
+              <li>
+                <a class="actived" href="#">Home <i class="fa fa-angle-down"></i></a>
+                <ul>
+                  <li><a href="index.html">Main Index</a></li>
+                  <li><a href="index-1.html">Slider fullscreen</a></li>
+                  <li><a href="index-2.html">Index New</a></li>
+                  <li><a href="intro/index.html">Intro</a></li>
+                </ul>
+              </li>
+              <li><a href="#">About <i class="fa fa-angle-down"></i></a>
+              <ul>
+                  <li><a href="about.html">About Us - 1</a></li>
+                  <li><a href="about-2.html">About Us - 2</a></li>
+                  <li><a href="about-3.html">All Ellement</a></li></ul>
+              </li>
+              <li><a href="#">Gallery <i class="fa fa-angle-down"></i></a> <ul>
+                  <li><a href="works.html">Gallery Column</a></li>
+                  <li><a href="works-carousel.html">Gallery Carousel</a></li>
+                  <li><a href="#">Projects Detail <i class="fa fa-angle-right"></i></a> <ul>
+                  <li><a href="projects-detail.html">Project Detail 1</a></li>
+                  <li><a href="projects-detail-2.html">Project Detail 2</a></li>
+                  </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a  href="#">Destination <i class="fa fa-angle-down"></i></a>
+              <ul>
+                  <li><a href="destination.html">Destination</a></li>
+                  <li><a href="destination-404.html">Destination 404</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Services <i class="fa fa-angle-down"></i></a>
+                <ul>
+                  <li><a href="ecommerce.html">Shop Page</a></li>
+                  <li><a href="service-1.html">Service 1</a></li>
+                  </ul>
+              </li>
+              <li><a  href="#">Blog <i class="fa fa-angle-down"></i></a>
+                <ul>
+                  <li><a href="blog.html">Blog Single</a></li>
+                  <li><a href="blog-post.html">Blog Post</a></li>
+                </ul>
+              </li>
+              <li><a  href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- mainmenu end -->
+        
+      </div>
+      </div>
+      <!-- container -->
+    </div>
+    <!-- nav end -->
+    </header>
+
+      <!-- NOTE: flash implementation method 2,3 (using div but hidden) -->
+      <!-- FIXME: the position is incorrect -->
+      <!-- 
+      <div class="popup-container" id="popup-container" style="display:none;">
+        <h1>Centered Floating Popup</h1>
+        <p>This is an example of a centered floating popup using absolute positioning.</p>
+        <button onclick="hidePopupx`1()">Close Popup</button>
+      </div>
+      <div id="home">
+        <div id="popup-container">
+          <div id="popup">
+            <h2>欢迎来到我的网站！</h2>
+            {% for message in get_flashed_messages() %}
+              <p>{{ message }}</p>
+            {% endfor %}
+            <button onclick="closePopup()">关闭</button>
+          </div>
+        </div>
+      -->
+      
+      <!-- home -->
+    <!-- NOTE: The loop picture -->
+    {% block head %} 
+    {% endblock %}
+  </div>
+  <!-- home end -->
+
+    <!-- NOTE: The content of the page (exclude the loop picture) -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- footer -->
+      <footer class="main text-center">
+        <div class="container-fluid m-5-hor">
+        <div class="row">
+          <div class="onStep" data-animation="fadeInUp" data-time="300">
+          <div class="col-md-4 text-left">
+            <span><a href="#">Email: companyname@gmail.com</a></span>
+            <span>Copyright - 2018 Plesire Travel All Right Reserved</span>
+          </div>
+            <div class="col-md-4">
+              <span class="logo">
+              <img alt="logo" src="static/img/logo-white.png">
+              </span>
+            </div>
+            
+            <div class="col-md-4 text-right">
+              <span>129 Park street, New York City, NY 10903</span>
+              <span>Phone: (+6221) 999 999 999</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </footer>
+    <!-- footer end -->
+
+    </div>
+    <!-- content wraper end --> 
+    
+    <!-- plugin JS -->
+    <script src="static/plugin/pluginson3step.js"></script> 
+    <script src="static/plugin/bootstrap.min.js"></script>
+    <script src='static/plugin/bootstrap-datepicker.min.js'></script>
+    <script src="static/plugin/sticky.js"></script> 
+    <!-- slider revolution  -->
+    <script src="static/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="static/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- on3step JS -->
+    <script src="static/js/on3step.js"></script>
+    <script src="static/js/plugin-set.js"></script>
+    <script src="static/js/detect-windows-close.js"></script>
+    <!-- NOTE: using by flash method 2 -->
+    <!--
+    {% with messages = get_flashed_messages() %}
+    <script>
+      function openPopup() {
+        document.getElementById("popup-container").style.display = "block";
+      }
+    
+      function closePopup() {
+        document.getElementById("popup-container").style.display = "none";
+      }
+    
+      {% if messages %}
+        openPopup();
+      {% endif %}
+    </script>
+    {% endwith %} 
+    -->
+  </body>
+</html>

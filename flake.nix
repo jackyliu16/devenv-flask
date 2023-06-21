@@ -1,7 +1,6 @@
 {
   description = "Description for the project";
 
-  nixConfig.extra-experimental-features = "nix-command flakes";
   nixConfig.extra-substituters = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/ https://devenv.cachix.org";
   nixConfig.trusted-substituters = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://cache.nixos.org/ https://devenv.cachix.org";
 
@@ -77,15 +76,25 @@
 
           processes = {
             app.exec = ''
-              flask --app ./app.py run --debug --port 5002
+              flask --app ./__init__.py run --debug --port 5002
             '';
           };
 
           enterShell = ''
             LD_PRELOAD=${pkgs.stdenv.cc.cc.lib}/lib/
             LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/
-            FLASK_APP=$(pwd)/app/
+            FLASK_APP=$(pwd)/__init__.py
             FLASK_DEBUG=1
+            # alias helpper
+            alias  gc='git commit --verbose'
+            alias 'gc!'='git commit --verbose --amend'
+            alias  ga='git add'
+            alias  gp='git push'
+            alias  gpf='git push --force'
+            alias  gst="git status"
+            alias  gaa='git add --all'
+            alias  grh='git reset'
+            alias  grhh='git reset --hard'
           '';
         };
 

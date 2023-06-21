@@ -1,12 +1,13 @@
-CREATE TABLE user_data (
+CREATE TABLE user (
     id  INT                 PRIMARY KEY AUTO_INCREMENT,
 
     name    VARCHAR(36)     NOT NULL,
-    pwd     VARCHAR(36)     NOT NULL,
+    pwd     CHAR(88)     NOT NULL,
 
     age         INT,
     email       VARCHAR(36),
-    gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+    -- gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+    gender INT  DEFAULT 2
 );
 
 source ./SQL/data/user.sql;
@@ -14,8 +15,8 @@ source ./SQL/data/user.sql;
 CREATE TABLE admin (
     id      INT             PRIMARY KEY AUTO_INCREMENT,
     name    VARCHAR(36)     NOT NULL,
-    pwd     VARCHAR(36)     NOT NULL,
+    pwd     CHAR(88)     NOT NULL,
     email   VARCHAR(36)
 );
 
-INSERT INTO admin VALUES (1000, "jacky", "123456", NULL);
+source ./SQL/data/admin.sql;

@@ -1,0 +1,7 @@
+Fresh Logins, Fresh Logins¶
+    某个要求在近期之内通过会话检测其登录密码的附加功能 Fresh Logins
+    https://flask-login.readthedocs.io/en/latest/#flask_login.fresh_login_required
+
+Alternative Tokens:
+    使用替代id替代原有的用户id完成工作(有点像是加密)
+    https://flask-login.readthedocs.io/en/latest/#alternative-tokens
