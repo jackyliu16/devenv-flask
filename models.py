@@ -28,7 +28,7 @@ class Admin(User, UserMixin, db.Model):
 
 
 class Customer(User, UserMixin, db.Model):
-    __tablename__ = "user"
+    __tablename__ = "customer"
     user_type = UserType.CUSTOM
 
     id = db.Column(db.Integer, primary_key=True)
