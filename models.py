@@ -2,10 +2,22 @@
 from . import db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
+from enum import Enum
 
 
-class Admin(UserMixin, db.Model):
+class UserType(Enum):
+    NONE = 0
+    ADMIN = 1
+    CUSTOM = 2
+
+
+class User:
+    user_type = UserType.NONE
+
+
+class Admin(User, UserMixin, db.Model):
     __tablename__ = "admin"
+    user_type = UserType.ADMIN
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(36), nullable=False)
@@ -13,8 +25,9 @@ class Admin(UserMixin, db.Model):
     email = db.Column(db.String(36))
 
 
-class User(UserMixin, db.Model):
+class Customer(User, UserMixin, db.Model):
     __tablename__ = "user"
+    user_type = UserType.CUSTOM
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(36), nullable=False)

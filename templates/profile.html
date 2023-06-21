@@ -2,4 +2,14 @@
 
 {% block content %}
 <h1>Hello, {{ current_user.name }}</h1>
+<h2>{{ current_user.UserType }}</h2>
+
+{% if current_user.user_type == UserType.ADMIN %}
+<h2>Hello Admin, {{ current_user.name }}</h2>
+{% endif %}
+
+{% if current_user.user_type == UserType.CUSTOM %}
+<h2>Hello Custom, {{ current_user.name }}</h2>
+{% endif %}
+
 {% endblock %}

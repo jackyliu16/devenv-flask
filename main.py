@@ -10,6 +10,13 @@ from . import db
 main = Blueprint("main", __name__)
 app = Flask(__name__)
 
+from .models import UserType
+
+# NOTE: try 1003
+# @app.context_processor
+# def inject_enums():
+#     return {'UserType': UserType}
+
 
 @main.route("/")
 def index():
@@ -18,7 +25,7 @@ def index():
 
 @main.route("/", methods=["POST"])
 def form_selection():
-    from .models import User, Admin
+    from .models import Customer, Admin
 
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
@@ -28,7 +35,7 @@ def form_selection():
         upwd = request.form.get("password")
 
         # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
-        user = User.query.filter_by(name=uname).first()
+        user = Customer.query.filter_by(name=uname).first()
         admin = Admin.query.filter_by(name=uname).first()
 
         app.logger.debug(f"{user.name}")
@@ -58,7 +65,7 @@ def form_selection():
         uname = request.form.get("username")
         upwd = request.form.get("password")
 
-        user = User.query.filter_by(email=email).first()
+        user = Customer.query.filter_by(email=email).first()
 
         if user:
             # TODO if user have been register
@@ -67,7 +74,7 @@ def form_selection():
             pass
 
         # FIXME should using primary key to insert, otherwise, there will be a conflict
-        new_user = User(
+        new_user = Customer(
             email=email, name=uname, pwd=generate_password_hash(upwd, method="sha256")
         )
         db.session.add(new_user)
@@ -82,7 +89,8 @@ def form_selection():
 @main.route("/profile")
 @login_required
 def profile():
-    return render_template("profile.html")
+    # TODO: maybe we could using some ways to reduce one parameter (in 1003)
+    return render_template("profile.html", UserType=UserType)
 
 
 @main.route("/logout")

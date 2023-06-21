@@ -29,13 +29,20 @@ def create_app():
     )
     login_manager.init_app(app)
 
-    from .models import User, Admin
+    from .models import Customer, Admin
 
     @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
+    def load_user(uid):
         # OPTIMIZE: https://flask-login.readthedocs.io/en/latest/#alternative-tokens
-        # FIXME： maybe need to change the databases, or change here for admin.
+        user = Customer.query.get(int(uid))
+        if user is not None:
+            return user
+
+        admin = Admin.query.get(int(uid))
+        if admin is not None:
+            return admin
+
+        return None
 
     # blueprint for auth routes in our app
     # from .auth import auth as auth_blueprint
