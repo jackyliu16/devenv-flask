@@ -38,7 +38,9 @@ def form_selection():
         user = Customer.query.filter_by(name=uname).first()
         admin = Admin.query.filter_by(name=uname).first()
 
-        app.logger.debug(f"{user.name}")
+        app.logger.debug(
+            f"{user.name if user else None} {admin.name if admin else None}"
+        )
         if user and check_password_hash(user.pwd, upwd):
             app.logger.debug("login successed")
             # TODO
@@ -48,7 +50,9 @@ def form_selection():
             pass
         elif admin and check_password_hash(admin.pwd, upwd):
             app.logger.debug("login successed")
-            # TODO
+            login_user(
+                admin, remember=False
+            )  # TODO could trying to add remember checkbox into login
         else:
             flash("Please check your login details and try again.")
             app.logger.debug("login failure")
@@ -67,19 +71,23 @@ def form_selection():
 
         user = Customer.query.filter_by(email=email).first()
 
+        # NOTE: there is unnecessary to register admin
         if user:
-            # TODO if user have been register
             app.logger.debug("register failure")
-            flash("hello, world")
-            pass
+            flash("Email address alrerady exists")
+        else:
+            new_user = Customer(
+                firstname=firstname,
+                lastname=lastname,
+                name=uname,
+                email=email,
+                # TODO: unfix the collection of gender
+                pwd=generate_password_hash(upwd, method="sha256"),
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            app.logger.debug("register successed")
 
-        # FIXME should using primary key to insert, otherwise, there will be a conflict
-        new_user = Customer(
-            email=email, name=uname, pwd=generate_password_hash(upwd, method="sha256")
-        )
-        db.session.add(new_user)
-        db.session.commit()
-        app.logger.debug("register successed")
     return render_template(
         "index.html",
         current_user=current_user,  # in default situation, will send AnonymousUserMixin: https://flask-login.readthedocs.io/en/latest/#anonymous-users

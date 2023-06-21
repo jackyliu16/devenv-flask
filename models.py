@@ -20,6 +20,8 @@ class Admin(User, UserMixin, db.Model):
     user_type = UserType.ADMIN
 
     id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(36), nullable=False)
+    lastname = db.Column(db.String(36), nullable=True)
     name = db.Column(db.String(36), nullable=False)
     pwd = db.Column(db.String(88), nullable=False)
     email = db.Column(db.String(36))
