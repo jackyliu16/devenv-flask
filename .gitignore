@@ -2,7 +2,7 @@
 .pre-commit-config.yaml 
 .devenv
 test.py
-db.sqlite
+YOUR_BING_MAPS_API_KEY
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
