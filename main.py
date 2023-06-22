@@ -118,4 +118,6 @@ def post_contact():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
 
+    # TODO finish save form in database operation
+
     return render_template("contact.html")
