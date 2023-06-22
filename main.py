@@ -60,7 +60,6 @@ def form_selection():
             )
 
     elif request.form["form_type"] == "register":
-        # FIXME current content haven't full implement the function, which have't send first and last name
         firstname = request.form.get("firstname")
         lastname = request.form.get("lastname")
         email = request.form.get("email")
