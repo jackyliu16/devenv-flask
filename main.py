@@ -44,7 +44,6 @@ def form_selection():
         )
         if user and check_password_hash(user.pwd, upwd):
             app.logger.debug("login successed")
-            # TODO
             login_user(
                 user, remember=False
             )  # TODO could trying to add remember checkbox into login
