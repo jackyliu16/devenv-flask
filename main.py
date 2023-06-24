@@ -121,3 +121,8 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
+
+
+@main.route("/baiduMap_routeArrangement")
+def baiduMap_routeArrangement():
+    return render_template("baiduMap_routeArrangement.html")
