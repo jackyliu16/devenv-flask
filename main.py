@@ -106,6 +106,7 @@ def logout():
     )  # CHECK if it's necessary?
     logout_user()
     return redirect(url_for("main.index"))
+<<<<<<< HEAD
 
 
 @main.route("/contact")
@@ -126,3 +127,5 @@ def post_contact():
 @main.route("/bmap_main")
 def bmap_main():
     return render_template("/baiduMap/bmap_main.html")
+=======
+>>>>>>> 32d48da (refactor(contact): move to user blueprint)
