@@ -128,3 +128,18 @@ def bmap_main():
     return render_template("/baiduMap/bmap_main.html")
 =======
 >>>>>>> 32d48da (refactor(contact): move to user blueprint)
+
+
+@main.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+@main.route("/contact", methods=["POST"])
+def post_contact():
+    for k, v in request.form.items():
+        app.logger.debug(f"{k}:{v}")
+
+    # TODO finish save form in database operation
+
+    return render_template("contact.html")
