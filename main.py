@@ -120,11 +120,32 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
+<<<<<<< HEAD
 @main.route("/baiduMap_routeArrangement")
 def baiduMap_routeArrangement():
     return render_template("baiduMap_routeArrangement.html")
+=======
 
 
-@main.route("/baiduMap_search")
-def baiduMap_search():
-    return render_template("baiduMap_search.html")
+# @main.route("/baiduMap_routeArrangement")
+# def baiduMap_routeArrangement():
+#     return render_template("/baiduMap/baiduMap_routeArrangement.html")
+>>>>>>> 35b0976 (feat: Realize function of search and zoom)
+
+
+# @main.route("/baiduMap_search")
+# def baiduMap_search():
+#     return render_template("/baiduMap/baiduMap_search.html")
+
+# @main.route("/baiduMap_zoom")
+# def baiduMap_zoom():
+#     return render_template("/baiduMap/baiduMap_zoom.html")
+
+# @main.route("/baiduMap_search_zoom")
+# def baiduMap_search_zoom():
+#     return render_template("/baiduMap/baiduMap_search_zoom.html")
+
+
+@main.route("/baiduMap_search_zoom_manual")
+def baiduMap_search_zoom_manual():
+    return render_template("/baiduMap/baiduMap_search_zoom_manual.html")
