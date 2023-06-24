@@ -44,14 +44,15 @@ def create_app():
 
         return None
 
-    # blueprint for auth routes in our app
-    # from .auth import auth as auth_blueprint
-
-    # app.register_blueprint(auth_blueprint)
-
-    # blueprint for non-auth parts of app
+    # user commonality
     from .main import main as main_blueprint
 
     app.register_blueprint(main_blueprint)
+
+    # Customer Operation
+    # TODO: not sure if user profile and admin profile shoule be same
+    from .user import user as user_blueprint
+
+    app.register_blueprint(user_blueprint)
 
     return app
