@@ -37,3 +37,12 @@ class Customer(User, UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
+
+
+class Feedback(db.Model):
+    __tablename__ = "feedback"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(Customer.id), nullable=False)
+    email = db.Column(db.String(36), nullable=False)
+    comment = db.Column(db.String(500), nullable=False)
