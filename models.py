@@ -37,3 +37,11 @@ class Customer(User, UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
+
+
+class ProductDetail(db.Model):
+    __tablename__ = "product_detail"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(36), nullable=False)
+    info = db.Column(db.String(128), nullable=False)

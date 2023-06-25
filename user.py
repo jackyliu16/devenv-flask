@@ -14,12 +14,14 @@
 # here put the import lib
 
 
+import os
+import re
 from flask import Flask, Blueprint
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 
 user = Blueprint("user", __name__)
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 
 from .models import UserType
 
@@ -37,3 +39,29 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
+
+
+# @user.route("/product_detail")
+# def attractions_detail_page():
+#     return render_template("AttractionsDetailPage.html")
+
+
+@user.route("/product_detail")
+def product_detail_page():
+    product_name = request.args.get("name")
+    app.logger.info(f"into product detail page with {product_name}")
+    # TODO: assert if page not existed
+
+    # TODO get img as list
+    img_files = []
+    path = "static/img/product/"
+    # pattern = "^" + product_name + ".*"
+    pattern = f"^{product_name}.*"
+    for file_name in os.listdir(path):
+        if os.path.isfile(os.path.join(path, file_name)) and re.match(
+            pattern, file_name
+        ):
+            img_files.append(os.path.join(path, file_name))
+    app.logger.debug(f"{img_files}")
+
+    return render_template("AttractionsDetailPage.html", img_files=img_files)

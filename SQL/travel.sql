@@ -32,3 +32,19 @@ CREATE TABLE feedback (
     FOREIGN KEY (user_id) REFERENCES customer(id)
 );
 INSERT INTO feedback VALUES(1, 1, "what a good website");
+
+CREATE TABLE product_detail (
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    name     VARCHAR(36)    NOT NULL,
+    info     VARCHAR(128)   NOT NULL
+);
+
+-- NOTE: what about we just search it in the path with specify name 
+-- CREATE TABLE images (
+--   id INT(11) NOT NULL AUTO_INCREMENT,
+--   name  VARCHAR(255) DEFAULT NULL,
+--   product_id  INT NOT NULL,
+--   url   VARCHAR(255) DEFAULT NULL,
+--   PRIMARY KEY (id)
+--   FOREIGN KEY (product_id) REFERENCES product_detail(id)
+-- );
