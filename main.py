@@ -35,7 +35,6 @@ def form_selection():
         upwd = request.form.get("password")
         app.logger.debug(f"{uname}:{upwd}")
 
-        # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
         user = Customer.query.filter_by(name=uname).first()
         admin = Admin.query.filter_by(name=uname).first()
 
