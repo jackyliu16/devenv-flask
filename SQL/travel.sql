@@ -1,3 +1,5 @@
+-- NOTE: maybe we could using [this](https://github.com/jackyliu16/small-toys/tree/main/Convert_xlsx_Into_SQL_Insert_Query) to convert xlsx into sql
+-- (but some part of it should be refactor)
 CREATE TABLE customer (
     id          INT             PRIMARY KEY AUTO_INCREMENT,
     firstname   VARCHAR(36),
