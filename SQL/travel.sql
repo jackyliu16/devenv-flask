@@ -38,7 +38,7 @@ CREATE TABLE product_detail (
     name     VARCHAR(36)    NOT NULL,
     info     VARCHAR(128)   NOT NULL
 );
-
+source ./SQL/data/product_detail.sql;
 -- NOTE: what about we just search it in the path with specify name 
 -- CREATE TABLE images (
 --   id INT(11) NOT NULL AUTO_INCREMENT,
