@@ -41,16 +41,18 @@
         
         <div class="grid-item">
         <!-- text detail -->
-        <h3 class="big-heading">The Landscape Gallery</h3>
-        <p class="intro">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut.
-        </p>
-        <p class="content">incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut.
-        </p>
+        <h3 class="big-heading">{{ detail_dic["name"] }}</h3>
+            <p class="intro">{{ detail_dic["intro"] }}</p>>
+            <p class="content">{{  detail_dic["content"] | safe }}</p>>
         <!-- text detail end -->
         </div>
         
+{#        <div class="grid-item">#}
+{#        <img alt="#" class="img-responsive" src={{ }}">#}
         <div class="grid-item">
-        <img alt="#" class="img-responsive" src="img/projects-w/projects-detail/fullimage2.jpg">
+        {% if img_files %}
+                <div class="item"><img alt="#" class="img-responsive" src={{ img_files[0] }}></div>
+        {% endif %}
         <!-- text detail -->
         <h3 class="big-heading">Blue Ocean Australia</h3>
         <p class="content">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.

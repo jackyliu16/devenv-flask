@@ -35,8 +35,9 @@ INSERT INTO feedback VALUES(1, 1, "what a good website");
 
 CREATE TABLE product_detail (
     id       INT PRIMARY KEY AUTO_INCREMENT,
-    name     VARCHAR(36)    NOT NULL,
-    info     VARCHAR(128)   NOT NULL
+    name      VARCHAR(36)    NOT NULL,
+    intro     TEXT           NOT NULL,
+    content   LONGTEXT       NOT NULL
 );
 source ./SQL/data/product_detail.sql;
 -- NOTE: what about we just search it in the path with specify name 

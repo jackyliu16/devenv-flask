@@ -3,6 +3,7 @@ from . import db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from enum import Enum
+from sqlalchemy.dialects.mysql import LONGTEXT
 
 
 class UserType(Enum):
@@ -44,4 +45,5 @@ class ProductDetail(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(36), nullable=False)
-    info = db.Column(db.String(128), nullable=False)
+    intro = db.Column(db.Text, nullable=False)
+    content = db.Column(LONGTEXT, nullable=False)
