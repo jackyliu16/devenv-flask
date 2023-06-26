@@ -42,11 +42,6 @@ def post_contact():
     return render_template("contact.html")
 
 
-# @user.route("/product_detail")
-# def attractions_detail_page():
-#     return render_template("AttractionsDetailPage.html")
-
-
 @user.route("/product_detail")
 def product_detail_page():
     product_name = request.args.get(
