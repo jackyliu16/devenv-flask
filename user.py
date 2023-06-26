@@ -24,6 +24,7 @@ user = Blueprint("user", __name__)
 app = Flask(__name__, static_url_path="/static")
 
 from .models import UserType, ProductDetail
+from .lib import get_file_list_with_pattern
 
 
 @user.route("/contact")
@@ -63,17 +64,10 @@ def product_detail_page():
 
     # TODO: assert if page not existed
 
-    # get img as list
-    img_files = []
-    path = "static/img/product/"
-    pattern = f"^{product_name}.*"
-    for file_name in os.listdir(path):
-        if os.path.isfile(os.path.join(path, file_name)) and re.match(
-            pattern, file_name
-        ):
-            img_files.append(os.path.join(path, file_name))
-    app.logger.debug(f"{img_files}")
-
     return render_template(
-        "AttractionsDetailPage.html", img_files=img_files, detail_dic=product_detail
+        "AttractionsDetailPage.html",
+        img_files=get_file_list_with_pattern(
+            "./static/img/product", f"^{product_name}.*"
+        ),
+        detail_dic=product_detail,
     )
