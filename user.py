@@ -23,8 +23,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 user = Blueprint("user", __name__)
 app = Flask(__name__, static_url_path="/static")
 
-from .models import UserType
-from .models import ProductDetail
+from .models import UserType, ProductDetail
 
 
 @user.route("/contact")
@@ -49,31 +48,24 @@ def post_contact():
 
 @user.route("/product_detail")
 def product_detail_page():
-    product_name = request.args.get("name")  # 量词跟在product_detail？name= 以后
+    product_name = request.args.get(
+        "name"
+    )  # NOTE: you should using /product_detail?name=apple to calling funciton
     app.logger.info(f"into product detail page with {product_name}")
-    # get the product_detail as list
-    product_details = ProductDetail.query.all()
-    # 将查询结果转换为列表形式
-    detail_list = [i.__dict__ for i in product_details]
-    detail_list = [
-        {k: v for k, v in i.items() if not k.startswith("_")} for i in detail_list
-    ]
-    app.logger.info(f"into product detail page with {detail_list}")
-    detail_intro = None
-    detail_dic = None
-    for detail in detail_list:
-        if detail["name"] == product_name:
-            detail_dic = detail
-            detail_intro = detail["intro"]
-    app.logger.info(f"into product detail page with {detail_dic}")
-    app.logger.info(f"into product detail page with {detail_intro}")
+
+    # get the kv of the first product match the name
+    product_details = ProductDetail.query.filter_by(name=product_name).first()
+    # remove unnecessary item
+    product_detail = {
+        k: v for k, v in product_details.__dict__.items() if not k.startswith("_")
+    }
+    app.logger.debug(f"product_detail: {product_detail}")
 
     # TODO: assert if page not existed
 
     # get img as list
     img_files = []
     path = "static/img/product/"
-    # pattern = "^" + product_name + ".*"
     pattern = f"^{product_name}.*"
     for file_name in os.listdir(path):
         if os.path.isfile(os.path.join(path, file_name)) and re.match(
@@ -83,5 +75,5 @@ def product_detail_page():
     app.logger.debug(f"{img_files}")
 
     return render_template(
-        "AttractionsDetailPage.html", img_files=img_files, detail_dic=detail_dic
+        "AttractionsDetailPage.html", img_files=img_files, detail_dic=product_detail
     )
