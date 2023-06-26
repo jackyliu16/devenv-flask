@@ -13,6 +13,12 @@ import os
 import re
 from typing import List
 
+FACILITIES_SERVICES = {
+    0: "Double Bed",
+    1: "Breakfast Include",
+    2: "Free Wi-FI",
+}
+
 
 def get_file_list_with_pattern(root: str, pattern: str) -> List[str]:
     """

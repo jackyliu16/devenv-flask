@@ -70,20 +70,19 @@
             <!-- widget -->
             <div class="widget">
             <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp" data-time="1200">
-                <div class="price">$900<sub>/ night</sub></div>
+                <div class="price">{{ detail_dic["price"].split("/")[0] }}<sub>/ {{ detail_dic["price"].split("/")[1] }}</sub></div>
                 <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
 
                 <!-- spacer --> 
                 <div class="space-half"></div> 
 
+                {% if detail_dic["mask"] != 0 %}
                 <h3 class="big-heading">Facilities Services</h3>
                 <div class="devider-rooms-detail"></div>
-                <span><i class="ti-check-box"></i> Double Bed</span>
-                <span><i class="ti-check-box"></i> Privacy Beach</span>
-                <span><i class="ti-check-box"></i> Breakfast Include</span>
-                <span><i class="ti-check-box"></i> Private Balcony</span>
-                <span><i class="ti-check-box"></i> Free Wi-Fi</span>
-                <span><i class="ti-check-box"></i> 4 Persons</span>
+                    {% for bin in range(0, detail_dic["mask"] // 2) %}
+                        <span><i class="ti-check-box"></i>{{ FACILITIES_SERVICES[bin] }}</span>
+                    {% endfor %}
+                {% endif %}
             </div>
             <a class="btn-book" href="ecommerce-form.html">BOOK NOW</a> 
             </div>

@@ -46,4 +46,6 @@ class ProductDetail(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(36), nullable=False)
     intro = db.Column(db.Text, nullable=False)
-    content = db.Column(LONGTEXT, nullable=False)
+    content = db.Column(LONGTEXT, nullable=True)
+    price = db.Column(db.String(36), nullable=False)
+    mask = db.Column(db.SmallInteger, nullable=True)

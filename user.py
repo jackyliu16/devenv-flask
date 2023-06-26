@@ -24,7 +24,7 @@ user = Blueprint("user", __name__)
 app = Flask(__name__, static_url_path="/static")
 
 from .models import UserType, ProductDetail
-from .lib import get_file_list_with_pattern
+from .lib import get_file_list_with_pattern, FACILITIES_SERVICES
 
 
 @user.route("/contact")
@@ -65,4 +65,5 @@ def product_detail_page():
             "./static/img/product", f"^{product_name}.*"
         ),
         detail_dic=product_detail,
+        FACILITIES_SERVICES=FACILITIES_SERVICES,
     )
