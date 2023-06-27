@@ -42,17 +42,17 @@
         <div class="grid-item">
         <!-- text detail -->
         <h3 class="big-heading">{{ detail_dic["name"] }}</h3>
+            {# CHECK: what is the diff between this and bellow intro? should replace? #}
             <p class="intro">{{ detail_dic["intro"] }}</p>>
             <p class="content">{{  detail_dic["content"] | safe }}</p>>
         <!-- text detail end -->
         </div>
         
-{#        <div class="grid-item">#}
-{#        <img alt="#" class="img-responsive" src={{ }}">#}
         <div class="grid-item">
         {% if img_files %}
                 <div class="item"><img alt="#" class="img-responsive" src={{ img_files[0] }}></div>
         {% endif %}
+        {# CHECK: it looks like the #}
         <!-- text detail -->
         <h3 class="big-heading">Blue Ocean Australia</h3>
         <p class="content">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.
@@ -71,6 +71,7 @@
             <div class="widget">
             <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp" data-time="1200">
                 <div class="price">{{ detail_dic["price"].split("/")[0] }}<sub>/ {{ detail_dic["price"].split("/")[1] }}</sub></div>
+                {# CHECK: what is the diff between this and previous intro? should replace? #}
                 <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
 
                 <!-- spacer --> 
@@ -89,6 +90,7 @@
             <!-- widget end -->
             
 
+            {# TODO: consider if we should making another table in db for 1:n mapping to tags or just using perviers previous methods #}
             <!-- widget -->
             <div class="widget">
                 <h4 class="big-heading">
@@ -146,6 +148,7 @@
     <div class="space-double"></div>
         
     <!-- button projects -->
+    {# TODO: making the route mapping just like perviers, but how to know the sequence? #}
     <div class="col-md-6">
     <div class="pro-btn left">
     <a class="link"  href="#">

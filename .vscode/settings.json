@@ -58,7 +58,8 @@
             // "background": "#FFFF00",
             // "rulerColour": "#FFFF00",
             "iconColour": "#FFFF00",
-            "foreground": "#FFFF00"
+            "foreground": "#FFFF00",
+            "icon": "checklist",
         },
         "FIXME": {
             "background": "#FF0000",
@@ -71,7 +72,7 @@
             "foreground": "#FF0000",
         },
         "HACK": {
-            "icon": "tools",
+            "icon": "versions",
             "foreground": "#d2723a",
             "background": "#ffffff",
         },
@@ -105,5 +106,6 @@
             "icon": "note",
             "rulerColour": "#f90",
         }
+        // verified, note, tag, unverified, flame, bug
     },
 }
