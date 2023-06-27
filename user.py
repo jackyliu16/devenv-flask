@@ -62,7 +62,7 @@ def product_detail_page():
     return render_template(
         "AttractionsDetailPage.html",
         img_files=get_file_list_with_pattern(
-            "./static/img/product", f"^{product_name}.*"
+            "./static/img/product", f"^{product_name.replace(' ', '_')}.*"
         ),
         detail_dic=product_detail,
         FACILITIES_SERVICES=FACILITIES_SERVICES,
