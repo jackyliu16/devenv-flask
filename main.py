@@ -106,3 +106,8 @@ def logout():
     )  # CHECK if it's necessary?
     logout_user()
     return redirect(url_for("main.index"))
+
+
+@main.route("/about")
+def about():
+    return render_template("about.html")
