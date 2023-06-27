@@ -1,39 +1,109 @@
 {
-    "todohighlight.keywords": [
-        {
-            "text": "NOTE",
-            "color": "#3498db", // 蓝色
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "TODO",
-            "color": "#ffff00",  // 黄色
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "FIXME",
-            "color": "#ff0000", // 红色
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "OPTIMIZE",
-            "color": "#FFA500",
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "HACK",
-            "color": "#008000",
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "REVIEW",
-            "color": "#800080",
-            "backgroundColor": "inherit"
-        },
-        {
-            "text": "CHECK",
-            "color": "#FFD700",
-            "backgroundColor": "#808080"
-        }
+    // "todohighlight.keywords": [
+    //     {
+    //         "text": "NOTE",
+    //         "color": "#3498db", // 蓝色
+    //         "backgroundColor": "inherit"
+    //     },
+    //     {
+    //         "text": "TODO",
+    //         "color": "#ffff00",  // 黄色
+    //         "backgroundColor": "inherit"
+    //     },
+    //     {
+    //         "text": "FIXME",
+    //         "color": "#ff0000", // 红色
+    //         "backgroundColor": "inherit"
+    //     },
+    //     {
+    //         "text": "OPTIMIZE",
+    //         "color": "#FFA500",
+    //         "backgroundColor": "inherit"
+    //     },
+    //     {
+    //         "text": "HACK",
+    //         "color": "#d2723a",
+    //         "backgroundColor": "inherit"
+    //     },
+    //     {
+    //         "text": "CHECK",
+    //         "color": "#1ed761",
+    //     }
+    // ],
+    //todo-tree settings
+    "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^)\\s*($TAGS):|^\\s*- \\[ \\])",
+    "todo-tree.general.tags": [
+        "TODO",        // 有功能代码待编写
+        "FIXME",       // 标识代码需要修正，甚至错误 
+        "NOTE",        // 代码的注释或备注 
+        "BUG",         // 常用于软件开发中指代程序错误或缺陷(由测试提交)
+        "HACK",        // 临时措施，表明代码中存在的不太优雅、但在特定情况下有效的解决方案 
+        "OPTIMIZE",    // 表明代码中存在的可以进一步优化的部分。这些代码片段可能已经能够正常工作，但是可能会在大规模数据或用户量上变得缓慢或不可扩展
+        "XXX",         // 表明代码中存在的需要注意或待处理的问题。这些问题可能是技术债务、设计缺陷、功能不足等
+        "CHECK",       // 表明代码中存在需要检查或验证的部分。这些部分可能需要进一步的测试、审查或评估，以确保代码的正确性和可靠性
+        "[ ]", "[x]",  // 表示一个未/已完成的任务或待处理事项
+        "tag", "done", // 指示代码中的特定功能或组件
     ],
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.defaultHighlight": {
+        // "foreground": "#FFFFFF",
+        // "background": "#FFFF00",
+        // "icon": "check",
+        // "rulerColour": "#FFFF00",
+        // "type": "tag",
+        // "iconColour": "#FFFF00"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            // "background": "#FFFF00",
+            // "rulerColour": "#FFFF00",
+            "iconColour": "#FFFF00",
+            "foreground": "#FFFF00"
+        },
+        "FIXME": {
+            "background": "#FF0000",
+            "icon": "beaker",
+            "rulerColour": "#FF0000",
+            "iconColour": "#FF0000",
+        },
+        "BUG": {
+            "icon": "bug",
+            "foreground": "#FF0000",
+        },
+        "HACK": {
+            "icon": "tools",
+            "foreground": "#d2723a",
+            "background": "#ffffff",
+        },
+        "XXX": {
+            "icon": "x",
+        },
+        "OPTIMIZE": {
+            "foreground": "#FFA500",
+            "background": "#ffffff",
+        },
+        "CHECK": {
+            "foreground": "#0080ffee",
+            "background": "#ffffff",
+        },
+        // "tag": {
+        //     "background": "#0000FF",
+        //     "icon": "tag",
+        //     "rulerColour": "#0000FF",
+        //     "iconColour": "#0000FF",
+        //     "rulerLane": "full"
+        // },
+        // "done": {
+        //     "background": "#008000",
+        //     "icon": "issue-closed",
+        //     "rulerColour": "#008000",
+        //     "iconColour": "#008000",
+        // },
+        "NOTE": {
+            "iconColour ": "#f90",
+            "foreground": "#3498db",
+            "icon": "note",
+            "rulerColour": "#f90",
+        }
+    },
 }
