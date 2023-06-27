@@ -35,58 +35,29 @@
 			height: 400px;
             overflow-y: auto;
 		}
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-		
-		#row {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin-bottom: 10px;
-		}
-		
-		#row button,
-		#row select {
-			margin-right: 10px;
-		}
-		
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=vIeXG84uuDZCLzQ4Nf3a5bhaC2Zd3iA1"></script>
 	<!--
 		<script type="text/javascript" src="/html/js/baiduMap.js"></script>
 	-->
-	<title>使用百度地图实现定位和搜索</title>
+	<title>关键字输入提示词条, 控制地图缩放</title>
 </head>
 <body>
 	<div id="l-map"></div>
-	<div id="driving_way" class="container">
-		<div class="row">
-			<button id="searchBtn">Public transport</button>
-			<select>
-				<option value="0">推荐方案</option>
-				<option value="1">最少时间</option>
-				<option value="2">最少换乘</option>
-				<option value="3">最少步行</option>
-				<option value="4">不乘地铁</option>
-				<option value="5">优先地铁</option>
-			</select>
-			
-		</div>
-		<div class="row">
-			<button id="carBtn">By car</button>
-		</div>
-		<div class="row">
-			<button id="bikeBtn">By bike</button>
-		</div>
-		<div class="row">
-			<button id="footBtn">On foot</button>
-		</div>
-		<p id='result'></p>
+	<div id="driving_way">
+		<select>
+            <option value="0">推荐方案</option>
+			<option value="1">最少时间</option>
+			<option value="2">最少换乘</option>
+			<option value="3">最少步行</option>
+			<option value="4">不乘地铁</option>
+            <option value='5'>优先地铁</option>
+		</select>
+        <button id='searchBtn'>查询</button>
+        <p id='result'></p>
 	</div>
-	<div id="r-result">搜索: <input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div>
+	<div id="r-result">请输入: <input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div>
 	<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
 	<div>
 		<label for="start_point">起点经纬度：</label>
@@ -97,31 +68,7 @@
 		<input type="text" id="end_point" placeholder="请输入终点经纬度">
 	</div>
 	<button id="submitBtn">提交</button>
-	<p style="color: blue; font-size: 20px;">功能：
-		<p style="color: red; font-size: 16px;">
-			1. 搜索功能：输入地点，定位地点；
-		</p>
-		
-		<p style="color: red; font-size: 16px;">
-			2. 路线查询功能：
-		</p>
-			<p style="color: green; font-size: 14px; text-indent: 20px">
-				a. 点击地图，记录起点和终点经纬度；
-			</p>
-			<p style="color: green; font-size: 14px; text-indent: 20px">
-				b. 输入框内输入起终经纬度，点击提交按钮；
-			</p>
-			<p style="color: green; font-size: 14px; text-indent: 20px">
-				c. 右上角选择出行方式：“公共交通”、“开车”、“汽车”和“步行”等；
-			</p>
-			<p style="color: green; font-size: 14px; text-indent: 20px">
-				d. 其中“公共交通”可以选择：“推荐方案”、“最少时间”、“最少换乘”、“最少步行”、“不乘地铁”和“优先地铁”等6种方式；
-			</p>
-			
-			
-			
-			
-	</p>
+	<p>功能：输入地点，定位地点；鼠标滚轮缩放地图；</p>
 	</body>
 </html>
 
@@ -242,11 +189,7 @@
 	
 	var routePolicy = [BMAP_TRANSIT_POLICY_RECOMMEND,BMAP_TRANSIT_POLICY_LEAST_TIME,BMAP_TRANSIT_POLICY_LEAST_TRANSFER,BMAP_TRANSIT_POLICY_LEAST_WALKING,BMAP_TRANSIT_POLICY_AVOID_SUBWAYS,BMAP_TRANSIT_POLICY_FIRST_SUBWAYS];
 	var transit = new BMap.TransitRoute(map, {
-			renderOptions: {
-				map: map, 
-				autoViewport: true,
-				panel: 'result'
-			},
+			renderOptions: {map: map, panel: 'result'},
 			policy: 0,
 	});
 
@@ -263,41 +206,6 @@
 		}
 	});
 
-	// Car 搜索按钮点击事件
-	var searchBtn = document.getElementById("carBtn");
-	searchBtn.addEventListener("click", function() {
-		map.clearOverlays();
-		var driving = new BMap.DrivingRoute(map, {
-			renderOptions:{
-				map: map, autoViewport: true
-			}
-		});
-		driving.search(start_point,end_point);	
-	});
-
-	// Bike 搜索按钮点击事件
-	$("#bikeBtn").click(function()  {
-		map.clearOverlays();
-		var riding = new BMap.RidingRoute(map, { 
-			renderOptions: { 
-				map: map, 
-				autoViewport: true 
-			}
-		});
-		riding.search(start_point,end_point);	
-	});
-
-	// Foot 搜索按钮点击事件
-	$("#footBtn").click(function()  {
-		map.clearOverlays();
-		var walking = new BMap.WalkingRoute(map, { 
-			renderOptions: { 
-				map: map, 
-				autoViewport: true 
-			}
-		});
-		walking.search(start_point,end_point);	
-	});
-	
 </script>
+
 
