@@ -1,8 +1,10 @@
 -- CREATE TABLE product_detail (
 --     id       INT PRIMARY KEY AUTO_INCREMENT,
 --     name      VARCHAR(36)    NOT NULL,
---     intro     TEXT           NOT NULL,
---     content   LONGTEXT       NOT NULL
+--     intro     TEXT,
+--     content   LONGTEXT       NOT NULL,
+--     price     VARCHAR(36)    NOT NULL,
+--     mask      SMALLINT       NOT NULL
 -- );
 INSERT INTO product_detail (name, price, mask, intro, content) VALUES ('apple',             '$1/one',     7,  'this is a applee hotel.','fuck');
 INSERT INTO product_detail (name, price, mask, intro, content) VALUES ('banana',            '$2/one',     7,  'this is a banana hotel.','you');
