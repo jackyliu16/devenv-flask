@@ -91,3 +91,8 @@ def ecommerceForm():
         product_img=product_img,
         detail_dic=product_details,
     )
+
+
+@user.route("/about")
+def about():
+    return render_template("about.html")
