@@ -2,13 +2,7 @@
 from . import db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from enum import Enum
-
-
-class UserType(Enum):
-    NONE = 0
-    ADMIN = 1
-    CUSTOM = 2
+from .lib import UserType
 
 
 class User(UserMixin, db.Model):

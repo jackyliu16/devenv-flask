@@ -19,7 +19,7 @@ from flask import render_template, request, flash, url_for, redirect, make_respo
 from flask_login import login_user, logout_user, login_required, current_user
 
 
-user = Blueprint("user", __name__)
+user = Blueprint("userView", __name__)
 app = Flask(__name__)
 
 from .models import UserType, Feedback

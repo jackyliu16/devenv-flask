@@ -3,12 +3,18 @@ from flask import session
 from datetime import timedelta
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from flask_admin import Admin
+from flask_babel import Babel
+
+from .lib import MyModelView
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 
 
 def create_app():
+    from .models import User, Feedback
+
     app = Flask(__name__)
 
     app.config[
@@ -20,6 +26,7 @@ def create_app():
     app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5)  # cookies timeout
 
     db.init_app(app)
+    babel = Babel(app)
 
     # FIXME: user maybe will not leave the website before logout
     login_manager = LoginManager()
@@ -29,6 +36,8 @@ def create_app():
     )
     login_manager.init_app(app)
 
+    adminView = Admin(template_mode="bootstrap3")
+
     from .models import User
 
     @login_manager.user_loader
@@ -37,20 +46,20 @@ def create_app():
         user = User.query.get(int(uid))
         if user is not None:
             return user
-
         return None
 
-    # user commonality
     from .main import main as main_blueprint
-
-    app.register_blueprint(main_blueprint)
-
-    # Customer Operation
-    # TODO: not sure if user profile and admin profile shoule be same
     from .user import user as user_blueprint
     from .admin import admin as admin_blueprint
 
+    # register blueprint
+    app.register_blueprint(main_blueprint)
     app.register_blueprint(user_blueprint)
     app.register_blueprint(admin_blueprint)
+
+    # register table manager provide by flask-admin
+    adminView.add_view(MyModelView(User, db.session))
+    adminView.add_view(MyModelView(Feedback, db.session))
+    adminView.init_app(app)
 
     return app
