@@ -56,7 +56,7 @@ def product_detail_page():
     product_detail = {
         k: v for k, v in product_details.__dict__.items() if not k.startswith("_")
     }
-    app.logger.debug(f"product_detail: {product_detail}")
+    # app.logger.debug(f"product_detail: {product_detail}")
 
     # TODO: assert if page not existed
 
@@ -75,8 +75,19 @@ def gallery():
     return render_template("gallery.html")
 
 
-@user.route("/ecommerce-form")
+@user.route("/ecommerce-form", methods=["GET", "POST"])
 def ecommerceForm():
     product_name = request.args.get("name")
-    app.logger.debug(f"product_name: {product_name}")
-    return render_template("ecommerce-form.html", product_name=product_name)
+    product_img = request.args.get("img1")
+    product_details = ProductDetail.query.filter_by(name=product_name).first()
+    # remove unnecessary item
+    product_details = {
+        k: v for k, v in product_details.__dict__.items() if not k.startswith("_")
+    }
+    app.logger.debug(f"product_dic: {product_details}")
+    return render_template(
+        "ecommerce-form.html",
+        product_name=product_name,
+        product_img=product_img,
+        detail_dic=product_details,
+    )

@@ -80,7 +80,7 @@
                                 <div class="widget">
                                     <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp"
                                          data-time="1200">
-                                        <div class="price">{{ detail_dic["price"].split("/")[0] }}<sub>/ {{ detail_dic["price"].split("/")[1] }}</sub>
+                                        <div class="price">${{ detail_dic["price"].split("/")[0] }}<sub>/night</sub>
                                         </div>
                                         {# CHECK: what is the diff between this and previous intro? should replace? #}
                                         <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american
@@ -98,7 +98,8 @@
                                         {% endif %}
                                     </div>
                                     <a class="btn-book"
-                                       href={{ url_for("user.ecommerceForm", name= detail_dic["name"]) }}>BOOK NOW</a>
+                                       href={{ url_for("user.ecommerceForm", name= detail_dic["name"],img1 = img_files[3]) }}>BOOK
+                                        NOW</a>
                                 </div>
                                 <!-- widget end -->
 

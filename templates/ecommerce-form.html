@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- subheader -->
     <section id="subheader-commerce">
         <div class="container-fluid m-5-hor">
@@ -70,35 +71,37 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><img alt="commerce" src="img/commerce/img1.jpg"></td>
+                            <td><img alt="commerce" width="350px" height="200px" src= {{ product_img }}></td>
                             <td>
                                 <div class="flexCont">
                                     <h3>{{ product_name }}</h3>
-                                    <div class="subtype">Wild Travel</div>
-                                    <div class="btn-commerce">
-                                        <span class="shine"></span>
-                                    </div>
                                 </div>
-                            </td>
-                            <td>
-                                <select>
-                                    <option value="">3 person</option>
-                                    <option value="">5 person</option>
-                                    <option value="">6 person</option>
-                                    <option value="" selected>7 person</option>
-                                </select>
-                            </td>
-                            <td>
-                                <div class="price big-heading">$ 2599</div>
-                                <div class="disc">$ 3250</div>
-                            </td>
-                        </tr>
-                        <tr>
-                        </tbody>
-                    </table>
                 </div>
-
+                </td>
+                <td>
+                    <select id="person-select">
+                        <option value="0" selected>Please select the number of people</option>
+                        <option value="1">1 person</option>
+                        <option value="2">2 person</option>
+                        <option value="3">3 person</option>
+                        <option value="4">4 person</option>
+                        <option value="5">5 person</option>
+                        <option value="6">6 person</option>
+                        <option value="7">7 person</option>
+                        <option value="8">8 person</option>
+                    </select>
+                </td>
+                <td>
+                    <div id="price" class="big-heading"></div>
+                    <div id="discount" class="disc"></div>
+                </td>
+                </tr>
+                <tr>
+                    </tbody>
+                    </table>
             </div>
+
+        </div>
         </div>
     </section>
 
@@ -293,4 +296,18 @@
         </div>
     </div>
     <!-- modal registration end -->
+    <script>
+        $(document).ready(function () {
+            var price = {{ detail_dic['price'] | int  * detail_dic['mask'] }};
+
+            $('#person-select').change(function () {
+                var selectedPerson = parseInt($(this).val());
+                var calculatedPrice = selectedPerson * price;  // 根据选择的人数计算价格
+                var discount = calculatedPrice * 1.25;  // 根据选择的人数计算折扣
+
+                $('#price').text('$ ' + calculatedPrice);
+                $('#discount').text('$ ' + discount);
+            });
+        });
+    </script>
 {% endblock %}
