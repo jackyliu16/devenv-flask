@@ -48,81 +48,87 @@
 
                             <div class="grid-item">
                                 <!-- text detail -->
-                                <h3 class="big-heading">{{ detail_dic["name"] }}</h3>
+                                <h3>{{ detail_dic["name"] }}</h3>
                                 {# CHECK: what is the diff between this and bellow intro? should replace? #}
                                 <p class="intro">{{ detail_dic["intro"] }}</p>>
-            <p class="content">{{  detail_dic["content"] | safe }}</p>>
-        <!-- text detail end -->
-        </div>
-        
-        <div class="grid-item">
-        {% if img_files %}
-                <div class="item"><img alt="#" class="img-responsive" src={{ img_files[3] }}></div>
-        {% endif %}
-        {# CHECK: it looks like the #}
-        <!-- text detail -->
-        <h3 class="big-heading">Blue Ocean Australia</h3>
-        <p class="content">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat.
-        </p>
-        <!-- text detail end -->
-        </div>
-        
-        </div>
-        <!-- left content end -->
-        
-        <!-- right content -->
-        <div class="col-md-4">
-            <aside>
-            
-            <!-- widget -->
-            <div class="widget">
-            <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp" data-time="1200">
-                <div class="price">{{ detail_dic["price"].split("/")[0] }}<sub>/ {{ detail_dic["price"].split("/")[1] }}</sub></div>
-                {# CHECK: what is the diff between this and previous intro? should replace? #}
-                <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                                <p class="content">{{ detail_dic["content"] | safe }}</p>>
+                                <!-- text detail end -->
+                            </div>
 
-                <!-- spacer --> 
-                <div class="space-half"></div> 
+                            <div class="grid-item">
+                                {% if img_files %}
+                                    <div class="item"><img alt="#" class="img-responsive" src={{ img_files[3] }}></div>
+                                {% endif %}
+                                {# CHECK: it looks like the #}
+                                <!-- text detail -->
+                                <h3>Blue Ocean Australia</h3>
+                                <p class="content">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut
+                                    enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodoconsequat.
+                                </p>
+                                <!-- text detail end -->
+                            </div>
 
-                {% if detail_dic["mask"] != 0 %}
-                <h3 class="big-heading">Facilities Services</h3>
-                <div class="devider-rooms-detail"></div>
-                    {% for bin in range(0, detail_dic["mask"] // 2) %}
-                        <span><i class="ti-check-box"></i>{{ FACILITIES_SERVICES[bin] }}</span>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <a class="btn-book" href="ecommerce-form.html">BOOK NOW</a> 
-            </div>
-            <!-- widget end -->
-            
+                        </div>
+                        <!-- left content end -->
 
-            {# TODO: consider if we should making another table in db for 1:n mapping to tags or just using perviers previous methods #}
-            <!-- widget -->
-            <div class="widget">
-                <h4 class="big-heading">
-                Tags
-                </h4>
+                        <!-- right content -->
+                        <div class="col-md-4">
+                            <aside>
 
-                <div class="devider-widget">
-                </div>
+                                <!-- widget -->
+                                <div class="widget">
+                                    <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp"
+                                         data-time="1200">
+                                        <div class="price">{{ detail_dic["price"].split("/")[0] }}<sub>/ {{ detail_dic["price"].split("/")[1] }}</sub>
+                                        </div>
+                                        {# CHECK: what is the diff between this and previous intro? should replace? #}
+                                        <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american
+                                            apparel, butcher voluptate nisi qui.</p>
 
-                <div class="tags">
-                <div>
-                    <a href="#">Photography</a>
-                </div>
+                                        <!-- spacer -->
+                                        <div class="space-half"></div>
 
-                <div>
-                    <a href="#">Trends</a>
-                </div>
+                                        {% if detail_dic["mask"] != 0 %}
+                                            <h3>Facilities Services</h3>
+                                            <div class="devider-rooms-detail"></div>
+                                            {% for bin in range(0, detail_dic["mask"] // 2) %}
+                                                <span><i class="ti-check-box"></i>{{ FACILITIES_SERVICES[bin] }}</span>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <a class="btn-book"
+                                       href={{ url_for("user.ecommerceForm", name= detail_dic["name"]) }}>BOOK NOW</a>
+                                </div>
+                                <!-- widget end -->
 
-                <div>
-                    <a href="#">Interactive</a>
-                </div>
 
-                <div>
-                    <a href="#">Personal</a>
-                </div>
+                                {# TODO: consider if we should making another table in db for 1:n mapping to tags or just using perviers previous methods #}
+                                <!-- widget -->
+                                <div class="widget">
+                                    <h4 class="big-heading">
+                                        Tags
+                                    </h4>
+
+                                    <div class="devider-widget">
+                                    </div>
+
+                                    <div class="tags">
+                                        <div>
+                                            <a href="#">Photography</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Trends</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Interactive</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Personal</a>
+                                        </div>
 
                 <div>
                     <a href="#">Responsive</a>

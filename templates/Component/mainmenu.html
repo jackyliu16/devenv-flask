@@ -4,43 +4,29 @@
             <li>
                 <a class="actived" href="/">Home</a>
             </li>
-            <li><a href="#">About <i class="fa fa-angle-down"></i></a>
+            <li><a href="/about">About </a>
+            </li>
+            <li><a href="/gallery">Gallery </a>
+            </li>
+            <li><a href="#">Destination <i class="fa fa-angle-down"></i></a>
                 <ul>
-                    <li><a href="about.html">About Us - 1</a></li>
-                    <li><a href="about-2.html">About Us - 2</a></li>
-                    <li><a href="about-3.html">All Ellement</a></li>
+                    <li><a href="destination.html">Destination</a></li>
+                    <li><a href="destination-404.html">Destination 404</a></li>
                 </ul>
             </li>
-            <li><a href="#">Gallery <i class="fa fa-angle-down"></i></a>
+            <li><a href="#">Services <i class="fa fa-angle-down"></i></a>
                 <ul>
-                    <li><a href="works.html">Gallery Column</a></li>
-                    <li><a href="works-carousel.html">Gallery Carousel</a></li>
-                  <li><a href="#">Projects Detail <i class="fa fa-angle-right"></i></a> <ul>
-                  <li><a href="projects-detail.html">Project Detail 1</a></li>
-                  <li><a href="projects-detail-2.html">Project Detail 2</a></li>
-                  </ul>
-                  </li>
+                    <li><a href="ecommerce.html">Shop Page</a></li>
+                    <li><a href="service-1.html">Service 1</a></li>
                 </ul>
-              </li>
-              <li><a  href="#">Destination <i class="fa fa-angle-down"></i></a>
-              <ul>
-                  <li><a href="destination.html">Destination</a></li>
-                  <li><a href="destination-404.html">Destination 404</a></li>
-                  </ul>
-              </li>
-              <li><a href="#">Services <i class="fa fa-angle-down"></i></a>
+            </li>
+            <li><a href="#">Blog <i class="fa fa-angle-down"></i></a>
                 <ul>
-                  <li><a href="ecommerce.html">Shop Page</a></li>
-                  <li><a href="service-1.html">Service 1</a></li>
-                  </ul>
-              </li>
-              <li><a  href="#">Blog <i class="fa fa-angle-down"></i></a>
-                <ul>
-                  <li><a href="blog.html">Blog Single</a></li>
-                  <li><a href="blog-post.html">Blog Post</a></li>
+                    <li><a href="blog.html">Blog Single</a></li>
+                    <li><a href="blog-post.html">Blog Post</a></li>
                 </ul>
-              </li>
-              <li><a  href="{{ url_for('user.contact')}}">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+            </li>
+            <li><a href="{{ url_for('user.contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+</div>

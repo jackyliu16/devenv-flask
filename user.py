@@ -68,3 +68,15 @@ def product_detail_page():
         detail_dic=product_detail,
         FACILITIES_SERVICES=FACILITIES_SERVICES,
     )
+
+
+@user.route("/gallery")
+def gallery():
+    return render_template("gallery.html")
+
+
+@user.route("/ecommerce-form")
+def ecommerceForm():
+    product_name = request.args.get("name")
+    app.logger.debug(f"product_name: {product_name}")
+    return render_template("ecommerce-form.html", product_name=product_name)
