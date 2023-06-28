@@ -96,3 +96,13 @@ def ecommerceForm():
 @user.route("/about")
 def about():
     return render_template("about.html")
+
+
+@user.route("/ecommerce-payment")
+def payment():
+    return render_template("ecommerce-payment.html")
+
+
+@user.route("/ecommerce-checkout")
+def checkout():
+    return render_template("ecommerce-checkout.html")

@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- subheader -->
+    <section id="subheader-commerce">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>
+                        CheckOut
+                    </h1>
+                    <div class="commerce-step">
+                        <a></a>
+                        <a>Process</a>
+                        <a>Payment</a>
+                        <a class="active">Receipt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subheader end -->
+
+    <section id="tab-commerce" class="no-bottom">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div class="board">
+                    <div class="board-inner">
+                        <ul class="nav nav-tabs">
+                            <div class="liner"></div>
+
+                            <li class="active">
+                                <a>
+                                    <span class="title">Process</span>
+                                    <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a>
+                                    <span class="title">Payment</span>
+                                    <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    <span class="title">Receipt</span>
+                                    <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div id="printreceipt">
+                    <div class="col-md-6">
+                        <h5 class="big-heading">ORDER REQUEST IS COMPLETED!</h5>
+                        <div class="headingform">Transaction ID : 999-0123-8765</div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="headingbook">Name:</div>
+                                <div>John Mclaine</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Phone:</div>
+                                <div>+122 000 345</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Email:</div>
+                                <div>JohnMclaine@domain.com</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">City:</div>
+                                <div>Los Angeles</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Address:</div>
+                                <div>5th Avenue Street 45</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Zip:</div>
+                                <div>94205</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Company:</div>
+                                <div>Darwis Family</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Fax:</div>
+                                <div>+122 111 345</div>
+                            </div>
+                        </div>
+                        <div class="clearfix space-single"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="big-heading">PAYMENT DETAILS</h5>
+                        <div class="headingform">Payment Information</div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="headingbook">Payment Type:</div>
+                                <div>Paypal</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Amount:</div>
+                                <div>$12599</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">STATUS:</div>
+                                <div>Completed</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Date:</div>
+                                <div>09 / 11 / 2018</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Email:</div>
+                                <div>+John Mclaine@domain.com</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p>For an more information, we will display your printable digital payment receipt
+                            and email for confirmation </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-offset-6">
+                    <button class="btn-ecom" style='width: 200%;' onClick="PrintDiv();" value="Print">PRINT RECEIPT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="main text-center">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+
+                <div class="onStep" data-animation="fadeInUp" data-time="300">
+                    <div class="col-md-4 text-left">
+                        <span><a href="#">Email: companyname@gmail.com</a></span>
+                        <span>Copyright - 2018 Plesire Travel All Right Reserved</span>
+                    </div>
+
+                    <div class="col-md-4">
+                <span class="logo">
+                <img alt="logo" src="img/logo-white.png">
+                </span>
+                    </div>
+
+                    <div class="col-md-4 text-right">
+                        <span>129 Park street, New York City, NY 10903</span>
+                        <span>Phone: (+6221) 000 888 999</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+    <!-- ScrolltoTop -->
+    <div id="totop" class="init">
+        <span class="ti-angle-up"></span>
+    </div>
+
+    <!-- modal login -->
+    <div id="fLogin" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Log In</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Log In">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#">or Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal login end -->
+
+    <!-- modal registration -->
+    <div id="fsignUp" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Member Registration</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstname" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastname" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and
+                                Conditions</a>.</label>
+                        </div>
+                        <div class="form-group"><input type="submit" value="Sign up"
+                                                       class="btn btn-primary btn-block btn-lg"></div>
+                        <div class="clearfix"></div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#">or Log In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal registration end -->
+
+
+    </div>
+    <!-- content wraper end -->
+
+    <!-- plugin JS -->
+    <script src="plugin/pluginson3step.js"></script>
+    <script src="plugin/bootstrap.min.js"></script>
+    <script src='plugin/bootstrap-datepicker.min.js'></script>
+    <script src="plugin/sticky.js"></script>
+    <!-- slider revolution  -->
+    <script src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- on3step JS -->
+    <script src="js/on3step.js"></script>
+    <script src="js/plugin-set.js"></script>
+    <script type="text/javascript">
+        function PrintDiv() {
+            var contents = document.getElementById("printreceipt").innerHTML;
+            var frame1 = document.createElement('iframe');
+            frame1.name = "frame1";
+            frame1.style.position = "absolute";
+            frame1.style.top = "-1000000px";
+            document.body.appendChild(frame1);
+            var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+            frameDoc.document.write(contents);
+            frameDoc.document.close();
+            setTimeout(function () {
+                window.frames["frame1"].focus();
+                window.frames["frame1"].print();
+                document.body.removeChild(frame1);
+            }, 500);
+            return false;
+        }
+    </script>
+    </body>
+    </html>
+{% endblock %}
