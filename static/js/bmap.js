@@ -1,25 +1,6 @@
-
-import { Button } from 'antd';
-import 'antd/dist/antd.css';
-import { DrawScene, MarkerDraw } from 'bmap-draw';
-import { createRef, useEffect, useState } from 'react';
-
 window.onload = function() {
     add_control()	
-};
-
-// // 监听鼠标滚轮事件
-// window.addEventListener("wheel", function(event) {
-// 	var delta = Math.sign(event.deltaY); // 获取滚轮滚动方向，1表示向下滚动，-1表示向上滚动
-
-// 	// 根据滚动方向调用不同的函数
-// 	if (delta > 0) {
-// 		zoomIn();
-// 	} else if (delta < 0) {
-// 		zoomOut();
-// 	}
-// });
-
+};   
 
 // 百度地图API功能
 function G(id) {
@@ -42,15 +23,6 @@ function add_control(){
     map.addControl(top_right_navigation);    
 }
 
-// 地图放大
-function zoomIn() {
-    map.zoomIn();
-}
-
-// 地图缩小
-function zoomOut() {
-    map.zoomOut();
-}
 var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
     {"input" : "suggestId"
     ,"location" : map
@@ -96,64 +68,105 @@ function setPlace(){
     local.search(myValue);
 }
 
-// 尝试插入点: 1 创建标注；2 可以拖动标注；
-var point = new BMap.Point(116.404, 39.915);
-var marker = new BMap.Marker(point);  // 创建标注
-map.addOverlay(marker);               // 将标注添加到地图中
-marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-marker.enableDragging();
-
 // 尝试实现鼠标点击地图：返回该点的经纬度；
 function showInfo(e){
+    var lng = e.point.lng;
+    var lat = e.point.lat;
     alert(e.point.lng + ", " + e.point.lat);
 }
 map.addEventListener("click", showInfo);
 
 // 尝试设置起点和终点
 
-var start_point = new BMap.Point(x1, y1);
-var end_point = new BMap.Point(x2, y2);
-
 var marker_start = new BMap.Marker(new BMap.Point(0, 0));  // 起点标注
 var marker_end = new BMap.Marker(new BMap.Point(0, 0));    // 终点标注
 map.addOverlay(marker_start);
 map.addOverlay(marker_end);
+marker_start.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画	
+marker_end.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+marker_start.enableDragging();
+marker_end.enableDragging();
 
-// 获取起点和终点输入框
-var startInput = document.getElementById("start_point");
-var endInput = document.getElementById("end_point");
+start_point = new BMap.Point(0, 0);
+end_point = new BMap.Point(0, 0);
+// 提交按钮点击事件
+var submitBtn = document.getElementById("submitBtn");
+submitBtn.addEventListener("click", function() {
+    // 获取输入框的值
+    var startPointInput = document.getElementById("start_point").value;
+    var endPointInput = document.getElementById("end_point").value;
+    // 拆分经纬度字符串
+    var startPointArr = startPointInput.split(",");
+    var endPointArr = endPointInput.split(",");
+    // 更新起点和终点的经纬度
+    var x1 = startPointArr[0];
+    var y1 = startPointArr[1];
+    var x2 = endPointArr[0];
+    var y2 = endPointArr[1];
+    // 更新起点和终点的标注位置
+    start_point = new BMap.Point(x1, y1);
+    end_point = new BMap.Point(x2, y2);
+    marker_start.setPosition(start_point);
+    marker_end.setPosition(end_point);
+});		
 
-// 监听输入框内容变化事件
-startInput.addEventListener("input", updateStartPoint);
-endInput.addEventListener("input", updateEndPoint);
+var routePolicy = [BMAP_TRANSIT_POLICY_RECOMMEND,BMAP_TRANSIT_POLICY_LEAST_TIME,BMAP_TRANSIT_POLICY_LEAST_TRANSFER,BMAP_TRANSIT_POLICY_LEAST_WALKING,BMAP_TRANSIT_POLICY_AVOID_SUBWAYS,BMAP_TRANSIT_POLICY_FIRST_SUBWAYS];
+var transit = new BMap.TransitRoute(map, {
+        renderOptions: {
+            map: map, 
+            autoViewport: true,
+            panel: 'result'
+        },
+        policy: 0,
+});
 
-// 更新起点标注
-function updateStartPoint() {
-    var point = parsePoint(startInput.value);
-    if (point) {
-        marker_start.setPosition(point);
-        map.panTo(point);
+// 搜索按钮点击事件
+var searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", function() {
+    map.clearOverlays();
+    var i= $("#driving_way select").val();
+    search(start_point,end_point,routePolicy[i]); 
+    function search(start_point,end_point,route){ 
+        transit.setPolicy(route);
+        transit.search(start_point,end_point);
     }
-}
+});
 
-// 更新终点标注
-function updateEndPoint() {
-    var point = parsePoint(endInput.value);
-    if (point) {
-        marker_end.setPosition(point);
-        map.panTo(point);
-    }
-}
-
-// 解析经纬度字符串为点坐标
-function parsePoint(str) {
-    var parts = str.split(",");
-    if (parts.length === 2) {
-        var lng = parseFloat(parts[0]);
-        var lat = parseFloat(parts[1]);
-        if (!isNaN(lng) && !isNaN(lat)) {
-            return new BMap.Point(lng, lat);
+// Car 搜索按钮点击事件
+var searchBtn = document.getElementById("carBtn");
+searchBtn.addEventListener("click", function() {
+    map.clearOverlays();
+    var driving = new BMap.DrivingRoute(map, {
+        renderOptions:{
+            map: map, autoViewport: true
         }
-    }
-    return null;
-}
+    });
+    driving.search(start_point,end_point);	
+});
+
+// Bike 搜索按钮点击事件
+$("#bikeBtn").click(function()  {
+    map.clearOverlays();
+    var riding = new BMap.RidingRoute(map, { 
+        renderOptions: { 
+            map: map, 
+            autoViewport: true 
+        }
+    });
+    riding.search(start_point,end_point);	
+});
+
+// Foot 搜索按钮点击事件
+$("#footBtn").click(function()  {
+    map.clearOverlays();
+    var walking = new BMap.WalkingRoute(map, { 
+        renderOptions: { 
+            map: map, 
+            autoViewport: true 
+        }
+    });
+    walking.search(start_point,end_point);	
+});
+
+
+

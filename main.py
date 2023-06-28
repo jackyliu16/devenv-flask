@@ -123,37 +123,6 @@ def post_contact():
     return render_template("contact.html")
 
 
-# @main.route("/baiduMap_routeArrangement")
-# def baiduMap_routeArrangement():
-#     return render_template("/baiduMap/baiduMap_routeArrangement.html")
-
-
-# @main.route("/baiduMap_search")
-# def baiduMap_search():
-#     return render_template("/baiduMap/baiduMap_search.html")
-
-# @main.route("/baiduMap_zoom")
-# def baiduMap_zoom():
-#     return render_template("/baiduMap/baiduMap_zoom.html")
-
-# @main.route("/baiduMap_search_zoom")
-# def baiduMap_search_zoom():
-#     return render_template("/baiduMap/baiduMap_search_zoom.html")
-
-
-@main.route("/baiduMap_search_zoom_manual")
-def baiduMap_search_zoom_manual():
-    return render_template("/baiduMap/baiduMap_search_zoom_manual.html")
-
-
-# @main.route("/baiduMap_point")
-# def baiduMap_point():
-#     return render_template("/baiduMap/baiduMap_point.html")
-
-# @main.route("/baiduMap_bus")
-# def baiduMap_bus():
-#     return render_template("/baiduMap/baiduMap_bus.html")
-
-# @main.route("/baiduMap_manual2")
-# def baiduMap_manual2():
-#     return render_template("/baiduMap/baiduMap_manual2.html")
+@main.route("/bmap_main")
+def bmap_main():
+    return render_template("/baiduMap/bmap_main.html")
