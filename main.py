@@ -143,13 +143,9 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
+
+
 <<<<<<< HEAD
-@main.route("/baiduMap_routeArrangement")
-def baiduMap_routeArrangement():
-    return render_template("baiduMap_routeArrangement.html")
-=======
-
-
 # @main.route("/baiduMap_routeArrangement")
 # def baiduMap_routeArrangement():
 #     return render_template("/baiduMap/baiduMap_routeArrangement.html")
@@ -172,3 +168,8 @@ def baiduMap_routeArrangement():
 @main.route("/baiduMap_search_zoom_manual")
 def baiduMap_search_zoom_manual():
     return render_template("/baiduMap/baiduMap_search_zoom_manual.html")
+=======
+@main.route("/bmap_main")
+def bmap_main():
+    return render_template("/baiduMap/bmap_main.html")
+>>>>>>> 58d323c (feat: trying add point)
