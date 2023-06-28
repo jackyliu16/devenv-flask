@@ -29,18 +29,14 @@ def create_app():
     )
     login_manager.init_app(app)
 
-    from .models import Customer, Admin
+    from .models import User
 
     @login_manager.user_loader
     def load_user(uid):
         # OPTIMIZE: https://flask-login.readthedocs.io/en/latest/#alternative-tokens
-        user = Customer.query.get(int(uid))
+        user = User.query.get(int(uid))
         if user is not None:
             return user
-
-        admin = Admin.query.get(int(uid))
-        if admin is not None:
-            return admin
 
         return None
 
@@ -52,7 +48,9 @@ def create_app():
     # Customer Operation
     # TODO: not sure if user profile and admin profile shoule be same
     from .user import user as user_blueprint
+    from .admin import admin as admin_blueprint
 
     app.register_blueprint(user_blueprint)
+    app.register_blueprint(admin_blueprint)
 
     return app
