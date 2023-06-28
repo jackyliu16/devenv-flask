@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -111,3 +111,11 @@ def logout():
 @main.route("/about")
 def about():
     return render_template("about.html")
+
+
+@main.route("/process_title", methods=["POST"])
+def process_title():
+    title = request.json["title"]  # 获取标题值
+    app.logger.debug(title)
+    # 在这里可以对标题值进行处理或跳转到其他页面
+    return redirect("user.product_detail", title=title)

@@ -147,10 +147,10 @@
     <!-- content wraper end --> 
     
     <!-- plugin JS -->
-    <script src="static/plugin/pluginson3step.js"></script> 
+    <script src="static/plugin/pluginson3step.js"></script>
     <script src="static/plugin/bootstrap.min.js"></script>
     <script src='static/plugin/bootstrap-datepicker.min.js'></script>
-    <script src="static/plugin/sticky.js"></script> 
+    <script src="static/plugin/sticky.js"></script>
     <!-- slider revolution  -->
     <script src="static/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
     <script src="static/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
@@ -158,6 +158,14 @@
     <script src="static/js/on3step.js"></script>
     <script src="static/js/plugin-set.js"></script>
     <script src="static/js/detect-windows-close.js"></script>
+    <script>
+        function sendTitle(title) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/process_title', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({title: title}));
+        }
+    </script>
     <!-- NOTE: using by flash method 2 -->
     <!--
     {% with messages = get_flashed_messages() %}

@@ -44,6 +44,7 @@ def post_contact():
 
 @user.route("/product_detail")
 def product_detail_page():
+    # app.logger.debug(f"there is the {request.args.get('title')}")
     product_name = request.args.get(
         "name"
     )  # NOTE: you should using /product_detail?name=apple to calling funciton
