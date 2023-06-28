@@ -18,12 +18,12 @@ from .models import UserType
 #     return {'UserType': UserType}
 
 
-@main.route("/")
+@main.route("/index")
 def index():
     return render_template("index.html", current_user=current_user)
 
 
-@main.route("/", methods=["POST"])
+@main.route("/index", methods=["POST"])
 def form_selection():
     from .models import Customer, Admin
 
