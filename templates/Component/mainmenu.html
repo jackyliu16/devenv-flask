@@ -16,15 +16,39 @@
                 </ul>
             </li>
             <li><a href="#">Services <i class="fa fa-angle-down"></i></a>
+        <div class="white menu-init" id="main-menu">
+          <nav id="menu-center">
+            <ul>
+              <li>
+                <a class="iTem" href={{ url_for("main.index") }}>Home</a>
+              </li>
+              <li>
+		            <a class="iTem" href={{ url_for("user.about") }}>About</a>
+              </li>
+              <li>
+                <a href={{ url_for("user.gallery") }}>Gallery</a>
+              </li>
+              <li><a href="#">Destination <i class="fa fa-angle-down"></i></a>
+              <ul>
+                  <li><a href="destination.html">Destination</a></li>
+                  <li><a href="destination-404.html">Destination 404</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Services <i class="fa fa-angle-down"></i></a>
                 <ul>
                     <li><a href="ecommerce.html">Shop Page</a></li>
                     <li><a href="service-1.html">Service 1</a></li>
                 </ul>
             </li>
             <li><a href="#">Blog <i class="fa fa-angle-down"></i></a>
+                  <li><a href="ecommerce.html">Shop Page</a></li>
+                  <li><a href="service-1.html">Service 1</a></li>
+                  </ul>
+              </li>
+              <li><a href={{ url_for("user.blog_single") }}>Blog <i class="fa fa-angle-down"></i></a>
                 <ul>
-                    <li><a href="blog.html">Blog Single</a></li>
-                    <li><a href="blog-post.html">Blog Post</a></li>
+                  <li><a href={{ url_for("user.blog_single") }}>Blog Single</a></li>
+                  <li><a href={{ url_for("user.blog_post") }}>Blog Post</a></li>
                 </ul>
             </li>
             <li><a href="{{ url_for('user.contact')}}">Contact</a></li>

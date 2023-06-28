@@ -98,6 +98,16 @@ def about():
     return render_template("about.html")
 
 
+@user.route("/blog-single")
+def blog_single():
+    return render_template("blog.html")
+
+
+@user.route("/blog-post")
+def blog_post():
+    return render_template("blog-post.html")
+
+
 @user.route("/ecommerce-payment")
 def payment():
     return render_template("ecommerce-payment.html")

@@ -731,9 +731,11 @@ header.show {
     transition: max-width 0.5s;
     white-space: nowrap;
 }
-.white nav a.actived {
+
+.iTem.active {
     color: #fc9f1c!important;
 }
+
 .white nav ul ul {
     display: none;
     position: absolute;
