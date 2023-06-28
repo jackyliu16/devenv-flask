@@ -113,9 +113,6 @@ def about():
     return render_template("about.html")
 
 
-@main.route("/process_title", methods=["POST"])
-def process_title():
-    title = request.json["title"]  # 获取标题值
-    app.logger.debug(title)
-    # 在这里可以对标题值进行处理或跳转到其他页面
-    return redirect("user.product_detail", title=title)
+@main.route("/contact")
+def contact():
+    return render_template("contact.html")
