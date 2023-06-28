@@ -166,6 +166,8 @@
             xhr.send(JSON.stringify({title: title}));
         }
     </script>
+    {% block script %}
+    {% endblock %}
     <!-- NOTE: using by flash method 2 -->
     <!--
     {% with messages = get_flashed_messages() %}
