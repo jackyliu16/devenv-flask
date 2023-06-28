@@ -92,6 +92,7 @@
                                 <div id="price" class="big-heading"></div>
                                 <div id="discount" class="disc"></div>
                             </td>
+                            {# TODO: BUG: Current price data is not collected #}
                         </tr>
                     </tbody>
                     </table>
@@ -105,44 +106,44 @@
     <section>
         <div class="container-fluid m-5-hor onStep" data-animation="fadeInUp" data-time="300">
             <div class="row">
-                <form action="#">
+                <form action="#" method="post">
                     <div class="col-md-6">
                         <h5 class="big-heading">REGISTER NOW</h5>
                         <hr>
                         <div class="form-group row">
                             <div class="col-xs-6">
-                                <input type="text" class="form-control" required="" id="firstname"
-                                       placeholder="First Name*">
+                                <input name="firstname" type="text" class="form-control" required="" id="firstname"
+                                       placeholder="First Name*" value={{ current_user.firstname }}>
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" class="form-control" required="" id="lastname"
-                                       placeholder="last Name*">
+                                <input name="lastname" type="text" class="form-control" required="" id="lastname"
+                                       placeholder="last Name*" value={{ current_user.lastname }}>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" required="" id="companyname"
+                            <input name="companyname" type="text" class="form-control" required="" id="companyname"
                                    placeholder="Company Name*">
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-5">
-                                <input type="text" class="form-control" required="" id="zipcode"
+                                <input name="zipcode" type="text" class="form-control" required="" id="zipcode"
                                        placeholder="Zip Code*">
                             </div>
                             <div class="col-xs-7">
-                                <input type="text" class="form-control" required="" id="city" placeholder="City*">
+                                <input name="city" type="text" class="form-control" required="" id="city" placeholder="City*">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-6">
-                                <input type="text" class="form-control" required="" id="emailcom" placeholder="Email*">
+                                <input name="email" type="text" class="form-control" required="" id="emailcom" placeholder="Email*">
                             </div>
                             <div class="col-xs-6">
-                                <input type="text" class="form-control" required="" id="phonecom" placeholder="Phone*">
+                                <input name="phone" type="text" class="form-control" required="" id="phonecom" placeholder="Phone*">
                             </div>
                         </div>
                         <br/>
                         <div class="checkbox">
-                            <label><input type="checkbox"> I have read and accepted our terms of bussiness
+                            <label><input name="read" type="checkbox"> I have read and accepted our terms of bussiness
                                 condition</label>
                         </div>
                         <br/>
@@ -176,8 +177,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-6">
-                        <!-- <button type="submit" id="send-ecom" class="btn-ecom">Go to Payment</button> -->
-                        <a class="btn-ecom" style="width:200%;" href="/ecommerce-payment">Go to Payment</a>
+                        <button type="submit" style="width:200%" id="send-ecom" class="btn-ecom">Go to Payment</button>
                     </div>
                 </form>
             </div>
@@ -199,6 +199,7 @@
                     var endDateStr = $('#end-date').val();
                     var startDate = new Date(startDateStr);
                     var endDate = new Date(endDateStr);
+                    // TODO: when endDate early than startDate, it should have a alert or other
                     var dateDifference = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
                     var calculatedPrice = selectedPerson * price * dateDifference * 0.8;  // 根据选择的人数计算价格
                     console.log("diff" + selectedPerson + " " + price + " " + dateDifference);
