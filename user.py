@@ -80,3 +80,8 @@ def ecommerceForm():
     product_name = request.args.get("name")
     app.logger.debug(f"product_name: {product_name}")
     return render_template("ecommerce-form.html", product_name=product_name)
+
+
+@user.route("/about")
+def about():
+    return render_template("about.html")
