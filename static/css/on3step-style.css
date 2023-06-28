@@ -847,7 +847,7 @@ li>a:only-child:after {
 
  .right_picture1{
     color: #fefefe;
-    margin-right: 60px;
+    margin-right: 80px;
     margin-top: 30px;
     width: 500px;
     height: 250px;
@@ -863,7 +863,7 @@ li>a:only-child:after {
  }
 
  .image_border1{
-    width: 500px;
+    width: 450px;
     height: 250px;
     border-radius:10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
