@@ -1,17 +1,19 @@
-from flask import Flask, Blueprint
-from flask import render_template, request, flash, url_for, redirect, make_response
-from flask_login import login_user, logout_user, login_required, current_user
-from flask_admin import Admin
+from flask import Flask
+from flask import redirect, url_for, flash, abort
+from http import HTTPStatus
+from flask_login import current_user
 from flask_admin.contrib.sqla import ModelView
-from flask_admin import Admin, AdminIndexView
+from functools import wraps
+from enum import Enum
+
+
+class UserType(Enum):
+    NONE = 0
+    ADMIN = 1
+    CUSTOM = 2
+
 
 app = Flask(__name__)
-admin = Blueprint("adminView", __name__)
-
-from functools import wraps
-from flask import abort
-from flask_login import current_user
-from .models import UserType
 
 
 def admin_required(func):
@@ -31,7 +33,12 @@ def admin_required(func):
     return decorated_view
 
 
-class CustomAdminIndexView(AdminIndexView):
-    @admin_required
-    def index(self):
-        return render_template("admin/index.html")
+class MyModelView(ModelView):
+    def is_accessible(self):
+        return (
+            current_user.is_authenticated and current_user.user_type == UserType.ADMIN
+        )
+
+    def inaccessible_callback(self, name, **kwargs):
+        flash("You don't have permission to access this server.")
+        return redirect(url_for("main.index"))

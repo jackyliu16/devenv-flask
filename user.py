@@ -19,7 +19,7 @@ from flask import render_template, request, flash, url_for, redirect, make_respo
 from flask_login import login_user, logout_user, login_required, current_user
 
 
-user = Blueprint("user", __name__)
+user = Blueprint("userView", __name__)
 app = Flask(__name__)
 
 from .models import UserType, Feedback
@@ -53,3 +53,8 @@ def post_contact():
     app.logger.info("send contact successed")
 
     return redirect(url_for("user.contact"))
+
+
+@user.route("/bmap_main")
+def bmap_main():
+    return render_template("/baiduMap/bmap_main.html")

@@ -110,6 +110,4 @@ def post_contact():
     return render_template("contact.html")
 
 
-@main.route("/bmap_main")
-def bmap_main():
-    return render_template("/baiduMap/bmap_main.html")
+
