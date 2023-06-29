@@ -1101,7 +1101,7 @@ li>a:only-child:after {
     height: 100%;
 }
 #about-us-1 .image-container {
-    background: url(../img/introduction1.jpg);
+    background: url(../img/fourManGroup1.jpeg);
     margin: 20px;
     margin-left: 50px;
     margin-top: 100px;
@@ -1123,7 +1123,7 @@ li>a:only-child:after {
     background-size: cover;
 }
 #about-us-3 .image-container {
-    background: url(../img/introduction3.jpg);
+    background: url(../img/fourManGroup2.jpeg);
     margin: 20px;
     margin-left: 50px;
     margin-top: 110px;
@@ -1669,19 +1669,19 @@ select.cust-select::-ms-expand {
 }
 
 .item1 {
-    background-image: url(../img/employee1.jpg);
+    background-image: url(../img/portrait_lyl.jpeg);
 }
 
 .item2 {
-    background-image: url(../img/employee2.jpg);
+    background-image: url(../img/portrait_ljq.jpeg);
 }
 
 .item3 {
-    background-image: url(../img/employee3.jpg);
+    background-image: url(../img/portait_my.jpeg);
 }
 
 .item4 {
-    background-image: url(../img/employee4.jpg);
+    background-image: url(../img/portrait_zdx.jpeg);
 }
 
 .item5 {
