@@ -83,7 +83,7 @@ jQuery( window ).on( "load", function() {
   value: "Sending..."
   }), $.ajax({
   type: "POST",
-  url: "send.php",
+  url: "./static/js/send.php",
   data: "name=" + e + "&email=" + a + "&subject=You Got Email&message=" + s,
   success: function(e) {
     "success" == e ? (successent.fadeIn(500)) : (failedsent.html(e).fadeIn(500), contactsent1.removeAttr("disabled").attr("value", "send").remove())
