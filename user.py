@@ -33,11 +33,7 @@ user = Blueprint("user", __name__)
 app = Flask(__name__, static_url_path="/static")
 
 from .models import UserType, ProductDetail
-from .lib import (
-    get_file_list_with_pattern,
-    FACILITIES_SERVICES,
-    login_check_return_origin,
-)
+from .lib import get_file_list_with_pattern, FACILITIES_SERVICES
 
 
 @user.route("/contact")
@@ -89,7 +85,6 @@ def gallery():
 
 
 @user.route("/ecommerce-form")
-@login_check_return_origin
 def ecommerceForm():
     product_name = request.args.get("name")
     product_img = request.args.get("img1")
@@ -109,7 +104,6 @@ def ecommerceForm():
 
 
 @user.route("/ecommerce-form", methods=["POST"])
-@login_check_return_origin
 def post_ecommerce():
     # TODO: maybe we could trying to using session to save data
     product_name = request.args.get("name")
@@ -154,7 +148,6 @@ def post_ecommerce():
 
 
 @user.route("/ecommerce-checkout", methods=["POST"])
-@login_check_return_origin
 def checkout():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
@@ -180,7 +173,12 @@ def blog_single():
 
 @user.route("/blog-post")
 def blog_post():
-    return render_template("blog-post.html")
+    return render_template("blog-post.html", flag=False)
+
+
+@user.route("/blog-post", methods=["POST"])
+def post_blog():
+    return render_template("blog-post.html", flag=True)
 
 
 @user.route("/planing")
