@@ -134,6 +134,7 @@ def post_ecommerce():
         "city": request.form.get("city"),
         "address": request.form.get("city"),  # TODO: should collect?
         "product": product_details["name"],
+        "payment-method": request.form.get("payment_method"),
         "unit": request.form.get("unit"),
         "price": request.form.get("price"),  # TODO it seems unnecessary to collect this
         "start-time": request.form.get("start-time"),
@@ -146,7 +147,7 @@ def post_ecommerce():
     return render_template("ecommerce-payment.html", data=data)
 
 
-@user.route("/ecommerce-checkout")
+@user.route("/ecommerce-checkout", methods=["POST"])
 def checkout():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
@@ -156,6 +157,7 @@ def checkout():
     return render_template(
         "ecommerce-checkout.html",
         data=json.loads(json_data),
+        payment_method=request.form.get("payment_method"),
     )
 
 

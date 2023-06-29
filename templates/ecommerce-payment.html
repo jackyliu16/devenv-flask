@@ -61,10 +61,10 @@
     <section>
         <div class="container-fluid m-5-hor onStep" data-animation="fadeInUp" data-time="300">
             <div class="row">
-                <form action="#">
+                <form action={{ url_for('user.checkout')}} , method="POST">
                     <div class="col-md-6">
                         <h5 class="big-heading">ORDER INFORMATION</h5>
-                        <div class="headingform">Transaction ID : 999-0123-8765</div>
+                        <div class="headingform">Transaction ID : {{ data['ID'] }}</div>
                         <hr>
                         <div class="row">
                             <div class="col-md-6">
@@ -127,9 +127,8 @@
                     <div class="clearfix"></div>
                     <div class="col-md-6"><a class="btn-ecom" onclick="goBack()">Back to form</a></div>
                     <div class="col-md-6">
-                        <!-- <button type="submit" id="send-ecom" class="btn-ecom">Go to Checkout</button> -->
+                        <button type="submit" id="send-ecom" class="btn-ecom">Go to Checkout</button>
                         {# TODO: need to check if information has been complete #}
-                        <a type="submit" class="btn-ecom" href="/ecommerce-checkout">Go to Checkout</a>
                     </div>
                 </form>
             </div>
