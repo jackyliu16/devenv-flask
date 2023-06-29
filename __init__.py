@@ -50,8 +50,9 @@ def create_app():
         if form_type == "login" or form_type == "register":
             app.logger.info(f"inside method_not_allowed")
             referrer = request.referrer
-            # FIXME: unable to send the form into form_selection for using login and logout in everywhere
-            return redirect(url_for("main.index", next=referrer))
+            from .main import identity_auth
+
+            return identity_auth(next=referrer)
 
     adminView = Admin(template_mode="bootstrap3")
 

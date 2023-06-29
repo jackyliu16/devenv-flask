@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+@File    :   main.py
+@Desc    :   Multi-user reuse content and permission recognition 
+@Time    :   2023/06/30 04:16:09
+@Site    :   https://github.com/jackyliu16/devenv-flask
+"""
+
 from flask import Flask, Blueprint, jsonify
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
@@ -30,6 +39,33 @@ def form_selection():
 
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
+
+    return identity_auth()
+
+
+@main.route("/profile")
+@login_required
+def profile():
+    # TODO: maybe we could using some ways to reduce one parameter (in 1003)
+    return render_template("profile.html", UserType=UserType)
+
+
+@main.route("/logout")
+@login_required
+def logout():
+    make_response(redirect(url_for("main.index"))).delete_cookie(
+        "session"
+    )  # CHECK if it's necessary?
+    logout_user()
+    return redirect(url_for("main.index"))
+
+
+def identity_auth(next: str = None) -> str:
+    """trying to login or register base on form which contains form_type as specify name
+
+    when contains next variable, which means that we should jump into that location once we success
+    """
+    from .models import User
 
     if request.form["form_type"] == "login":
         uname = request.form.get("username")
@@ -73,24 +109,11 @@ def form_selection():
             db.session.commit()
             app.logger.debug("register successed")
 
+            # HACK
+            login_user(new_user)
+    if next:
+        return redirect(next)
     return render_template(
         "index.html",
         current_user=current_user,  # in default situation, will send AnonymousUserMixin: https://flask-login.readthedocs.io/en/latest/#anonymous-users
     )
-
-
-@main.route("/profile")
-@login_required
-def profile():
-    # TODO: maybe we could using some ways to reduce one parameter (in 1003)
-    return render_template("profile.html", UserType=UserType)
-
-
-@main.route("/logout")
-@login_required
-def logout():
-    make_response(redirect(url_for("main.index"))).delete_cookie(
-        "session"
-    )  # CHECK if it's necessary?
-    logout_user()
-    return redirect(url_for("main.index"))
