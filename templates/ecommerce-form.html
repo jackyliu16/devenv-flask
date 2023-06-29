@@ -193,21 +193,21 @@
 {% block script %}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-            $(document).ready(function () {
-                init_collector();
+        $(document).ready(function () {
+            init_collector();
 
-                selectedPerson = 1;
-                var price = {{ detail_dic['price'] | int  * detail_dic['mask'] }};
-                $('#person-num, #start-date, #end-date').change(function () {
-                    var calculatedPrice = 0
-                    var discount = 0
-                    var selectedPerson = parseInt($('#person-num').val());
-                    var startDateStr = $('#start-date').val();
-                    var endDateStr = $('#end-date').val();
-                    var startDate = new Date(startDateStr);
-                    var endDate = new Date(endDateStr);
-                    // TODO: when endDate early than startDate, it should have a alert or other
-                    var dateDifference = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+            selectedPerson = 1;
+            var price = {{ detail_dic['price'] | int}};
+            $('#person-num, #start-date, #end-date').change(function () {
+                var calculatedPrice = 0
+                var discount = 0
+                var selectedPerson = parseInt($('#person-num').val());
+                var startDateStr = $('#start-date').val();
+                var endDateStr = $('#end-date').val();
+                var startDate = new Date(startDateStr);
+                var endDate = new Date(endDateStr);
+                // TODO: when endDate early than startDate, it should have a alert or other
+                var dateDifference = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
                     var calculatedPrice = selectedPerson * price * dateDifference * 0.8;  // 根据选择的人数计算价格
                     console.log("diff" + selectedPerson + " " + price + " " + dateDifference);
                     var discount = calculatedPrice * 1.25;  // 根据选择的人数计算折扣
