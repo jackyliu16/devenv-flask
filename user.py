@@ -30,11 +30,11 @@ from flask import (
 from flask_login import login_user, logout_user, login_required, current_user
 
 app = Flask(__name__, static_url_path="/static")
+user = Blueprint("userView", __name__)
 
 from . import db
 from .models import UserType, ProductDetail, Feedback
 from .lib import get_file_list_with_pattern, FACILITIES_SERVICES
-
 
 
 @user.route("/contact")
@@ -200,7 +200,7 @@ def post_blog():
 def planing():
     return render_template("planing.html")
 
+
 @user.route("/bmap_main")
 def bmap_main():
     return render_template("/baiduMap/bmap_main.html")
-
