@@ -30,7 +30,9 @@ from flask import (
 from flask_login import login_user, logout_user, login_required, current_user
 
 app = Flask(__name__, static_url_path="/static")
+user = Blueprint("userView", __name__)
 
+from .models import UserType, Feedback
 from . import db
 from .models import UserType, ProductDetail, Feedback
 from .lib import get_file_list_with_pattern, FACILITIES_SERVICES

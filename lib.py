@@ -25,7 +25,7 @@ class UserType(Enum):
     NONE = 0
     ADMIN = 1
     CUSTOM = 2
-
+    
 app = Flask(__name__)
 
 FACILITIES_SERVICES = {

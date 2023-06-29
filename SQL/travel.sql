@@ -24,6 +24,8 @@ CREATE TABLE feedback (
     comment  VARCHAR(500) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
+-- TODO: readd feedback
+-- INSERT INTO feedback VALUES(1, 1, "18922251299@163.com", "what a good website");
 
 INSERT INTO feedback VALUES(1, 1, "what a good website");
 
@@ -47,4 +49,3 @@ source ./SQL/data/product_detail.sql;
 -- );
 -- TODO: readd feedback
 -- INSERT INTO feedback VALUES(1, 1, "18922251299@163.com", "what a good website");
-

@@ -6,8 +6,6 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 
 from .lib import UserType
 
-
-
 class User(UserMixin, db.Model):
     __tablename__ = "user"
 
@@ -19,6 +17,14 @@ class User(UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
+    auth = db.Column(db.Integer)
+
+    @property
+    def user_type(self):
+        if self.auth == 0:
+            return UserType.CUSTOM
+        elif self.auth == 1:
+            return UserType.ADMIN
 
 class ProductDetail(db.Model):
     __tablename__ = "product_detail"

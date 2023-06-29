@@ -15,10 +15,6 @@ db = SQLAlchemy()
 def create_app():
     from .models import User, Feedback
     app = Flask(__name__, static_url_path="/static/")
-
-
-
-
     app.config[
         "SECRET_KEY"
     ] = "83692b4e7efdfbcf5df8d61ec65e65f21ceb72c373b76d5c2e0f0410a5f1fc59"
