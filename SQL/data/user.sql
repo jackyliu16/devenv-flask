@@ -12,11 +12,11 @@
 --     auth        TINYINT 	    NOT NULL DEFAULT 0
 --     -- 0 user, 1 admin
 -- );
+-- ANONYMOUS
+INSERT INTO user (auth, lastname, name, email, pwd) VALUES (0, "Anonymous", "Anonymous", "Anonymous@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
 -- ADMIN
 INSERT INTO user (auth, lastname, name, email, pwd) VALUES (1, "jacky", "jacky", "18922251299@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
 -- CUSTOM auth default 0
-INSERT INTO user (auth, lastname, name, email, pwd) VALUES (0, "Anonymous", "Anonymous", "Anonymous@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
-
 INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky1", "1891@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
 INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky2", "1892@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
 INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky3", "1893@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");

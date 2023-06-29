@@ -1,6 +1,6 @@
 -- NOTE: maybe we could using [this](https://github.com/jackyliu16/small-toys/tree/main/Convert_xlsx_Into_SQL_Insert_Query) to convert xlsx into sql
 -- (but some part of it should be refactor)
-CREATE TABLE customer (
+CREATE TABLE user (
     id          INT             PRIMARY KEY AUTO_INCREMENT,
     firstname   VARCHAR(36),
     lastname    VARCHAR(36)     NOT NULL,
@@ -14,7 +14,6 @@ CREATE TABLE customer (
     auth        TINYINT 	    NOT NULL DEFAULT 0
     -- 0 customer, 1 admin
 );
-
 source ./SQL/data/user.sql;
 
 CREATE TABLE feedback (
@@ -24,10 +23,7 @@ CREATE TABLE feedback (
     comment  VARCHAR(500) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
--- TODO: readd feedback
--- INSERT INTO feedback VALUES(1, 1, "18922251299@163.com", "what a good website");
-
-INSERT INTO feedback VALUES(1, 1, "what a good website");
+INSERT INTO feedback VALUES(1, 1, "18922251299@163.com", "what a good website");
 
 CREATE TABLE product_detail (
     id       INT PRIMARY KEY AUTO_INCREMENT,

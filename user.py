@@ -38,7 +38,6 @@ from .models import UserType, ProductDetail, Feedback
 from .lib import get_file_list_with_pattern, FACILITIES_SERVICES
 
 
-
 @user.route("/contact")
 def contact():
     app.logger.info("into contact")
@@ -51,10 +50,9 @@ def post_contact():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
 
+    # TODO: haven't username save here, need to consider to remove username collection or other
     email = request.form.get("email")
     msg = request.form.get("message")
-
-    # TODO finish save form in database operation
 
     new_msg = Feedback(
         user_id=current_user.id if current_user.is_authenticated else 1,
@@ -65,7 +63,7 @@ def post_contact():
     db.session.commit()
     app.logger.info("send contact successed")
 
-    return redirect(url_for("user.contact"))
+    return redirect(url_for("userView.contact"))
 
 
 @user.route("/product_detail")
@@ -202,7 +200,7 @@ def post_blog():
 def planing():
     return render_template("planing.html")
 
+
 @user.route("/bmap_main")
 def bmap_main():
     return render_template("/baiduMap/bmap_main.html")
-

@@ -19,13 +19,13 @@ from functools import wraps
 from flask_admin.contrib.sqla import ModelView
 from enum import Enum
 
-from .models import UserType
 
 class UserType(Enum):
     NONE = 0
     ADMIN = 1
     CUSTOM = 2
-    
+
+
 app = Flask(__name__)
 
 FACILITIES_SERVICES = {
@@ -89,6 +89,7 @@ def admin_required(func):
     Returns:
         _type_: Decorated view function
     """
+
     @wraps(func)
     def decorated_view(*args, **kwargs):
         if (
