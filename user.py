@@ -156,10 +156,24 @@ def checkout():
     return render_template(
         "ecommerce-checkout.html",
         data=json.loads(json_data),
-        payment_method=payment_method,
     )
 
 
 @user.route("/about")
 def about():
     return render_template("about.html")
+
+
+@user.route("/blog-single")
+def blog_single():
+    return render_template("blog.html")
+
+
+@user.route("/blog-post")
+def blog_post():
+    return render_template("blog-post.html")
+
+
+@user.route("/planing")
+def planing():
+    return render_template("planing.html")
