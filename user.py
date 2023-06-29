@@ -53,3 +53,8 @@ def post_contact():
     app.logger.info("send contact successed")
 
     return redirect(url_for("user.contact"))
+
+
+@user.route("/planing")
+def planing():
+    return render_template("planing.html")
