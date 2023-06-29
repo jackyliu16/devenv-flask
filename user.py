@@ -63,7 +63,7 @@ def post_contact():
     db.session.commit()
     app.logger.info("send contact successed")
 
-    return redirect(url_for("user.contact"))
+    return redirect(url_for("userView.contact"))
 
 
 @user.route("/product_detail")
