@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .item0 img {
+            width: 640px; /* 设置图片的宽度 */
+            height: 480px; /* 设置图片的高度 */
+            object-fit: cover; /* 按比例缩放图片，保持宽高比并填充整个容器 */
+        }
+    </style>
+    <!-- subheader -->
+    <section id="subheader">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="big-heading">
+                        {{ detail_dic["name"] }}
+                    </h1>
+                    <p>{{ detail_dic["intro"] }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subheader end -->
+
+
+    <!-- section -->
+    <section aria-label="section-blog" id="content">
+        <div class="container-fluid">
+        <div class="row">
+
+            <div class="v-align">
+                <div class="col-md-11 col-xs-12">
+                    <div class="row">
+
+                        <!-- left content -->
+                        <div class="col-md-8">
+
+                            <!-- detail img -->
+                            <div id="projectsBig" class="owl-carousel">
+                                {% if img_files %}
+                                    {% for img_path in img_files %}
+                                        <div class="item0"><img alt="#" src={{ img_path }}></div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <!-- detail img end -->
+
+                            <div class="grid-item">
+                                <!-- text detail -->
+                                <h3>{{ detail_dic["name"] }}</h3>
+                                {# CHECK: what is the diff between this and bellow intro? should replace? #}
+                                <p class="intro">{{ detail_dic["intro"] }}</p>
+                                <p class="content">{{ detail_dic["content"] | safe }}</p>
+                                <!-- text detail end -->
+                            </div>
+
+                            <div class="grid-item">
+                                {% if img_files %}
+                                    <div class="item"><img alt="#" class="img-responsive" src={{ img_files[3] }}></div>
+                                {% endif %}
+                                {# CHECK: it looks like the #}
+                                <!-- text detail -->
+                                <!-- text detail end -->
+                            </div>
+
+                        </div>
+                        <!-- left content end -->
+
+                        <!-- right content -->
+                        <div class="col-md-4">
+                            <aside>
+
+                                <!-- widget -->
+                                <div class="widget">
+                                    <div class="service-hotel onStep animated fadeInUp" data-animation="fadeInUp"
+                                         data-time="1200">
+                                        <div class="price">${{ detail_dic["price"].split("/")[0] }}<sub>/night</sub>
+                                        </div>
+                                        {# CHECK: what is the diff between this and previous intro? should replace? #}
+                                        <p>This price is the basic price of Travel itinerary. Any upgrade project based
+                                            on this Travel itinerary will increase the price (such as better
+                                            transportation and hotels)</p>
+
+                                        <!-- spacer -->
+                                        <div class="space-half"></div>
+
+                                        {% if detail_dic["mask"] != 0 %}
+                                            <h3>Facilities Services</h3>
+                                            <div class="devider-rooms-detail"></div>
+                                            {% for bin in range(0, detail_dic["mask"] // 2) %}
+                                                <span><i class="ti-check-box"></i>{{ FACILITIES_SERVICES[bin] }}</span>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <a class="btn-book"
+                                       href={{ url_for("userView.ecommerceForm", name= detail_dic["name"],img1 = img_files[3]) }}>BOOK
+                                        NOW</a>
+                                </div>
+                                <!-- widget end -->
+
+
+                                {# TODO: consider if we should making another table in db for 1:n mapping to tags or just using perviers previous methods #}
+                                <!-- widget -->
+                                <div class="widget">
+                                    <h4 class="big-heading">
+                                        Tags
+                                    </h4>
+
+                                    <div class="devider-widget">
+                                    </div>
+
+                                    <div class="tags">
+                                        <div>
+                                            <a href="#">Photography</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Trends</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Interactive</a>
+                                        </div>
+
+                                        <div>
+                                            <a href="#">Personal</a>
+                                        </div>
+
+                <div>
+                    <a href="#">Responsive</a>
+                </div>
+
+                <div>
+                    <a href="#">Creative</a>
+                </div>
+
+                <div>
+                    <a href="#">Design</a>
+                </div>
+
+                <div>
+                    <a href="#">website</a>
+                </div>
+
+                <div>
+                    <a href="#">application</a>
+                </div>
+                </div>
+            </div>
+            <!-- widget end -->
+
+            </aside>
+        </div>
+        <!-- right content end -->
+        
+    <!-- spacer -->  
+    <div class="space-double"></div>
+        
+    <!-- button projects -->
+    {# TODO: making the route mapping just like perviers, but how to know the sequence? #}
+    <div class="col-md-6">
+    <div class="pro-btn left">
+    <a class="link"  href="#">
+    <i class='fa fa-long-arrow-left'></i> PREV GALLERY
+    </a>
+    </div>
+    </div>  
+    <div class="col-md-6">
+    <div class="pro-btn right">
+    <a class="link"  href="#">
+    NEXT GALLERY <i class='fa fa-long-arrow-right'></i>
+    </a>
+    </div>
+    </div>   
+    <!-- button projects end -->
+
+        </div>
+        </div>
+        </div>
+            
+        </div>
+    </div>
+    </section>
+<!-- section end -->
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -5,10 +5,10 @@
         <a href="/">Home</a>
       </li>
       <li>
-        <a href={{ url_for("user.about") }}>About</a>
+        <a href={{ url_for("userView.about") }}>About</a>
       </li>
       <li>
-        <a href={{ url_for("user.gallery") }}>Gallery</a>
+        <a href={{ url_for("userView.gallery") }}>Gallery</a>
       </li>
       <!--
       <li><a href="#">Destination <i class="fa fa-angle-down"></i></a>
@@ -25,20 +25,14 @@
     </li>
     -->
     <li>
-      <a href={{ url_for("user.blog_single") }}>Blog<i class="fa fa-angle-down"></i></a>
-        <ul>
-          <li><a href={{ url_for("user.blog_single") }}>Blog Single</a></li>
-          <li><a href={{ url_for("user.blog_post") }}>Blog Post</a></li>
-        </ul>
+      <a href={{ url_for("userView.our_blog") }}>Blog</a>
     </li>
     <li>
-      <a href={{ url_for("user.planing") }}>Planing</a>
+      <a href={{ url_for("userView.planing") }}>Planing</a>
     </li>
     <li>
-      <a href="{{ url_for('user.contact')}}">Contact</a>
+      <a href="{{ url_for('userView.contact')}}">Contact</a>
     </li>
     </ul>
   </nav>
 </div>
-
-        

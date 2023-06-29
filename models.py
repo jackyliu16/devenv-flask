@@ -1,33 +1,14 @@
 # coding: utf-8
-from . import db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from enum import Enum
+from sqlalchemy.dialects.mysql import LONGTEXT
+
+from . import db
+from .lib import UserType
 
 
-class UserType(Enum):
-    NONE = 0
-    ADMIN = 1
-    CUSTOM = 2
-
-
-class User:
-    user_type = UserType.NONE
-
-
-class Admin(User, UserMixin, db.Model):
-    __tablename__ = "admin"
-    user_type = UserType.ADMIN
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(36), nullable=False)
-    pwd = db.Column(db.String(88), nullable=False)
-    email = db.Column(db.String(36), nullable=False, unique=True)
-
-
-class Customer(User, UserMixin, db.Model):
-    __tablename__ = "customer"
-    user_type = UserType.CUSTOM
+class User(UserMixin, db.Model):
+    __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(36), nullable=False)
@@ -37,12 +18,31 @@ class Customer(User, UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
+    auth = db.Column(db.Integer)
+
+    @property
+    def user_type(self):
+        if self.auth == 0:
+            return UserType.CUSTOM
+        elif self.auth == 1:
+            return UserType.ADMIN
+
+
+class ProductDetail(db.Model):
+    __tablename__ = "product_detail"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(36), nullable=False)
+    intro = db.Column(db.Text, nullable=False)
+    content = db.Column(LONGTEXT, nullable=True)
+    price = db.Column(db.String(36), nullable=False)
+    mask = db.Column(db.SmallInteger, nullable=True)
 
 
 class Feedback(db.Model):
     __tablename__ = "feedback"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(Customer.id), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     email = db.Column(db.String(36), nullable=False)
     comment = db.Column(db.String(500), nullable=False)
