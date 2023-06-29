@@ -7,7 +7,6 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 from .lib import UserType
 
 
-
 class User(UserMixin, db.Model):
     __tablename__ = "user"
 
@@ -19,6 +18,7 @@ class User(UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
+
 
 class ProductDetail(db.Model):
     __tablename__ = "product_detail"
@@ -46,4 +46,3 @@ class Feedback(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     email = db.Column(db.String(36), nullable=False)
     comment = db.Column(db.String(500), nullable=False)
-
