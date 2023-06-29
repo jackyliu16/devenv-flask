@@ -17,7 +17,7 @@
 import os
 import re
 import json
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, sessions
 from flask import (
     render_template,
     request,
@@ -156,6 +156,7 @@ def checkout():
     return render_template(
         "ecommerce-checkout.html",
         data=json.loads(json_data),
+        payment_method=payment_method,
     )
 
 

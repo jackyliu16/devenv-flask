@@ -99,23 +99,22 @@
                         </div>
                         <div class="clearfix space-single"></div>
                     </div>
-
                     <div class="col-md-6">
                         <h5 class="big-heading">CHOOSE PAYMENT</h5>
                         <div class="headingform">Choose your best payment method below</div>
                         <hr>
                         <p>
-                            <input type="radio" id="payment1" name="radio-group" checked>
+                            <input type="radio" id="payment1" name="payment_method" value="Credit Card">
                             <label for="payment1" class="labelcard">Credit Card</label>
                         </p>
                         <p class="labeldetail">( Mastercard, Visa, American Express, Discover etc )</p>
                         <p>
-                            <input type="radio" id="payment2" name="radio-group">
+                            <input type="radio" id="payment2" name="payment_method" value="PayPal">
                             <label for="payment2" class="labelcard">PayPal</label>
                         </p>
                         <p class="labeldetail">Pay without sharing your financial information and complete purchase.</p>
                         <p>
-                            <input type="radio" id="payment3" name="radio-group">
+                            <input type="radio" id="payment3" name="payment_method" value="Transfer Bank">
                             <label for="payment3" class="labelcard">Transfer Bank</label>
                         </p>
                         <p class="labeldetail">Make your payment directly into our bank account and please use your
@@ -130,7 +129,7 @@
                     <div class="col-md-6">
                         <!-- <button type="submit" id="send-ecom" class="btn-ecom">Go to Checkout</button> -->
                         {# TODO: need to check if information has been complete #}
-                        <a class="btn-ecom" href="/ecommerce-checkout">Go to Checkout</a>
+                        <a type="submit" class="btn-ecom" href="/ecommerce-checkout">Go to Checkout</a>
                     </div>
                 </form>
             </div>

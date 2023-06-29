@@ -105,11 +105,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="headingbook">Payment Type:</div>
-                                <div>Paypal</div>
+                                <div>{{ payment_method }}</div>
                             </div>
                             <div class="col-md-6">
                                 <div class="headingbook">Amount:</div>
-                                <div>{{ date['price'] }}</div>
+                                <div>{{ data['price'] }}</div>
                             </div>
                             <div class="col-md-6">
                                 <div class="headingbook">STATUS:</div>
@@ -124,13 +124,15 @@
                                 <div>+John Mclaine@domain.com</div>
                             </div>
                         </div>
-                        <hr>
-                        <p>For an more information, we will display your printable digital payment receipt
-                            and email for confirmation </p>
+
                     </div>
+
                 </div>
-                <div class="col-md-6 col-offset-6">
-                    <button class="btn-ecom" style='width: 200%;' onClick="PrintDiv();" value="Print">PRINT RECEIPT
+                <hr>
+                <p>For an more information, we will display your printable digital payment receipt
+                    and email for confirmation </p>
+                <div>
+                    <button class="btn-ecom" style='width: 100%;' onClick="PrintDiv();" value="Print">PRINT RECEIPT
                     </button>
                 </div>
             </div>
