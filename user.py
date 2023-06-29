@@ -119,6 +119,7 @@ def post_ecommerce():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
 
+    app.logger.debug(f"product_details: {product_details}")
     # save info in form and save it as json in session
     data = {
         "ID": "999-0123-8765",
@@ -132,8 +133,15 @@ def post_ecommerce():
         "phone": request.form.get("phone"),
         "city": request.form.get("city"),
         "address": request.form.get("city"),  # TODO: should collect?
+        "product": product_details["name"],
+        "unit": request.form.get("unit"),
+        "price": request.form.get("price"),  # TODO it seems unnecessary to collect this
+        "start-time": request.form.get("start-time"),
+        "end-time": request.form.get("end-time"),
+        "order-time": request.form.get("order-time"),
     }
     session["bill"] = json.dumps(data)
+    app.logger.debug(f"data: {data}")
 
     return render_template("ecommerce-payment.html", data=data)
 

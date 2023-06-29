@@ -88,11 +88,11 @@
                                 <input type="date" id="start-date"><br>
                                 <input type="date" id="end-date">
                             </td>
+                            {# TODO: BUG: there is possibility that the value will only display when we change it #}
                             <td>
                                 <div id="price" class="big-heading"></div>
                                 <div id="discount" class="disc"></div>
                             </td>
-                            {# TODO: BUG: Current price data is not collected #}
                         </tr>
                     </tbody>
                     </table>
@@ -106,7 +106,12 @@
     <section>
         <div class="container-fluid m-5-hor onStep" data-animation="fadeInUp" data-time="300">
             <div class="row">
-                <form action="#" method="post">
+                <form action="#" method="post" name="buy-form">
+                    <input type='hidden' name='unit' id="unit-collector" value="1">
+                    <input type='hidden' name='price' id="price-collector">
+                    <input type='hidden' name='start-time' id="start-time-collector">
+                    <input type='hidden' name='end-time' id="end-time-collector">
+                    <input type='hidden' name='order-time' id="order-time-collector">
                     <div class="col-md-6">
                         <h5 class="big-heading">REGISTER NOW</h5>
                         <hr>
@@ -189,8 +194,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
             $(document).ready(function () {
-                var price = {{ detail_dic['price'] | int  * detail_dic['mask'] }};
+                init_collector();
 
+                selectedPerson = 1;
+                var price = {{ detail_dic['price'] | int  * detail_dic['mask'] }};
                 $('#person-num, #start-date, #end-date').change(function () {
                     var calculatedPrice = 0
                     var discount = 0
@@ -207,8 +214,32 @@
 
 
                     $('#price').text('$ ' + calculatedPrice);
+                    $("#price-collector").val(calculatedPrice);
                     $('#discount').text('$ ' + discount);
+
+                    // update collector
+                    $("#unit-collector").val(selectedPerson);
+                    $("#start-time-collector").val(startDateStr);
+                    $("#end-time-collector").val(endDateStr);
                 });
+
+                function init_collector() {
+                    // 获取当前日期
+                    var currentDate = new Date();
+                    
+                    // 格式化日期为 YYYY-MM-DD
+                    var formattedDate = currentDate.toISOString().split('T')[0];
+                    
+                    // current time is default time
+                    $('#start-date').val(formattedDate);
+                    $('#end-date').val(formattedDate);
+                    $('#price').val(0); // TODO: BUG: it seems not working.
+
+                    $("#unit-collector").val(document.getElementById('persom-num'));
+                    $("#start-time-collector").val(formattedDate);
+                    $("#end-time-collector").val(formattedDate);
+                    $("#order-time-collector").val(formattedDate);
+                }
             });
     </script>
     <script>
@@ -233,4 +264,26 @@
             }
         }
   </script>
+  <!--<script>
+    document.getElementById('your-form-id').addEventListener('submit', function(event) {
+        // 阻止默认的表单提交行为
+        event.preventDefault();
+
+        // 获取特定 ID 字段的值
+        var specialFieldValue = document.getElementById('special-field').value;
+
+        // 创建一个新的表单元素
+        var newInputElement = document.createElement('input');
+        newInputElement.type = 'hidden'; // 设置新元素的类型为隐藏元素
+        newInputElement.name = 'new-field'; // 设置新元素的名称
+        newInputElement.value = specialFieldValue; // 将特定字段的值赋给新元素的值
+
+        // 将新的表单元素添加到表单中
+        var form = document.getElementById('your-form-id');
+        form.appendChild(newInputElement);
+
+        // 提交表单
+        form.submit();
+    });
+  </script>-->
 {% endblock %}
