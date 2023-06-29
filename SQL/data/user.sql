@@ -1,17 +1,26 @@
--- CREATE TABLE user_data (
---     id  INT                 PRIMARY KEY AUTO_INCREMENT,
-
---     name    VARCHAR(36)     NOT NULL,
---     pwd     VARCHAR(36)     NOT NULL,
+-- CREATE TABLE user (
+--     id          INT             PRIMARY KEY AUTO_INCREMENT,
+--     firstname   VARCHAR(36),
+--     lastname    VARCHAR(36)     NOT NULL,
+--     name        VARCHAR(36)     NOT NULL,
+--     pwd         CHAR(88)        NOT NULL,
 
 --     age         INT,
---     email       VARCHAR(36),
---     gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+--     email       VARCHAR(36)     NOT NULL UNIQUE,
+--     -- gender ENUM("female", "male", "unknown") NOT NULL DEFAULT "unknown"
+--     gender      INT             DEFAULT NULL,
+--     auth        TINYINT 	    NOT NULL DEFAULT 0
+--     -- 0 user, 1 admin
 -- );
-                        --  id  fir last    name        pwd                                                                                      age   email        gender 
-INSERT INTO customer VALUES (1, "", "Anonymous", "Anonymous", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "Anonymous@god.com", 2);
-INSERT INTO customer VALUES (2, "", "jacky", "jacky1", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "1@189.com", 2);
-INSERT INTO customer VALUES (3, "", "jacky", "jacky2", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "2@189.com", 2);
-INSERT INTO customer VALUES (4, "", "jacky", "jacky3", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "3@189.com", 2);
-INSERT INTO customer VALUES (5, "", "jacky", "jacky4", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "4@189.com", 2);
-INSERT INTO customer VALUES (6, "", "jacky", "jacky5", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a", 20, "5@189.com", 2);
+
+-- ANONYMOUS
+INSERT INTO user (auth, lastname, name, email, pwd) VALUES (0, "Anonymous", "Anonymous", "Anonymous@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+-- ADMIN
+INSERT INTO user (auth, lastname, name, email, pwd) VALUES (1, "jacky", "jacky", "18922251299@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+-- CUSTOM auth default 0
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky1", "1891@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky2", "1892@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky3", "1893@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky4", "1894@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky5", "1895@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");
+INSERT INTO user (auth, firstname, lastname, name, email, pwd) VALUES (0, "", "jacky", "jacky6", "1896@163.com", "sha256$AH62hcfABzGv07dX$cc410d510852a5f49bd6bb544c7b0305e1c371c9dc4a494fa5912c089be9137a");

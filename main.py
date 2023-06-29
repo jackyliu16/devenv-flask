@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -25,7 +25,7 @@ def index():
 
 @main.route("/", methods=["POST"])
 def form_selection():
-    from .models import Customer, Admin
+    from .models import User
 
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
@@ -41,22 +41,16 @@ def form_selection():
         app.logger.debug(
             f"{user.name if user else None} {admin.name if admin else None}"
         )
+
         if user and check_password_hash(user.pwd, upwd):
             app.logger.debug("login successed")
+            app.logger.info(f"user: {user.__dict__}")
             login_user(
                 user, remember=False
             )  # TODO could trying to add remember checkbox into login
-        elif admin and check_password_hash(admin.pwd, upwd):
-            app.logger.debug("login successed")
-            login_user(
-                admin, remember=False
-            )  # TODO could trying to add remember checkbox into login
         else:
             flash("Please check your login details and try again.")
-            app.logger.debug("login failure")
-            app.logger.debug(
-                f"{user}:{upwd} is {check_password_hash(user.pwd, upwd) if user else None}, {check_password_hash(admin.pwd, upwd) if admin else None} "
-            )
+            app.logger.debug(f"login failure {uname}:{upwd}")
 
     elif request.form["form_type"] == "register":
         firstname = request.form.get("firstname")
@@ -65,14 +59,14 @@ def form_selection():
         uname = request.form.get("username")
         upwd = request.form.get("password")
 
-        user = Customer.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
 
         # NOTE: there is unnecessary to register admin
         if user:
             app.logger.debug("register failure")
             flash("Email address alrerady exists")
         else:
-            new_user = Customer(
+            new_user = User(
                 firstname=firstname,
                 lastname=lastname,
                 name=uname,
@@ -105,8 +99,6 @@ def logout():
     )  # CHECK if it's necessary?
     logout_user()
     return redirect(url_for("main.index"))
-<<<<<<< HEAD
-
 
 @main.route("/contact")
 def contact():
@@ -121,55 +113,3 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
-
-
-@main.route("/bmap_main")
-def bmap_main():
-    return render_template("/baiduMap/bmap_main.html")
-=======
->>>>>>> 32d48da (refactor(contact): move to user blueprint)
-
-
-@main.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-
-@main.route("/contact", methods=["POST"])
-def post_contact():
-    for k, v in request.form.items():
-        app.logger.debug(f"{k}:{v}")
-
-    # TODO finish save form in database operation
-
-    return render_template("contact.html")
-
-
-<<<<<<< HEAD
-# @main.route("/baiduMap_routeArrangement")
-# def baiduMap_routeArrangement():
-#     return render_template("/baiduMap/baiduMap_routeArrangement.html")
->>>>>>> 35b0976 (feat: Realize function of search and zoom)
-
-
-# @main.route("/baiduMap_search")
-# def baiduMap_search():
-#     return render_template("/baiduMap/baiduMap_search.html")
-
-# @main.route("/baiduMap_zoom")
-# def baiduMap_zoom():
-#     return render_template("/baiduMap/baiduMap_zoom.html")
-
-# @main.route("/baiduMap_search_zoom")
-# def baiduMap_search_zoom():
-#     return render_template("/baiduMap/baiduMap_search_zoom.html")
-
-
-@main.route("/baiduMap_search_zoom_manual")
-def baiduMap_search_zoom_manual():
-    return render_template("/baiduMap/baiduMap_search_zoom_manual.html")
-=======
-@main.route("/bmap_main")
-def bmap_main():
-    return render_template("/baiduMap/bmap_main.html")
->>>>>>> 58d323c (feat: trying add point)
