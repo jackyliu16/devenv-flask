@@ -104,6 +104,7 @@ def identity_auth(next: str = None) -> str:
                 email=email,
                 # TODO: unfix the collection of gender
                 pwd=generate_password_hash(upwd, method="sha256"),
+                auth=0,
             )
             db.session.add(new_user)
             db.session.commit()

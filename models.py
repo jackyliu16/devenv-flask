@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
     age = db.Column(db.Integer)
     email = db.Column(db.String(36))
     gender = db.Column(db.Integer, server_default=db.FetchedValue())
-    auth = db.Column(db.Integer)
+    auth = db.Column(db.Integer, nullable=False)
 
     @property
     def user_type(self):
