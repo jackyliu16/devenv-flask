@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{% endblock %}
+
 {% block content %}
 <!-- subheader -->
 <section id="subheader1">
@@ -199,7 +203,6 @@
 {% endblock %}
 
 {% block script %}
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function () {
             init_collector();
