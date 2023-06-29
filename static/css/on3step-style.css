@@ -927,12 +927,6 @@ li>a:only-child:after {
     font-family:sans-serif;
  }
  
-.map{
-    height: 600px; 
-    width:100%;
-    border: 2px solid black;
-    margin: 30px;
-}
 
 #subheader-commerce {
   color: #fefefe;

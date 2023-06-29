@@ -195,11 +195,9 @@ def blog_post():
 def post_blog():
     return render_template("blog-post.html", flag=True)
 
-
 @user.route("/planing")
 def planing():
     return render_template("planing.html")
-
 
 @user.route("/bmap_main")
 def bmap_main():
