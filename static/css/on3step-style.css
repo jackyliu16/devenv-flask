@@ -75,7 +75,7 @@ body {
 .big-heading{
 	font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    color: #666;
+    color: white;
     margin-top: 0px;
 }
 .big-heading.bold{
@@ -901,12 +901,6 @@ li>a:only-child:after {
     font-family:sans-serif;
  }
  
-.map{
-    height: 600px; 
-    width:100%;
-    border: 2px solid black;
-    margin: 30px;
-}
 
 #subheader-commerce {
   color: #fefefe;
