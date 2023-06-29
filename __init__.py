@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import session
+from flask import session, request, redirect, url_for
 from datetime import timedelta
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
@@ -41,6 +41,17 @@ def create_app():
         from .lib import UserType
 
         return dict(UserType=UserType)
+
+    @app.errorhandler(405)
+    def method_not_allowed(error):
+        for k, v in request.form.items():
+            app.logger.debug(f"{k}:{v}")
+        form_type = request.form.get("form_type")
+        if form_type == "login" or form_type == "register":
+            app.logger.info(f"inside method_not_allowed")
+            referrer = request.referrer
+            # FIXME: unable to send the form into form_selection for using login and logout in everywhere
+            return redirect(url_for("main.index", next=referrer))
 
     adminView = Admin(template_mode="bootstrap3")
 

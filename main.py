@@ -12,13 +12,6 @@ app = Flask(__name__)
 
 from .models import UserType
 
-
-@app.context_processor
-def inject_user_type():
-    UserType = UserType
-    return dict(UserType=UserType)
-
-
 # NOTE: try 1003
 # @app.context_processor
 # def inject_enums():
@@ -32,6 +25,7 @@ def index():
 
 @main.route("/", methods=["POST"])
 def form_selection():
+    app.logger.debug("inside form selection")
     from .models import User
 
     for k, v in request.form.items():
