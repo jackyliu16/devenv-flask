@@ -33,6 +33,11 @@
     <li>
       <a href="{{ url_for('userView.contact')}}">Contact</a>
     </li>
+    {% if current_user.is_authenticated and current_user.user_type == UserType.ADMIN %}
+      <li>
+        <a href={{ url_for("admin.index") }}>Control Center</a>
+      </li>
+    {% endif %}
     </ul>
   </nav>
 </div>

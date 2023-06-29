@@ -36,6 +36,12 @@ def create_app():
     )
     login_manager.init_app(app)
 
+    @app.context_processor
+    def inject_user_type():
+        from .lib import UserType
+
+        return dict(UserType=UserType)
+
     adminView = Admin(template_mode="bootstrap3")
 
     from .models import User
