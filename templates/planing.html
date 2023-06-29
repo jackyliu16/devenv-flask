@@ -17,8 +17,86 @@
 </section>
 <!-- subheader end -->
 
-<!-- TODO: trying to make the nav unfoldable -->
+<!-- TODO: trying to make the nav unfoldable-->
 <div class="map">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="static/css/bmap.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=vIeXG84uuDZCLzQ4Nf3a5bhaC2Zd3iA1"></script>
+	<title>使用百度地图实现定位和搜索</title>
+</head>
+<body>
+	<div id="l-map" class="map_picture"></div>
+    <div class="map_content1">
+        <div id="r-result">搜索: <input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div>
+            <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+        <div>
+            <label for="start_point">起点经纬度：</label>
+            <input class="placeholder" type="text" id="start_point" placeholder="请输入起点经纬度">
+        </div>
+        <div>
+            <label for="end_point">终点经纬度：</label>
+            <input class="placeholder" type="text" id="end_point" placeholder="请输入终点经纬度">
+        </div>   
+        <button id="submitBtn">提交</button>
+    </div>
+        <div class="map_content1">
+            <div class="row">
+                <button id="searchBtn">Public transport</button>
+                <select>
+                    <option value="0">推荐方案</option>
+                    <option value="1">最少时间</option>
+                    <option value="2">最少换乘</option>
+                    <option value="3">最少步行</option>
+                    <option value="4">不乘地铁</option>
+                    <option value="5">优先地铁</option>
+                </select>
+                
+            </div>
+            <div class="row">
+                <button id="carBtn">By car</button>
+            </div>
+            <div class="row">
+                <button id="bikeBtn">By bike</button>
+            </div>
+            <div class="row">
+                <button id="footBtn">On foot</button>
+            </div>
+            <p id='result'></p>
+        </div>
+        <div class="map_content">
+            <p style="color: #4a87ec; font-size: 20px;">Function：
+                <p style="color: #e24b2c; font-size: 18px;">
+                    1. Search function: Enter location, locate location；
+                </p>
+                
+                <p style="color: #e24b2c; font-size: 18px;">
+                    2. Route query function:
+                </p>
+                    <p style="color: #87cc69; font-size: 16px; text-indent: 20px">
+                        a. Click on the map to record the longitude and latitude of the starting and ending points;
+                    </p>
+                    <p style="color: #87cc69; font-size: 16px; text-indent: 20px">
+                        b. Enter the starting and ending longitude and latitude in the input box, and click the submit button;
+                    </p>
+                    <p style="color: #87cc69; font-size: 16px; text-indent: 20px">
+                        c. Choose the mode of transportation in the upper right corner: "Public transport", "By car", "By bike", "On foot", etc;
+                    </p>
+                    <p style="color: #87cc69; font-size: 16px; text-indent: 20px">
+                        d. Among them, there are six options for "public transportation": "recommended plan", "minimum time", "minimum transfer", "minimum walking", "no subway", and "priority subway";
+                    </p>		
+            </p>
+        </div>
+	</body>
+</html>
+<script type="text/javascript" src="static/js/bmap.js"></script>
 
+<script type="text/javascript" >
+	
+</script>
 </div>
 {% endblock %}
