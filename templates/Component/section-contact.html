@@ -1,24 +1,25 @@
 <!-- section contact -->
-      <section aria-label="contact" class="whitepage">
+      <section aria-label="contact" class="whitepage" style="padding-bottom: 0px;">
         <div class="container-fluid m-5-hor">
           <div class="row">
           
             <div class="col-md-8">
-                <form id="form-contact1">
+                <!-- TODO: More refined user control, such as logged-in users do not need to enter -->
+                <form id="form-contact1" action="{{ url_for("user.contact") }}" method="POST">
                             <div class="form-group user-name">
-                                <input type="text" class="form-control" required="" id="name-contact-1" placeholder="Your Name">
+                                <input name="name" type="text" class="form-control" required="" placeholder="Your Name">
                             </div>
 
                             <div class="form-group user-email">
-                                <input type="email" class="form-control" required="" id="email-contact" placeholder="Your Email">
+                                <input name="email" type="email" class="form-control" required="" placeholder="Your Email">
                             </div>
                         
                             <div class="form-group user-message">
-                                <textarea class="form-control" required="" id="message-contact" placeholder="Your Message"></textarea>
+                                <textarea name="message" class="form-control" required="" id="message-contact" placeholder="Your Message"></textarea>
                                 <div class="success" id="mail_success">Thank you. Your message has been sent</div>
                                 <div class="error" id="mail_failed">Error, email not sent</div>
                             </div>
-                    <button type="submit" id="send-contact-1" class="btn-contact">Send Now</button>
+                    <button type="submit" class="btn-contact">Send Now</button>
                 </form>
             </div>
             
@@ -29,8 +30,8 @@
                     <span>
                     129 Park street, New York 10903</span> 
                     <span><strong>PHONE:</strong> (+6221) 000 888 999</span> 
-                    <span><strong>EMAIL:</strong><a href="mailto:companyname@gmail.com"> youremail@gmail.com</a></span> 
-                    <span><strong>WEB:</strong><a href="#"> www.yourdomain.com</a></span>
+                    <span><strong>EMAIL:</strong><a href="mailto:companyname@gmail.com">20202033015@scnu.edu.cn</a></span> 
+                    <span><strong>WEB:</strong><a href="#"> www.CommandZ.com</a></span>
                   </address>
               </div>
             <!-- address end -->

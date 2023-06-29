@@ -1,120 +1,129 @@
 {% extends 'base.html' %}
+<!-- 继承自名为 base.html 的基础模板，表示当前模板将扩展基础模板的内容。 -->
+
 
 {% block head %}
+</header>
+<!-- home -->
+<div id="home">
 <!-- revolution slider -->
-    <section class="no-top no-bottom" aria-label="section-slider">
-    <div class="fullwidthbanner-container">
-    <div id="revolution-slider-half">
-                <ul>
+<section class="no-top no-bottom" aria-label="section-slider">
+<div class="fullwidthbanner-container">
+<div id="revolution-slider-half">
+              <ul>
 
-                    <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
-                        <!--  BACKGROUND IMAGE -->
-                        <img src="static/images-slider/img-slide-1.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center"/>
-                        <div class="tp-caption slide-big-heading sft"
-                            data-x="center"
-                            data-y="300"
-                            data-speed="800"
-                            data-start="400"
-                            data-easing="easeInOutExpo"
-                            data-endspeed="450">
-                            Amazing Diversity on Travel
-                        </div>
+                  <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
+                      <!--  BACKGROUND IMAGE -->
+                      <img src="static/images-slider/img-slide-1.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center"/>
+                      <div class="tp-caption slide-big-heading sft"
+                          data-x="center"
+                          data-y="300"
+                          data-speed="800"
+                          data-start="400"
+                          data-easing="easeInOutExpo"
+                          data-endspeed="450"
+                          >
+                          Amazing Diversity on Travel
+                      </div>
 
-                        <div class="tp-caption slide-sub-heading sft"
-                            data-x="center"
-                            data-y="370"
-                            data-speed="1000"
-                            data-start="800"
-                            data-easing="easeOutExpo"
-                            data-endspeed="400">
-                            For your vacations
-                        </div>
+                      <div class="tp-caption slide-sub-heading sft"
+                          data-x="center"
+                          data-y="370"
+                          data-speed="1000"
+                          data-start="800"
+                          data-easing="easeOutExpo"
+                          data-endspeed="400">
+                          For your vacations
+                      </div>
 
-                        <div class="tp-caption sfb"
-                            data-x="center"
-                            data-y="410"
-                            data-speed="400"
-                            data-start="800"
-                            data-easing="easeInOutExpo">
-                            <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
-                        </div>
+                      <div class="tp-caption sfb"
+                          data-x="center"
+                          data-y="410"
+                          data-speed="400"
+                          data-start="800"
+                          data-easing="easeInOutExpo">
+                          <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
+                      </div>
 
-                    </li>
-                    
-                    <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
-                        <!--  BACKGROUND IMAGE -->
-                        <img src="static/images-slider/img-slide-2.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center" />
-                        <div class="tp-caption slide-big-heading sft"
-                            data-x="center"
-                            data-y="300"
-                            data-speed="800"
-                            data-start="400"
-                            data-easing="easeInOutExpo"
-                            data-endspeed="450">
-                            Perfect Place on Vacation
-                        </div>
+                  </li>
+                  
+                  <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
+                      <!--  BACKGROUND IMAGE -->
+                      <img src="static/images-slider/img-slide-2.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center" />
+                      <div class="tp-caption slide-big-heading sft"
+                          data-x="center"
+                          data-y="300"
+                          data-speed="800"
+                          data-start="400"
+                          data-easing="easeInOutExpo"
+                          data-endspeed="450">
+                          Perfect Place on Vacation
+                      </div>
 
-                        <div class="tp-caption slide-sub-heading sft"
-                            data-x="center"
-                            data-y="370"
-                            data-speed="1000"
-                            data-start="800"
-                            data-easing="easeOutExpo"
-                            data-endspeed="400">
-                            Asia, Africa, Australia
-                        </div>
+                      <div class="tp-caption slide-sub-heading sft"
+                          data-x="center"
+                          data-y="370"
+                          data-speed="1000"
+                          data-start="800"
+                          data-easing="easeOutExpo"
+                          data-endspeed="400">
+                          Asia, Africa, Australia
+                      </div>
 
-                        <div class="tp-caption sfb"
-                            data-x="center"
-                            data-y="410"
-                            data-speed="400"
-                            data-start="800"
-                            data-easing="easeInOutExpo">
-                            <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
-                        </div>
+                      <div class="tp-caption sfb"
+                          data-x="center"
+                          data-y="410"
+                          data-speed="400"
+                          data-start="800"
+                          data-easing="easeInOutExpo">
+                          <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
+                      </div>
 
-                    </li>
-                    
-                    <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
-                        <!--  BACKGROUND IMAGE -->
-                        <img src="static/images-slider/img-slide-3.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center" />
-                        <div class="tp-caption slide-big-heading sft"
-                            data-x="center"
-                            data-y="300"
-                            data-speed="800"
-                            data-start="400"
-                            data-easing="easeInOutExpo"
-                            data-endspeed="450">
-                            The New Adventure Travel
-                        </div>
+                  </li>
+                  
+                  <li data-transition="parallaxtobottom" data-slotamount="10" data-masterspeed="1200" data-delay="5000">
+                      <!--  BACKGROUND IMAGE -->
+                      <img src="static/images-slider/img-slide-3.jpg" alt="" data-start="0" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="120" data-bgfitend="100" data-bgpositionend="center center" />
+                      <div class="tp-caption slide-big-heading sft"
+                          data-x="center"
+                          data-y="300"
+                          data-speed="800"
+                          data-start="400"
+                          data-easing="easeInOutExpo"
+                          data-endspeed="450">
+                          The New Adventure Travel
+                      </div>
 
-                        <div class="tp-caption slide-sub-heading sft"
-                            data-x="center"
-                            data-y="370"
-                            data-speed="1000"
-                            data-start="800"
-                            data-easing="easeOutExpo"
-                            data-endspeed="400">
-                            Discover hidden places in the world
-                        </div>
+                      <div class="tp-caption slide-sub-heading sft"
+                          data-x="center"
+                          data-y="370"
+                          data-speed="1000"
+                          data-start="800"
+                          data-easing="easeOutExpo"
+                          data-endspeed="400">
+                          Discover hidden places in the world
+                      </div>
 
-                        <div class="tp-caption sfb"
-                            data-x="center"
-                            data-y="410"
-                            data-speed="400"
-                            data-start="800"
-                            data-easing="easeInOutExpo">
-                            <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
-                        </div>
+                      <div class="tp-caption sfb"
+                          data-x="center"
+                          data-y="410"
+                          data-speed="400"
+                          data-start="800"
+                          data-easing="easeInOutExpo">
+                          <div class="btn-slider"><span class="shine"></span><a href="#" >More Detail</a></div>
+                      </div>
 
-                    </li>
-                    
-                </ul>
-                <div class="tp-bannertimer hide"></div>
-            </div>
-            </div>
-    </section>
-<!-- revolution slider end -->
+                  </li>
+                 
+              </ul>
+              <div class="tp-bannertimer hide"></div>
+          </div>
+        </div>
+  </section>
+  <!-- revolution slider end -->
+   
+</div>
+<!-- home end -->
 {% endblock %}
 
 {% block content %}
@@ -146,87 +155,5 @@
 <div id="totop" class="init">
     <span class="ti-angle-up"></span>
 </div>  
-
-<!-- modal login -->
-    <div id="fLogin" class="modal fade">
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-        <div class="modal-header">      
-            <h4 class="modal-title">Member Log In</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form action="#" method="post">
-            <input type="hidden" name="form_type" value="login">
-            <div class="form-group">
-                <label>User Name</label>
-                <input name="username" type="text" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input name="password" type="password" class="form-control" required="required">         
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Log In">
-            </div>
-            </form>       
-            
-        </div>
-        <div class="modal-footer">
-            <a href="#">or Sign Up</a>
-        </div>
-        </div>
-    </div>
-    </div>
-<!-- modal login end -->
-
-<!-- modal registration -->
-    <div id="fsignUp" class="modal fade">
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-        <div class="modal-header">      
-            <h4 class="modal-title">Member Registration</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form action="#" method="post">
-            <input type="hidden" name="form_type" value="register">
-            <div class="form-group">
-            <label>First Name</label>
-            <input name="firstname" type="text" name="firstname" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-            <label>Last Name</label>
-            <input name="lastname" type="text" name="lastname" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-            <label>Email Address</label>
-            <input name="email" type="email" name="email" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-            <label>Username</label>
-            <input name="username" type="text" name="username" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-            <label>Password</label>
-            <input name="password" type="password" name="password" class="form-control" required="required">
-            </div>
-            <div class="form-group">
-            <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label>
-            </div>
-            <div class="form-group"><input type="submit" value="Sign up" class="btn btn-primary btn-block btn-lg"></div>
-            <div class="clearfix"></div>
-            </form>       
-            
-        </div>
-        <div class="modal-footer">
-            <a href="#">or Log In</a>
-        </div>
-        </div>
-    </div>
-    </div>
-<!-- modal registration end -->    
-
-
 
 {% endblock %}

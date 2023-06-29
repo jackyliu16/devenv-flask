@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -25,7 +25,7 @@ def index():
 
 @main.route("/", methods=["POST"])
 def form_selection():
-    from .models import Customer, Admin
+    from .models import User
 
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
@@ -35,29 +35,16 @@ def form_selection():
         upwd = request.form.get("password")
         app.logger.debug(f"{uname}:{upwd}")
 
-        # OPTIMIZE: Can use a better method of distinguishing between user and admin，current operation have side effect.
-        user = Customer.query.filter_by(name=uname).first()
-        admin = Admin.query.filter_by(name=uname).first()
-
-        app.logger.debug(
-            f"{user.name if user else None} {admin.name if admin else None}"
-        )
+        user = User.query.filter_by(name=uname).first()
         if user and check_password_hash(user.pwd, upwd):
             app.logger.debug("login successed")
+            app.logger.info(f"user: {user.__dict__}")
             login_user(
                 user, remember=False
             )  # TODO could trying to add remember checkbox into login
-        elif admin and check_password_hash(admin.pwd, upwd):
-            app.logger.debug("login successed")
-            login_user(
-                admin, remember=False
-            )  # TODO could trying to add remember checkbox into login
         else:
             flash("Please check your login details and try again.")
-            app.logger.debug("login failure")
-            app.logger.debug(
-                f"{user}:{upwd} is {check_password_hash(user.pwd, upwd) if user else None}, {check_password_hash(admin.pwd, upwd) if admin else None} "
-            )
+            app.logger.debug(f"login failure {uname}:{upwd}")
 
     elif request.form["form_type"] == "register":
         firstname = request.form.get("firstname")
@@ -66,14 +53,14 @@ def form_selection():
         uname = request.form.get("username")
         upwd = request.form.get("password")
 
-        user = Customer.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
 
         # NOTE: there is unnecessary to register admin
         if user:
             app.logger.debug("register failure")
             flash("Email address alrerady exists")
         else:
-            new_user = Customer(
+            new_user = User(
                 firstname=firstname,
                 lastname=lastname,
                 name=uname,
@@ -121,3 +108,6 @@ def post_contact():
     # TODO finish save form in database operation
 
     return render_template("contact.html")
+
+
+

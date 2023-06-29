@@ -3,7 +3,33 @@
 
 
 {% block content %}
+<!-- subheader -->
+<section id="subheader1">
+    <div class="container-fluid m-5-hor">
+        <div class="row">
+        <div class="col-md-12">
+            <h1 class="big-heading">
+            Contact
+            </h1>
+            <p>A travel agency with temperature</p>
+        </div>
+        </div>
+    </div>
+</section>
+<!-- subheader end -->
 
+<!-- TODO: trying to make the nav unfoldable -->
+<div style="height: 250px; width=100%">
+    <div class="work_time">
+        <p class="title2">If you have any questions, please contact us.</p>
+        <p class="content2">Our business hours are:</p>
+        <p class="content2">Monday~Friday: From 8 am to 6 pm</p>
+        <p class="content2">Saturday~Sunday: From 10 am to 5 pm</p>
+    </div> 
+    <div class="right_picture1">
+        <img class="image_border1" src="static/img/contact.jpg">
+    </div>
+</div>
 {% include "Component/section-contact.html" %}
 
 {% endblock %}

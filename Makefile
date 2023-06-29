@@ -62,6 +62,7 @@ clean-dev:
 # Generate Models
 # 	automates the process of mapping Python classes to database tables and making queries against those tables.
 # 	NOTE: Each update to the database structure must be run and then a simple fix done manually
+# 	TODO: conside to remove this function, BC the dependence manager have some error thus it couldn't work normally
 generate:
 	flask-sqlacodegen "mysql+mysqlconnector://root@localhost:5001/travel" --outfile "output.py"
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="static/css/bmap.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=3.0&ak=vIeXG84uuDZCLzQ4Nf3a5bhaC2Zd3iA1"></script>
+	<title>使用百度地图实现定位和搜索</title>
+</head>
+<body>
+	<div id="l-map"></div>
+	<div id="driving_way" class="container">
+		<div class="row">
+			<button id="searchBtn">Public transport</button>
+			<select>
+				<option value="0">推荐方案</option>
+				<option value="1">最少时间</option>
+				<option value="2">最少换乘</option>
+				<option value="3">最少步行</option>
+				<option value="4">不乘地铁</option>
+				<option value="5">优先地铁</option>
+			</select>
+			
+		</div>
+		<div class="row">
+			<button id="carBtn">By car</button>
+		</div>
+		<div class="row">
+			<button id="bikeBtn">By bike</button>
+		</div>
+		<div class="row">
+			<button id="footBtn">On foot</button>
+		</div>
+		<p id='result'></p>
+	</div>
+	<div id="r-result">搜索: <input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div>
+	<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+	<div>
+		<label for="start_point">起点经纬度：</label>
+		<input type="text" id="start_point" placeholder="请输入起点经纬度">
+	</div>
+	<div>
+		<label for="end_point">终点经纬度：</label>
+		<input type="text" id="end_point" placeholder="请输入终点经纬度">
+	</div>
+	<button id="submitBtn">提交</button>
+	<p style="color: blue; font-size: 20px;">功能：
+		<p style="color: red; font-size: 16px;">
+			1. 搜索功能：输入地点，定位地点；
+		</p>
+		
+		<p style="color: red; font-size: 16px;">
+			2. 路线查询功能：
+		</p>
+			<p style="color: green; font-size: 14px; text-indent: 20px">
+				a. 点击地图，记录起点和终点经纬度；
+			</p>
+			<p style="color: green; font-size: 14px; text-indent: 20px">
+				b. 输入框内输入起终经纬度，点击提交按钮；
+			</p>
+			<p style="color: green; font-size: 14px; text-indent: 20px">
+				c. 右上角选择出行方式：“公共交通”、“开车”、“汽车”和“步行”等；
+			</p>
+			<p style="color: green; font-size: 14px; text-indent: 20px">
+				d. 其中“公共交通”可以选择：“推荐方案”、“最少时间”、“最少换乘”、“最少步行”、“不乘地铁”和“优先地铁”等6种方式；
+			</p>
+			
+			
+			
+			
+	</p>
+	</body>
+</html>
+<script type="text/javascript" src="static/js/bmap.js"></script>
+
+<script type="text/javascript" >
+	
+</script>
