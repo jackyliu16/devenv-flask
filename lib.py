@@ -12,6 +12,13 @@
 import os
 import re
 from typing import List
+from .models import UserType
+from flask import Flask
+from flask import redirect, request, flash
+from flask_login import current_user
+from functools import wraps
+
+app = Flask(__name__)
 
 FACILITIES_SERVICES = {
     0: "Double Bed",
@@ -38,3 +45,28 @@ def get_file_list_with_pattern(root: str, pattern: str) -> List[str]:
         ):
             files.append(os.path.join(root, file_name))
     return files
+
+
+def login_check_return_origin(func):
+    """login checker, when user haven't login, then will go back into the prev page
+
+    Args:
+        func (_type_): The view function being decorated
+
+    Returns:
+        _type_: Decorated view function
+    """
+
+    @wraps(func)
+    def decorated_view(*args, **kwargs):
+        referrer = request.referrer
+        app.logger.debug(f"referer: {referrer}")
+
+        # haven't login
+        if not current_user.is_authenticated:
+            flash("You have to login then you will be able to using this function.")
+            return redirect(referrer)
+
+        return func(*args, **kwargs)
+
+    return decorated_view
