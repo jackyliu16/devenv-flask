@@ -34,7 +34,11 @@ user = Blueprint("userView", __name__)
 
 from . import db
 from .models import UserType, ProductDetail, Feedback
-from .lib import get_file_list_with_pattern, FACILITIES_SERVICES
+from .lib import (
+    get_file_list_with_pattern,
+    login_check_return_origin,
+    FACILITIES_SERVICES,
+)
 
 
 @user.route("/contact")
@@ -100,6 +104,7 @@ def gallery():
 
 
 @user.route("/ecommerce-form")
+@login_check_return_origin
 def ecommerceForm():
     product_name = request.args.get("name")
     product_img = request.args.get("img1")
@@ -119,6 +124,7 @@ def ecommerceForm():
 
 
 @user.route("/ecommerce-form", methods=["POST"])
+@login_check_return_origin
 def post_ecommerce():
     # TODO: maybe we could trying to using session to save data
     product_name = request.args.get("name")
@@ -163,6 +169,7 @@ def post_ecommerce():
 
 
 @user.route("/ecommerce-checkout", methods=["POST"])
+@login_check_return_origin
 def checkout():
     for k, v in request.form.items():
         app.logger.debug(f"{k}:{v}")
