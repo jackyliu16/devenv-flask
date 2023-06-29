@@ -14,19 +14,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="big-heading">
-                        Detail Gallery
+                        {{ detail_dic["name"] }}
                     </h1>
-                    <p>Varius blandit sit amet</p>
+                    <p>{{ detail_dic["intro"] }}</p>
                 </div>
-    </div>
-    </div>
+            </div>
+        </div>
     </section>
-<!-- subheader end -->
+    <!-- subheader end -->
 
 
-<!-- section -->
+    <!-- section -->
     <section aria-label="section-blog" id="content">
-    <div class="container-fluid">
+        <div class="container-fluid">
         <div class="row">
 
             <div class="v-align">
@@ -61,11 +61,6 @@
                                 {% endif %}
                                 {# CHECK: it looks like the #}
                                 <!-- text detail -->
-                                <h3>Blue Ocean Australia</h3>
-                                <p class="content">Sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut
-                                    enim ad minim veniam, quis nstrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodoconsequat.
-                                </p>
                                 <!-- text detail end -->
                             </div>
 
@@ -83,8 +78,9 @@
                                         <div class="price">${{ detail_dic["price"].split("/")[0] }}<sub>/night</sub>
                                         </div>
                                         {# CHECK: what is the diff between this and previous intro? should replace? #}
-                                        <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american
-                                            apparel, butcher voluptate nisi qui.</p>
+                                        <p>This price is the basic price of Travel itinerary. Any upgrade project based
+                                            on this Travel itinerary will increase the price (such as better
+                                            transportation and hotels)</p>
 
                                         <!-- spacer -->
                                         <div class="space-half"></div>
