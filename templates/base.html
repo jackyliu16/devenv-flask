@@ -155,7 +155,8 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
-              <form action="#" method="post">
+              {# BUG: when been calling in other place, then it will crash #}
+              <form action="" method="post">
               <input type="hidden" name="form_type" value="login">
               <div class="form-group">
                   <label>User Name</label>
@@ -188,7 +189,8 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
-              <form action="#" method="post">
+              {# BUG: when been calling in other place, then it will crash #}
+              <form action="" method="post">
               <input type="hidden" name="form_type" value="register">
               <div class="form-group">
               <label>First Name</label>
