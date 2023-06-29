@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- subheader -->
+    <section id="subheader-commerce">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>
+                        CheckOut
+                    </h1>
+                    <div class="commerce-step">
+                        {# TODO: Is redirection required ? #}
+                        <a></a>
+                        <a>Process</a>
+                        <a class="active">Payment</a>
+                        <a>Receipt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subheader end -->
+
+    <section id="tab-commerce" class="no-bottom">
+        <div class="container-fluid m-5-hor">
+            <div class="row">
+                <div class="board">
+                    <div class="board-inner">
+                        <ul class="nav nav-tabs">
+                            <div class="liner"></div>
+
+                            <li class="active">
+                                <a href="#" onclick="goBack()">
+                                    <span class="title">Process</span>
+                                    <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">
+                                    <span class="title">Payment</span>
+                                    <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <span class="title">Receipt</span>
+                                <span class="round-tabs step"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid m-5-hor onStep" data-animation="fadeInUp" data-time="300">
+            <div class="row">
+                <form action={{ url_for('user.checkout')}} , method="POST">
+                    <div class="col-md-6">
+                        <h5 class="big-heading">ORDER INFORMATION</h5>
+                        <div class="headingform">Transaction ID : {{ data['ID'] }}</div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="headingbook">Name:</div>
+                                <div>{{ data['fname'] + data['lname'] }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Phone:</div>
+                                <div>{{ data['phone'] }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Email:</div>
+                                <div>{{ data['email'] }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">City:</div>
+                                <div>{{ data['city'] }}</div>
+                            </div>
+                            {# TODO: necessary ? #}
+                            <div class="col-md-6">
+                                <div class="headingbook">Address:</div>
+                                <div>{{ data['address'] }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Zip:</div>
+                                <div>{{ data['zipcode'] }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="headingbook">Company</div>
+                                <div>{{ data['cname'] }}</div>
+                            </div>
+                        </div>
+                        <div class="clearfix space-single"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="big-heading">CHOOSE PAYMENT</h5>
+                        <div class="headingform">Choose your best payment method below</div>
+                        <hr>
+                        <p>
+                            <input type="radio" id="payment1" name="payment_method" value="Credit Card" checked>
+                            <label for="payment1" class="labelcard">Credit Card</label>
+                        </p>
+                        <p class="labeldetail">( Mastercard, Visa, American Express, Discover etc )</p>
+                        <p>
+                            <input type="radio" id="payment2" name="payment_method" value="PayPal">
+                            <label for="payment2" class="labelcard">PayPal</label>
+                        </p>
+                        <p class="labeldetail">Pay without sharing your financial information and complete purchase.</p>
+                        <p>
+                            <input type="radio" id="payment3" name="payment_method" value="Transfer Bank">
+                            <label for="payment3" class="labelcard">Transfer Bank</label>
+                        </p>
+                        <p class="labeldetail">Make your payment directly into our bank account and please use your
+                            Order Id as the payment reference.</p>
+                        <hr>
+                        <p>Payment with electronic money will be automatically verified to your
+                            account.Once your payment confirmed,you will receipt generate invoice
+                            and print from your email or account.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-6"><a class="btn-ecom" onclick="goBack()">Back to form</a></div>
+                    <div class="col-md-6">
+                        <button type="submit" id="send-ecom" class="btn-ecom">Go to Checkout</button>
+                        {# TODO: need to check if information has been complete #}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ScrolltoTop -->
+    <div id="totop" class="init">
+        <span class="ti-angle-up"></span>
+    </div>
+    
+{% endblock %}
+
+{% block script %}
+    <script>
+        function goBack() {
+            history.back();
+        }
+    </script>
+{% endblock %}

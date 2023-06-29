@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 from flask import render_template, request, flash, url_for, redirect, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
