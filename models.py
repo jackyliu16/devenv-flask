@@ -29,14 +29,6 @@ class ProductDetail(db.Model):
     content = db.Column(LONGTEXT, nullable=True)
     price = db.Column(db.String(36), nullable=False)
     mask = db.Column(db.SmallInteger, nullable=True)
-    auth = db.Column(db.Integer)
-
-    @property
-    def user_type(self):
-        if self.auth == 0:
-            return UserType.CUSTOM
-        elif self.auth == 1:
-            return UserType.ADMIN
 
 
 class Feedback(db.Model):
