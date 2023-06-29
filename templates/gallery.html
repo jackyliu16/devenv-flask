@@ -497,18 +497,3 @@
     </section>
     <!-- section projects end -->
 {% endblock %}
-
-{% block script %}
-const items = document.querySelectorAll('.iTem');
-
-// 给每个.item元素添加点击事件监听器
-items.forEach(iTem => {
-  iTem.addEventListener('click', () => {
-    // 移除所有.item元素的.active类
-    items.forEach(iTem => iTem.classList.remove('active'));
-    
-    // 给当前点击的.item元素添加.active类
-    iTem.classList.add('active');
-  });
-});
-{% endblock %}
