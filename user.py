@@ -181,8 +181,8 @@ def about():
     return render_template("about.html")
 
 
-@user.route("/blog-single")
-def blog_single():
+@user.route("/our-blog")
+def our_blog():
     return render_template("blog.html")
 
 
