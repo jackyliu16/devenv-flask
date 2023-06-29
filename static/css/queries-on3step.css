@@ -165,8 +165,13 @@
     line-height: normal;
   }
   .big-heading{
-    font-size: 24px;
+    font-size: 20px;
   }
+
+  .big-heading1{
+    font-size: 15px;
+  }
+
   #subheader h1, #subheader-commerce h1 {
     font-size: 31px;
   }

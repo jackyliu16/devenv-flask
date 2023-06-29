@@ -2941,10 +2941,15 @@ cursor:pointer;
 -o-transition: all 0.3s ease;
 transition: all 0.3s ease;
 }
-.btn-ecom:hover, a.btn-ecom:hover{ 
-color:#fff;
-background:#090c0d;
-line-height:45px;
+
+.btn-ecom:hover, a.btn-ecom:hover {
+    color: #fff;
+    background: #090c0d;
+    line-height: 45px;
+}
+
+#12345 {
+    width: 200px; /* 设置宽度为 200 像素 */
 }
 
 
