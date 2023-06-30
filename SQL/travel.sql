@@ -36,6 +36,29 @@ CREATE TABLE product_detail (
     mask      SMALLINT       NOT NULL
 );
 source ./SQL/data/product_detail.sql;
+
+CREATE TABLE bill {
+    id      INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    fname   VARCHAR(36),
+    lname   VARCHAR(36),
+    cname   VARCHAR(36),
+    zipcode VARCHAR(8),
+    email   VARCHAR(36),
+    phone   VARCHAR(15),
+    city    VARCHAR(36),
+    address VARCHAR(36),
+    product_id INT,
+    pay_method VARCHAR(8),
+    unit    TINYINT, 
+    price   INT,
+    start_time VARCHAR(16),
+    end_time VARCHAR(16),
+
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (product_id) REFERENCES product_detail(id),
+}
+
 -- NOTE: what about we just search it in the path with specify name 
 -- CREATE TABLE images (
 --   id INT(11) NOT NULL AUTO_INCREMENT,

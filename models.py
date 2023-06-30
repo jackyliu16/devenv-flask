@@ -2,7 +2,7 @@
 from . import db
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.mysql import LONGTEXT
+from sqlalchemy.dialects.mysql import LONGTEXT, TINYINT
 
 from .lib import UserType
 
@@ -46,3 +46,24 @@ class Feedback(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     email = db.Column(db.String(36), nullable=False)
     comment = db.Column(db.String(500), nullable=False)
+
+
+class Bill(db.Model):
+    __tablename__ = "bill"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer)
+    fname = db.Column(db.String(36), nullable=False)
+    lname = db.Column(db.String(36), nullable=False)
+    cname = db.Column(db.String(36), nullable=False)
+
+    zipcode = db.Column(db.String(8), nullable=False)
+    email = db.Column(db.String(36), nullable=False)
+    phone = db.Column(db.String(15), nullable=False)
+    city = db.Column(db.String(36), nullable=False)
+    address = db.Column(db.String(36), nullable=False)
+    product_id = db.Column(db.Integer, nullable=False)
+    pay_method = db.Column(db.String(8), nullable=False)
+    unit = db.Column(TINYINT, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    start_time = db.Column()
