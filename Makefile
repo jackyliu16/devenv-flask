@@ -58,6 +58,9 @@ clean-py:
 	rm -rf .venv
 clean-dev:
 	rm -rf .devenv
+git-log:
+	git log --graph --abbrev-commit --decorate --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
 
 # Generate Models
 # 	automates the process of mapping Python classes to database tables and making queries against those tables.
@@ -66,4 +69,4 @@ clean-dev:
 generate:
 	flask-sqlacodegen "mysql+mysqlconnector://root@localhost:5001/travel" --outfile "output.py"
 
-.PHONY: clean-env env
+.PHONY: clean-env env git-log
