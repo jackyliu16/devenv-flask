@@ -8,6 +8,7 @@
     <div class="onStep" data-animation="fadeInUp" data-time="0">
         <div id="owl-gal" class="owl-carousel">
             {# NOTE: should set keyword args, Otherwise, a static template is rendered #}
+            {# BUG: it's welied that this for loop generate same html file as using templates, but it has a bug that padding incorrect. #}
             {% if products %}
                 {% for product in products %}
                     <div class="item">

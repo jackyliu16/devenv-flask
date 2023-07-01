@@ -30,8 +30,10 @@ from .models import ProductDetail
 
 @main.route("/")
 def index():
+    products = ProductDetail.query.all()
     return render_template(
-        "index.html", current_user=current_user, products=ProductDetail.query.all()
+        "index.html",
+        current_user=current_user,
     )
 
 
