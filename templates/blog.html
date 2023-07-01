@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{# TODO: this file is only the static html call, which it haven't implementation internal logical #}
 
 {% block content %}
 <!-- subheader -->
@@ -19,6 +20,7 @@
       <!-- section -->
       <section aria-label="section-blog" id="content">
         <div class="container-fluid m-5-hor">
+        {# TODO: unfinish connect with databases; #}
           <div class="row">
           
             <!-- left content -->
@@ -178,137 +180,14 @@
       </section>
       <!-- section end -->
       
-       
-      <!-- footer -->
-      <footer class="main text-center">
-        <div class="container-fluid m-5-hor">
-          <div class="row">
-          
-          <div class="onStep" data-animation="fadeInUp" data-time="300">
-          <div class="col-md-4 text-left">
-          <span><a href="#">Email: companyname@gmail.com</a></span>
-          <span>Copyright - 2018 Plesire Travel All Right Reserved</span>
-          </div>
-          
-          <div class="col-md-4">
-                <span class="logo">
-                <img alt="logo" src="img/logo-white.png">
-                </span>
-            </div>
-            
-            <div class="col-md-4 text-right">
-              <span>129 Park street, New York City, NY 10903</span>
-              <span>Phone: (+6221) 000 888 999</span>
-            </div>
-            </div>
-
-            
-          </div>
-        </div>
-      </footer>
-      <!-- footer end -->
-      
-      
       <!-- ScrolltoTop -->
       <div id="totop" class="init">
         <span class="ti-angle-up"></span>
       </div>  
-
-              <!-- modal login -->
-              <div id="fLogin" class="modal fade">
-                <div class="modal-dialog modal-login">
-                  <div class="modal-content">
-                    <div class="modal-header">      
-                      <h4 class="modal-title">Member Log In</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <form action="#" method="post">
-                        <div class="form-group">
-                          <label>User Name</label>
-                          <input type="text" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                          <label>Password</label>
-                          <input type="password" class="form-control" required="required">         
-                        </div>
-                        <div class="form-group">
-                          <input type="submit" class="btn btn-primary btn-block btn-lg" value="Log In">
-                        </div>
-                      </form>       
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <a href="#">or Sign Up</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- modal login end -->
-
-              <!-- modal registration -->
-              <div id="fsignUp" class="modal fade">
-                <div class="modal-dialog modal-login">
-                  <div class="modal-content">
-                    <div class="modal-header">      
-                      <h4 class="modal-title">Member Registration</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstname" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastname" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" name="password" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                        <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label>
-                        </div>
-                        <div class="form-group"><input type="submit" value="Sign up" class="btn btn-primary btn-block btn-lg"></div>
-                        <div class="clearfix"></div>
-                      </form>       
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <a href="#">or Log In</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- modal registration end -->      
-
      
-    </div>
-    <!-- content wraper end --> 
-    
-    <!-- plugin JS -->
-    <script src="plugin/pluginson3step.js"></script> 
-    <script src="plugin/bootstrap.min.js"></script>
-    <script src='plugin/bootstrap-datepicker.min.js'></script>
-    <script src="plugin/sticky.js"></script> 
-    <!-- slider revolution  -->
-    <script src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <!-- on3step JS -->
-    <script src="js/on3step.js"></script>
-    <script src="js/plugin-set.js"></script>
-  </body>
-</html>
+{% endblock %}
+
+{% block script %}
 {% endblock %}
 
       
