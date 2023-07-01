@@ -7,188 +7,229 @@
 
     <div class="onStep" data-animation="fadeInUp" data-time="0">
         <div id="owl-gal" class="owl-carousel">
-
-            <div class="item">
-                <div class="gal-home">
-                    <a href="{{ url_for("userView.product_detail_page", name="Blue Ocean Island") }}">
-                        {#                <a href="/product_details?project=Blue Ocean Island">#}
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img1.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5>Blue Ocean Island</h5>
-                                    <p>Duration 4 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
+            {# NOTE: should set keyword args, Otherwise, a static template is rendered #}
+            {% if products %}
+                {% for product in products %}
+                    <div class="item">
+                        <div class='gal-home'>
+                            {# CHECK: should check if there is necessary to change the internal logic into javascript implement, which could be run in html #}
+                            <a href={{ url_for("userView.product_detail_page", name=product.name) }}>
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="{{ product.img_files[0] }}">
                             </div>
-                            <div class="review-cont big-heading">2048 Reviews</div>
-                        </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                            <div class="price big-heading">$ 1200</div>
-                        </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5>{{ product.name }}</h5>
+                                        {# TODO: Duration days haven't provide #}
+                                        {# <p>Duration 4 days</p> #}
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                {# CHECK: should we add this reviews functions? #}
+                                {#<div class="review-cont big-heading">2048 Reviews</div>#}
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="gal-home">
-                    {# <a href="projects-detail.html"> #}
-                    <a href="{{ url_for("userView.product_detail_page", name="Luxury Asia Travel") }}">
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img2.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h5>Luxury Asia Travel</h5>
-                                    <p>Duration 5 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <div class="review-cont big-heading">4562 Reviews</div>
-                        </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                            <div class="price big-heading">$ 960</div>
-                        </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                {# CHECK: The database storage method seems to have been modified by MaYue, should we rebase it's change ? #}
+                                <div class="price big-heading">{{ product.price }}</div>
+                            </div>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="gal-home">
-                    <a href="{{ url_for("userView.product_detail_page", name="Wild Tour Africa") }}">
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img3.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h4>Wild Tour Africa</h4>
-                                    <p>Duration 6 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <div class="review-cont big-heading">1794 Reviews</div>
-                        </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                            <div class="price big-heading">$ 820</div>
-                        </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="gal-home">
-                    <a href="{{ url_for("userView.product_detail_page", name="Amazing Diversity Place") }}">
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img4.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h6>Amazing Diversity Place</h6>
-                                    <p>Duration 3 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <div class="review-cont big-heading">3754 Reviews</div>
-                        </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                            <div class="price big-heading">$ 1080</div>
-                        </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="gal-home">
-                    <a href="{{ url_for("userView.product_detail_page", name="The Kingdom of West") }}">
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img5.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h6>The Kingdom of West</h6>
-                                    <p>Duration 4 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <div class="review-cont big-heading">3926 Reviews</div>
                     </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                            <div class="price big-heading">$ 930</div>
-                        </div>
+                {% endfor %}
+            {% else %}
+                {# the pure static templates #}
+                <h1>Debug: you haven't set products as keywords args</h1>
+                <div class="item">
+                    <div class="gal-home">
+                        <a href="{{ url_for("userView.product_detail_page", name="Blue Ocean Island") }}">
+                            {#                <a href="/product_details?project=Blue Ocean Island">#}
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img1.jpg">
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="gal-home">
-                    <a href="{{ url_for("userView.product_detail_page", name="An Asian Temple") }}">
-                        <div class="hovereffect">
-                            <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img6.jpg">
-                        </div>
-                        <div class="gal-home-content">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h4>An Asian Temple</h4>
-                                    <p>Duration 3 days</p>
-                                    <div class="star-content">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i> 
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5>Blue Ocean Island</h5>
+                                        <p>Duration 4 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="review-cont big-heading">2048 Reviews</div>
                             </div>
-                            <div class="review-cont big-heading">2778 Reviews</div>
-                        </div>
-                        <div class="col-md-3"> 
-                        <div class="heading-price">From</div>
-                        <div class="price big-heading">$ 690</div>
-                    </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                <div class="price big-heading">$ 1200</div>
+                            </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                </a>
+
+                <div class="item">
+                    <div class="gal-home">
+                        {# <a href="projects-detail.html"> #}
+                        <a href="{{ url_for("userView.product_detail_page", name="Luxury Asia Travel") }}">
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img2.jpg">
+                            </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h5>Luxury Asia Travel</h5>
+                                        <p>Duration 5 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div class="review-cont big-heading">4562 Reviews</div>
+                            </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                <div class="price big-heading">$ 960</div>
+                            </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                </div>  
+
+                <div class="item">
+                    <div class="gal-home">
+                        <a href="{{ url_for("userView.product_detail_page", name="Wild Tour Africa") }}">
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img3.jpg">
+                            </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h4>Wild Tour Africa</h4>
+                                        <p>Duration 6 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="review-cont big-heading">1794 Reviews</div>
+                            </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                <div class="price big-heading">$ 820</div>
+                            </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="gal-home">
+                        <a href="{{ url_for("userView.product_detail_page", name="Amazing Diversity Place") }}">
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img4.jpg">
+                            </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h6>Amazing Diversity Place</h6>
+                                        <p>Duration 3 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="review-cont big-heading">3754 Reviews</div>
+                            </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                <div class="price big-heading">$ 1080</div>
+                            </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="gal-home">
+                        <a href="{{ url_for("userView.product_detail_page", name="The Kingdom of West") }}">
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img5.jpg">
+                            </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h6>The Kingdom of West</h6>
+                                        <p>Duration 4 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div class="review-cont big-heading">3926 Reviews</div>
+                        </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                                <div class="price big-heading">$ 930</div>
+                            </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="gal-home">
+                        <a href="{{ url_for("userView.product_detail_page", name="An Asian Temple") }}">
+                            <div class="hovereffect">
+                                <img alt="imageportofolio" class="img-responsive" src="static/img/gallery-home/img6.jpg">
+                            </div>
+                            <div class="gal-home-content">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h4>An Asian Temple</h4>
+                                        <p>Duration 3 days</p>
+                                        <div class="star-content">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i> 
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="review-cont big-heading">2778 Reviews</div>
+                            </div>
+                            <div class="col-md-3"> 
+                            <div class="heading-price">From</div>
+                            <div class="price big-heading">$ 690</div>
+                        </div>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                    </div>  
+
+            {% endif %}
+
                 
     </div>
     </div>

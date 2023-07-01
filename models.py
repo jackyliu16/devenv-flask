@@ -4,7 +4,7 @@ from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import LONGTEXT
 
-from .lib import UserType
+from .lib import UserType, get_file_list_with_pattern
 
 
 class User(UserMixin, db.Model):
@@ -37,6 +37,12 @@ class ProductDetail(db.Model):
     content = db.Column(LONGTEXT, nullable=True)
     price = db.Column(db.String(36), nullable=False)
     mask = db.Column(db.SmallInteger, nullable=True)
+
+    @property
+    def img_files(self):
+        root = "./static/img/product"
+        pattern = f"^{self.name.replace(' ', '_')}.*"
+        return get_file_list_with_pattern(root, pattern)
 
 
 class Feedback(db.Model):

@@ -19,7 +19,8 @@ from . import db
 main = Blueprint("main", __name__)
 app = Flask(__name__)
 
-from .models import UserType
+from .lib import UserType
+from .models import ProductDetail
 
 # NOTE: try 1003
 # @app.context_processor
@@ -29,7 +30,9 @@ from .models import UserType
 
 @main.route("/")
 def index():
-    return render_template("index.html", current_user=current_user)
+    return render_template(
+        "index.html", current_user=current_user, products=ProductDetail.query.all()
+    )
 
 
 @main.route("/", methods=["POST"])
