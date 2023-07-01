@@ -6,10 +6,10 @@
 --     price     VARCHAR(36)    NOT NULL,
 --     mask      SMALLINT       NOT NULL
 -- );
-INSERT INTO product_detail (name, price, mask, intro, content)
-VALUES ('apple', '$1/one', 7, 'this is a applee hotel.', 'fuck');
-INSERT INTO product_detail (name, price, mask, intro, content)
-VALUES ('banana', '$2/one', 7, 'this is a banana hotel.', 'you');
+-- INSERT INTO product_detail (name, price, mask, intro, content)
+-- VALUES ('apple', '$1/one', 7, 'this is a applee hotel.', 'fuck');
+-- INSERT INTO product_detail (name, price, mask, intro, content)
+-- VALUES ('banana', '$2/one', 7, 'this is a banana hotel.', 'you');
 
 INSERT INTO product_detail (name, price, mask, intro, content)
 VALUES ('Blue Ocean Island',
