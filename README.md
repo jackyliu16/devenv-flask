@@ -19,14 +19,19 @@ Base on the need of it, our choice to using nix flakes, Devenv and poetry to mak
 
 1. First, install Nix by [nix-installer](https://github.com/DeterminateSystems/nix-installer) but not the official one, which haven't provided an easy ways to uninstall nix. (if you are using macOS or Pure linux, you just need to use `make install-nix`)
 
-  *If you're using WSL and you couldn't install nix correctly (maybe case by systemd wasn't supported or others), you can try to use the installation script in [history version](https://github.com/jackyliu16/devenv-flask/commit/7fbf044a58bb55a299771d0c947268bed7c84303), which is removed because macOS wasn't support single user installation.*
+  *If you're using WSL and you couldn't install nix correctly (maybe case by systemd wasn't supported or others), you can try to use the installation script in [history version](https://github.com/jackyliu16/devenv-flask/blob/7fbf044a58bb55a299771d0c947268bed7c84303/Makefile), which is removed because macOS wasn't support single user installation.*
   
 2. Second, restart your terminal, or just run the command it displays.
 
-3. Third, run `make env` to open nix development environment, the fist time you run this command may take 5 or more times, this is depended on your network, it will install about 2G data into `/nix` file.
+3. Third, run `make env` to open nix development environment, the fist time you run this command may take 5 or more times, this is depended on your network, it will install about 2G data into `/nix` file.                      
 
 3. Forty, run `make bg`, it will open two kinds of background services, MYSQL and FLASK.
    
 5. You should be able to using `127.0.0.1:5002` to open the website.
 
 *Note: if you were facing a problem from databases, you can use `make clean` to clean the file generate.*
+
+### STEP BY STEP UNINSTALL RUN ENVIRONMENT
+
+- If you using the normal installation script, which is the default `make install-nix` as current version, you should be able to using `make uninstall-nix` to complete uninstall the whole environment.
+- If you using the installation script in [history version](https://github.com/jackyliu16/devenv-flask/blob/7fbf044a58bb55a299771d0c947268bed7c84303/Makefile), you should also using the uninstall script in that version.
