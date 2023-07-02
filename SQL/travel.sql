@@ -34,6 +34,7 @@ CREATE TABLE product_detail (
     content   LONGTEXT       NOT NULL,
     price     VARCHAR(36)    NOT NULL,
     mask      SMALLINT       NOT NULL
+    -- we using path search to find the product image
 );
 source ./SQL/data/product_detail.sql;
 -- NOTE: what about we just search it in the path with specify name 

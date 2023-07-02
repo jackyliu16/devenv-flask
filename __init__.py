@@ -1,3 +1,15 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+"""
+@File    :   __init__.py
+@Time    :   2023/07/01 20:28:52
+@Version :   1.0
+@License :   MIT
+@Desc    :   None
+@Reference:
+    https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+"""
+
 from flask import Flask
 from flask import session, request, redirect, url_for
 from datetime import timedelta
