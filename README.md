@@ -35,3 +35,9 @@ Base on the need of it, our choice to using nix flakes, Devenv and poetry to mak
 
 - If you using the normal installation script, which is the default `make install-nix` as current version, you should be able to using `make uninstall-nix` to complete uninstall the whole environment.
 - If you using the installation script in [history version](https://github.com/jackyliu16/devenv-flask/blob/7fbf044a58bb55a299771d0c947268bed7c84303/Makefile), you should also using the uninstall script in that version.
+
+## Appendix
+
+> In this chapter, i will analyze the reasons why we use the current development environment, so that future generations can further develop software on this basis.
+
+The reason of using nix and devenv, just because we facing a problem that because the need of databases will change as demand change. Therefore, it is necessary to make the databases to be synchronization though git and without need to manually execute scripts every time update the databases (*Actually, i'm looking forward to nix flakes providing file checking, every time the file hash change, run commands once*) , i have trying to using [my own version of devenv](https://github.com/jackyliu16/devenv/commit/a5c8cbb723496d472d9c1ebfec0e3bca737ca614)(*This strange request is not a common workflow*), which enable to rebuild the whole database every time you run `make env`. Although seems right now there is some other ways to match this goal, for example [flask-migrate](https://github.com/miguelgrinberg/Flask-Migrate).
